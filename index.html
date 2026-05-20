@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>F5 Partner Research — Daily Briefing</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3350;
+      --accent: #4f7fff;
+      --accent2: #7c3aed;
+      --green: #22c55e;
+      --yellow: #f59e0b;
+      --text: #e2e8f0;
+      --muted: #8892a4;
+      --card-radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── TOP NAV ── */
+    .topnav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .topnav .logo {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 15px; color: var(--text);
+      text-decoration: none;
+    }
+    .topnav .logo span.badge {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; font-size: 10px; font-weight: 700;
+      padding: 2px 8px; border-radius: 20px; letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+    .topnav .nav-links { display: flex; gap: 24px; }
+    .topnav .nav-links a {
+      color: var(--muted); font-size: 13px; text-decoration: none;
+      transition: color .15s;
+    }
+    .topnav .nav-links a:hover, .topnav .nav-links a.active { color: var(--text); }
+
+    /* ── LAYOUT ── */
+    .layout {
+      display: flex;
+      flex: 1;
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 16px;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      padding: 28px 0 28px 0;
+      border-right: 1px solid var(--border);
+      position: sticky;
+      top: 56px;
+      height: calc(100vh - 56px);
+      overflow-y: auto;
+    }
+    .sidebar h3 {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+      color: var(--muted); margin-bottom: 12px; padding: 0 16px;
+    }
+    .sidebar ul { list-style: none; }
+    .sidebar ul li a {
+      display: block; padding: 8px 16px; font-size: 13px;
+      color: var(--muted); text-decoration: none; border-radius: 6px;
+      transition: background .12s, color .12s;
+    }
+    .sidebar ul li a:hover { background: var(--surface2); color: var(--text); }
+    .sidebar ul li a.active {
+      background: var(--surface2); color: var(--accent);
+      font-weight: 600;
+    }
+    .sidebar .dot {
+      display: inline-block; width: 6px; height: 6px;
+      background: var(--green); border-radius: 50%; margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    /* ── MAIN ── */
+    .main {
+      flex: 1;
+      padding: 32px 40px;
+      min-width: 0;
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 16px;
+      margin-bottom: 32px;
+    }
+    .page-header h1 {
+      font-size: 24px; font-weight: 700; color: var(--text);
+      margin-bottom: 4px;
+    }
+    .page-header .meta {
+      font-size: 13px; color: var(--muted);
+    }
+    .run-badge {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 10px 16px; text-align: right;
+      flex-shrink: 0;
+    }
+    .run-badge .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+    .run-badge .value { font-size: 13px; font-weight: 600; color: var(--green); margin-top: 2px; }
+
+    /* ── STATS ROW ── */
+    .stats-row {
+      display: flex; gap: 16px; margin-bottom: 36px;
+    }
+    .stat-card {
+      flex: 1; background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--card-radius); padding: 16px 20px;
+    }
+    .stat-card .s-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    .stat-card .s-value { font-size: 28px; font-weight: 700; color: var(--text); }
+    .stat-card .s-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    /* ── SECTION DIVIDER ── */
+    .section-divider {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 20px; margin-top: 8px;
+    }
+    .section-divider h2 { font-size: 14px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+    .section-divider hr { flex: 1; border: none; border-top: 1px solid var(--border); }
+
+    /* ── COMPANY CARD ── */
+    .company-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: border-color .15s;
+    }
+    .company-card:hover { border-color: var(--accent); }
+
+    .card-header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 18px 22px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .company-icon {
+      width: 40px; height: 40px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 700; flex-shrink: 0;
+    }
+    .card-header .company-name { font-size: 16px; font-weight: 700; color: var(--text); }
+    .card-header .company-url {
+      font-size: 12px; color: var(--muted); margin-top: 2px;
+    }
+    .tag-pill {
+      margin-left: auto; flex-shrink: 0;
+      font-size: 11px; font-weight: 600; padding: 3px 10px;
+      border-radius: 20px; border: 1px solid;
+      text-transform: uppercase; letter-spacing: .4px;
+    }
+    .tag-security { color: #f87171; border-color: #7f1d1d; background: #1f0808; }
+    .tag-ai       { color: #a78bfa; border-color: #4c1d95; background: #110b27; }
+    .tag-cloud    { color: #38bdf8; border-color: #0c4a6e; background: #071b2b; }
+    .tag-network  { color: #34d399; border-color: #064e3b; background: #041f18; }
+
+    .card-body { padding: 18px 22px; }
+
+    .finding {
+      margin-bottom: 22px;
+    }
+    .finding:last-child { margin-bottom: 0; }
+
+    .finding-title {
+      font-size: 15px; font-weight: 600; color: var(--text);
+      margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px;
+    }
+    .finding-title .num {
+      background: var(--surface2); border: 1px solid var(--border);
+      color: var(--muted); font-size: 11px; font-weight: 700;
+      min-width: 22px; height: 22px; border-radius: 6px;
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .finding-summary {
+      font-size: 13.5px; line-height: 1.7; color: #b0bac8;
+      margin-bottom: 12px;
+    }
+
+    /* ── F5 RELEVANCE CALLOUT ── */
+    .f5-relevance {
+      background: linear-gradient(135deg, #0d1a3a 0%, #111829 100%);
+      border: 1px solid #2a3f7a;
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+    }
+    .f5-relevance .rel-label {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .8px; color: var(--accent); margin-bottom: 5px;
+    }
+    .f5-relevance p {
+      font-size: 13px; line-height: 1.6; color: #9db8f0;
+    }
+
+    .source-link a {
+      font-size: 12px; color: var(--accent); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 5px;
+    }
+    .source-link a:hover { text-decoration: underline; }
+    .source-link a::before { content: "↗"; }
+
+    .finding-divider {
+      border: none; border-top: 1px dashed var(--border);
+      margin: 18px 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 20px 32px;
+      text-align: center;
+      font-size: 12px; color: var(--muted);
+      background: var(--surface);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .sidebar { display: none; }
+      .main { padding: 24px 20px; }
+      .stats-row { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topnav">
+  <a class="logo" href="#">
+    🔵 F5 Partner Intelligence <span class="badge">Daily</span>
+  </a>
+  <div class="nav-links">
+    <a href="#" class="active">Today's Briefing</a>
+    <a href="#">Archive</a>
+    <a href="#">Companies</a>
+  </div>
+</nav>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h3>Recent Runs</h3>
+    <ul>
+      <li><a href="#" class="active"><span class="dot"></span>May 20, 2026</a></li>
+      <li><a href="#">May 19, 2026</a></li>
+      <li><a href="#">May 18, 2026</a></li>
+      <li><a href="#">May 17, 2026</a></li>
+      <li><a href="#">May 16, 2026</a></li>
+      <li><a href="#">May 15, 2026</a></li>
+      <li><a href="#">May 14, 2026</a></li>
+    </ul>
+    <br/>
+    <h3>Jump To</h3>
+    <ul>
+      <li><a href="#nvidia">NVIDIA</a></li>
+      <li><a href="#palo-alto">Palo Alto Networks</a></li>
+      <li><a href="#hashicorp">HashiCorp</a></li>
+      <li><a href="#confluent">Confluent</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div>
+        <h1>F5 Partner Intelligence</h1>
+        <div class="meta">Daily Briefing &mdash; Tuesday, May 20, 2026</div>
+      </div>
+      <div class="run-badge">
+        <div class="label">Last Run</div>
+        <div class="value">✓ 8:02 AM ET</div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="s-label">Companies Researched</div>
+        <div class="s-value">4</div>
+        <div class="s-sub">from source sheet</div>
+      </div>
+      <div class="stat-card">
+        <div class="s-label">Findings Today</div>
+        <div class="s-value">8</div>
+        <div class="s-sub">notable items</div>
+      </div>
+      <div class="stat-card">
+        <div class="s-label">High Relevance</div>
+        <div class="s-value">5</div>
+        <div class="s-sub">strong F5 signal</div>
+      </div>
+      <div class="stat-card">
+        <div class="s-label">Topics</div>
+        <div class="s-value">AI · Security · Cloud</div>
+        <div class="s-sub">today's themes</div>
+      </div>
+    </div>
+
+    <div class="section-divider"><h2>TODAY'S COMPANY FINDINGS</h2><hr/></div>
+
+    <!-- ── NVIDIA ── -->
+    <div class="company-card" id="nvidia">
+      <div class="card-header">
+        <div class="company-icon" style="background:#1a2a1a; color:#76c442;">NV</div>
+        <div>
+          <div class="company-name">NVIDIA</div>
+          <div class="company-url">nvidia.com</div>
+        </div>
+        <span class="tag-pill tag-ai">AI</span>
+      </div>
+      <div class="card-body">
+        <div class="finding">
+          <div class="finding-title"><span class="num">1</span> NVIDIA Launches NIM Microservices for Inference-Optimized API Delivery</div>
+          <div class="finding-summary">NVIDIA announced an expansion of its NIM (NVIDIA Inference Microservices) platform to support multi-model routing and inference pipelines at scale. The platform now includes built-in API gateway capabilities, rate limiting, and GPU affinity routing — targeting enterprise AI deployments on-prem and in hybrid cloud environments.</div>
+          <div class="f5-relevance">
+            <div class="rel-label">⚡ F5 Relevance</div>
+            <p>NIM's new API gateway layer directly overlaps with F5's AI traffic management strategy. F5 NGINX and BIG-IP can sit upstream of NIM endpoints to handle TLS termination, intelligent load balancing, and policy enforcement — positioning F5 as the secure entry point into NVIDIA AI inference clusters.</p>
+          </div>
+          <div class="source-link"><a href="#">developer.nvidia.com — NIM Microservices Blog Post</a></div>
+        </div>
+        <hr class="finding-divider"/>
+        <div class="finding">
+          <div class="finding-title"><span class="num">2</span> NVIDIA Blackwell GPU Cluster Networking Partnership with Arista Announced</div>
+          <div class="finding-summary">NVIDIA and Arista Networks announced a joint solution for ultra-low-latency GPU cluster fabric networking. The integration targets large-scale AI training environments requiring high-throughput east-west traffic with precise QoS guarantees across Blackwell GPU racks.</div>
+          <div class="f5-relevance">
+            <div class="rel-label">⚡ F5 Relevance</div>
+            <p>This partnership highlights a gap F5 can address at the north-south boundary — as AI cluster traffic exits to external consumers or enterprise applications, F5's load balancing and security layer provides the production-grade ingress/egress control that pure cluster networking vendors do not.</p>
+          </div>
+          <div class="source-link"><a href="#">nvidianews.nvidia.com — Arista Partnership Announcement</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PALO ALTO ── -->
+    <div class="company-card" id="palo-alto">
+      <div class="card-header">
+        <div class="company-icon" style="background:#2a1515; color:#f87171;">PA</div>
+        <div>
+          <div class="company-name">Palo Alto Networks</div>
+          <div class="company-url">paloaltonetworks.com</div>
+        </div>
+        <span class="tag-pill tag-security">Security</span>
+      </div>
+      <div class="card-body">
+        <div class="finding">
+          <div class="finding-title"><span class="num">1</span> Prisma SASE Now Integrates with Third-Party Load Balancers via API</div>
+          <div class="finding-summary">Palo Alto Networks updated Prisma SASE to expose an open API framework allowing third-party load balancers and application delivery controllers to register sessions and enforce SASE security policies on a per-application basis. This is positioned as a "SASE Mesh" capability for hybrid enterprise architectures.</div>
+          <div class="f5-relevance">
+            <div class="rel-label">⚡ F5 Relevance</div>
+            <p>This is a direct partnership opportunity: F5 BIG-IP and NGINX could integrate with the Prisma SASE API to form a joint solution where F5 handles application-layer traffic steering and Palo Alto enforces security policy inline. The combined story resonates with joint enterprise customers running hybrid multi-cloud.</p>
+          </div>
+          <div class="source-link"><a href="#">paloaltonetworks.com — Prisma SASE Developer Blog</a></div>
+        </div>
+        <hr class="finding-divider"/>
+        <div class="finding">
+          <div class="finding-title"><span class="num">2</span> Cortex XSIAM Adds AI-Powered API Threat Detection</div>
+          <div class="finding-summary">Palo Alto's Cortex XSIAM platform released a new API Security Intelligence module that uses behavioral ML to detect anomalous API usage patterns across enterprise environments. The module can ingest logs from API gateways and WAFs via syslog or STIX/TAXII feeds.</div>
+          <div class="f5-relevance">
+            <div class="rel-label">⚡ F5 Relevance</div>
+            <p>F5 Distributed Cloud API Security and NGINX App Protect could feed telemetry directly into Cortex XSIAM, creating a joint detection-and-enforcement workflow. This positions F5 as the enforcement point and Palo Alto as the analytics/SOC layer — a co-sell opportunity with shared enterprise accounts.</p>
+          </div>
+          <div class="source-link"><a href="#">paloaltonetworks.com — Cortex XSIAM Release Notes</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── HASHICORP ── -->
+    <div class="company-card" id="hashicorp">
+      <div class="card-header">
+        <div class="company-icon" style="background:#1a1a2e; color:#a78bfa;">HC</div>
+        <div>
+          <div class="company-name">HashiCorp</div>
+          <div class="company-url">hashicorp.com</div>
+        </div>
+        <span class="tag-pill tag-cloud">Cloud</span>
+      </div>
+      <div class="card-body">
+        <div class="finding">
+          <div class="finding-title"><span class="num">1</span> Vault Secrets Sync Now Supports NGINX and Envoy Certificate Delivery</div>
+          <div class="finding-summary">HashiCorp Vault's Secrets Sync feature added native support for pushing short-lived TLS certificates directly to NGINX and Envoy proxy configurations via file system watchers and the HCP Vault Secrets API. This removes the need for custom sidecars in certificate rotation workflows.</div>
+          <div class="f5-relevance">
+            <div class="rel-label">⚡ F5 Relevance</div>
+            <p>F5 NGINX is explicitly named as a supported target in this release — this is a natural integration story. F5 can co-market the Vault + NGINX certificate automation workflow to customers with PKI automation requirements, directly addressing the certificate lifecycle management gap in enterprise SecOps teams.</p>
+          </div>
+          <div class="source-link"><a href="#">hashicorp.com — Vault 1.17 Release Blog</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONFLUENT ── -->
+    <div class="company-card" id="confluent">
+      <div class="card-header">
+        <div class="company-icon" style="background:#0d1f2a; color:#38bdf8;">CF</div>
+        <div>
+          <div class="company-name">Confluent</div>
+          <div class="company-url">confluent.io</div>
+        </div>
+        <span class="tag-pill tag-network">Data</span>
+      </div>
+      <div class="card-body">
+        <div class="finding">
+          <div class="finding-title"><span class="num">1</span> Confluent Launches Tableflow for Real-Time Kafka-to-Iceberg Pipelines</div>
+          <div class="finding-summary">Confluent's new Tableflow product automatically materializes Kafka topics as Apache Iceberg tables in cloud data lakes, with sub-minute latency. This targets AI/ML use cases where streaming event data must be continuously available to inference pipelines and feature stores.</div>
+          <div class="f5-relevance">
+            <div class="rel-label">⚡ F5 Relevance</div>
+            <p>As AI inference workloads grow, real-time data pipelines feeding model inputs become high-throughput API endpoints. F5 can position its API gateway and traffic management layer as the secure, scalable entry point for applications reading from Confluent-powered Iceberg lakes — particularly in regulated industries requiring policy enforcement at the data API boundary.</p>
+          </div>
+          <div class="source-link"><a href="#">confluent.io — Tableflow Product Launch Blog</a></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  Generated by F5 Partner Research Agent &mdash; <a href="#">Gumloop</a> &mdash;
+  Run completed May 20, 2026 at 8:02 AM ET &middot;
+  <a href="#">View Archive</a> &middot; <a href="#">Source Sheet</a>
+</footer>
+
+</body>
+</html>
