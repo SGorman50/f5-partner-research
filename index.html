@@ -2,122 +2,507 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>F5 Partner Research — May 22, 2026</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f1117; color: #c9d1e0; min-height: 100vh; }
-  nav { position: sticky; top: 0; background: #0a0d14; border-bottom: 1px solid #1f2535; padding: 0 32px; height: 52px; display: flex; align-items: center; justify-content: space-between; z-index: 100; }
-  nav .logo { color: #4f7fff; font-weight: 700; font-size: 16px; letter-spacing: 0.5px; }
-  nav a { color: #8a96ae; text-decoration: none; font-size: 14px; margin-left: 24px; transition: color 0.2s; }
-  nav a:hover { color: #4f7fff; }
-  .layout { display: flex; max-width: 1200px; margin: 0 auto; padding: 32px 24px; gap: 28px; }
-  .sidebar { width: 210px; flex-shrink: 0; }
-  .sidebar-section { background: #1a1d27; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
-  .sidebar-section h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #4f7fff; margin-bottom: 12px; }
-  .sidebar-section a { display: block; font-size: 13px; color: #8a96ae; text-decoration: none; padding: 4px 0; transition: color 0.2s; }
-  .sidebar-section a:hover, .sidebar-section a.active { color: #c9d1e0; }
-  .main { flex: 1; min-width: 0; }
-  .stats-bar { background: #1a1d27; border-radius: 8px; padding: 16px 24px; display: flex; gap: 32px; margin-bottom: 28px; flex-wrap: wrap; }
-  .stat { text-align: center; }
-  .stat .num { font-size: 26px; font-weight: 700; color: #4f7fff; }
-  .stat .label { font-size: 12px; color: #6b7590; margin-top: 2px; }
-  .run-header { font-size: 22px; font-weight: 700; color: #e2e8f5; margin-bottom: 6px; }
-  .run-sub { font-size: 14px; color: #6b7590; margin-bottom: 28px; }
-  .company-card { background: #1a1d27; border-radius: 10px; padding: 24px; margin-bottom: 24px; }
-  .company-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-  .company-name { font-size: 18px; font-weight: 700; color: #e2e8f5; }
-  .company-url { font-size: 13px; color: #4f7fff; text-decoration: none; }
-  .tag { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; }
-  .tag-network { background: #0e2a4a; color: #4f9fff; }
-  .tag-otel { background: #1a2e10; color: #56c45a; }
-  .finding { border-left: 4px solid #4f7fff; padding-left: 18px; margin-bottom: 22px; }
-  .finding h3 { font-size: 15px; color: #e2e8f5; margin-bottom: 10px; line-height: 1.4; }
-  .finding p { font-size: 14px; line-height: 1.7; color: #a0abbe; margin-bottom: 12px; }
-  .finding a { font-size: 13px; color: #4f7fff; text-decoration: none; }
-  .finding a:hover { text-decoration: underline; }
-  .relevance-box { background: #0f1e3d; border-left: 3px solid #4f7fff; border-radius: 0 6px 6px 0; padding: 12px 16px; margin-top: 12px; }
-  .relevance-box strong { font-size: 12px; color: #4f7fff; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 5px; }
-  .relevance-box span { font-size: 13px; color: #a0c4ff; line-height: 1.6; }
-  .footer { text-align: center; padding: 32px; font-size: 12px; color: #454d60; border-top: 1px solid #1a1d27; margin-top: 16px; }
-  .footer a { color: #4f7fff; text-decoration: none; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#0f1117;color:#c9d1d9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;}
+  .top-nav{background:#13151f;border-bottom:1px solid #21263a;padding:14px 24px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{color:#4f7fff;font-weight:700;font-size:16px;}
+  .nav-links a{color:#8892a4;text-decoration:none;font-size:14px;margin-left:20px;}
+  .nav-links a:hover{color:#4f7fff;}
+  .layout{display:flex;min-height:100vh;}
+  .sidebar{width:220px;min-width:220px;background:#13151f;border-right:1px solid #21263a;padding:20px 0;position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto;}
+  .sidebar-section{padding:12px 16px 4px;font-size:11px;font-weight:700;color:#4f7fff;text-transform:uppercase;letter-spacing:1px;}
+  .sidebar ul{list-style:none;padding:0 8px;margin-bottom:16px;}
+  .sidebar-link{display:block;padding:6px 10px;color:#8892a4;text-decoration:none;font-size:13px;border-radius:6px;}
+  .sidebar-link:hover,.sidebar-link.active{background:#1a1d27;color:#e8eaf0;}
+  .main{flex:1;padding:24px 32px;max-width:900px;}
+  .page-header{background:linear-gradient(135deg,#0d1f4a,#1a2d6b);border-radius:12px;padding:28px;margin-bottom:24px;}
+  .stats-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px;}
+  .stat-card{background:#1a1d27;border-radius:10px;padding:16px 20px;flex:1;min-width:120px;text-align:center;border:1px solid #21263a;}
+  .stat-num{font-size:28px;font-weight:700;color:#4f7fff;}
+  .stat-label{font-size:11px;color:#8892a4;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;}
+  .footer{background:#13151f;border-top:1px solid #21263a;padding:24px 32px;margin-top:32px;color:#8892a4;font-size:13px;}
+  @media(max-width:768px){.sidebar{display:none;}.main{padding:16px;}}
 </style>
 </head>
 <body>
-<nav>
-  <span class="logo">🔍 F5 Partner Research</span>
-  <div>
-    <a href="index.html" class="active">Today's Briefing</a>
-    <a href="archive/2026-05-21.html">Archive</a>
+<nav class="top-nav">
+  <div class="nav-logo">⚡ F5 Partner Research</div>
+  <div class="nav-links">
+    <a href="index.html">Today's Briefing</a>
+    <a href="archive/2026-05-22.html">Archive</a>
+    <a href="https://sgorman50.github.io/f5-partner-research/">🌐 Pages</a>
   </div>
 </nav>
-
 <div class="layout">
-  <div class="sidebar">
-    <div class="sidebar-section">
-      <h4>Recent Runs</h4>
-      <a href="index.html" class="active">📅 May 22, 2026</a>
-      <a href="archive/2026-05-21.html">May 21, 2026</a>
-      <a href="archive/2026-05-20.html">May 20, 2026</a>
-      <a href="archive/2026-05-19.html">May 19, 2026</a>
-      <a href="archive/2026-05-18.html">May 18, 2026</a>
-      <a href="archive/2026-05-17.html">May 17, 2026</a>
-      <a href="archive/2026-05-16.html">May 16, 2026</a>
+  <aside class="sidebar">
+    <div class="sidebar-section">Recent Runs</div>
+    <ul><li><a href="index.html" class="sidebar-linkactive">Today</a></li>
+<li><a href="archive/2026-05-21.html" class="sidebar-link">2026-05-21</a></li>
+<li><a href="archive/2026-05-20.html" class="sidebar-link">2026-05-20</a></li>
+<li><a href="archive/2026-05-19.html" class="sidebar-link">2026-05-19</a></li>
+<li><a href="archive/2026-05-18.html" class="sidebar-link">2026-05-18</a></li>
+<li><a href="archive/2026-05-17.html" class="sidebar-link">2026-05-17</a></li>
+<li><a href="archive/2026-05-16.html" class="sidebar-link">2026-05-16</a></li>
+</ul>
+    <div class="sidebar-section">Jump To</div>
+    <ul><li><a href="#minio" class="sidebar-link">MinIO</a></li>
+<li><a href="#scality" class="sidebar-link">Scality</a></li>
+<li><a href="#sectigo" class="sidebar-link">Sectigo</a></li>
+<li><a href="#opswat" class="sidebar-link">OPSWAT</a></li>
+<li><a href="#netapp" class="sidebar-link">NetApp</a></li>
+<li><a href="#crowdstrike" class="sidebar-link">CrowdStrike</a></li>
+<li><a href="#digicert" class="sidebar-link">DigiCert</a></li>
+<li><a href="#encryption-consulting" class="sidebar-link">Encryption Consulting</a></li>
+<li><a href="#keyfactor" class="sidebar-link">Keyfactor</a></li>
+<li><a href="#mazebolt" class="sidebar-link">MazeBolt</a></li>
+<li><a href="#sumo-logic" class="sidebar-link">Sumo Logic</a></li>
+<li><a href="#datadog" class="sidebar-link">Datadog</a></li>
+<li><a href="#dynatrace" class="sidebar-link">Dynatrace</a></li>
+<li><a href="#ping-identity" class="sidebar-link">Ping Identity</a></li>
+<li><a href="#illumio" class="sidebar-link">Illumio</a></li>
+</ul>
+  </aside>
+  <main class="main">
+    <div class="page-header">
+      <div style="color:#7fb3ff;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;">F5 Partner Intelligence</div>
+      <div style="color:#ffffff;font-size:26px;font-weight:700;">Daily Research Briefing</div>
+      <div style="color:#a8ccf0;font-size:15px;margin-top:6px;">May 22, 2026 &nbsp;·&nbsp; Run at 10:32 AM ET</div>
     </div>
-    <div class="sidebar-section">
-      <h4>Jump To</h4>
-      <a href="#datadog">Datadog</a>
-    </div>
-  </div>
-
-  <div class="main">
-    <div class="run-header">📊 Daily Briefing — May 22, 2026</div>
-    <div class="run-sub">Focus: Datadog | Priority: OpenTelemetry &amp; Network Monitoring</div>
-
     <div class="stats-bar">
-      <div class="stat"><div class="num">1</div><div class="label">Company</div></div>
-      <div class="stat"><div class="num">2</div><div class="label">Findings</div></div>
-      <div class="stat"><div class="num" style="font-size:16px;padding-top:5px;">OTel · Network · TLS</div><div class="label">Top Themes</div></div>
+      <div class="stat-card"><div class="stat-num">15</div><div class="stat-label">Companies</div></div>
+      <div class="stat-card"><div class="stat-num">30</div><div class="stat-label">Findings</div></div>
+      <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Active F5 Partners Found</div></div>
+      <div class="stat-card"><div class="stat-num">🔒</div><div class="stat-label">PKI / Cert Automation</div></div>
     </div>
-
-    <!-- Datadog Card -->
-    <div class="company-card" id="datadog">
-      <div class="company-header">
+    
+    <div id="minio" style="background:#1a1d27;border-radius:12px;padding:24px;margin-bottom:20px;border-top:3px solid #e84393;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
         <div>
-          <div class="company-name">Datadog</div>
-          <a href="https://www.datadoghq.com" class="company-url" target="_blank">datadoghq.com</a>
+          <span style="font-size:18px;font-weight:700;color:#e8eaf0;">MinIO</span>
+          <a href="https://min.io" style="color:#94a3b8;font-size:13px;text-decoration:none;margin-left:8px;">https://min.io</a>
         </div>
-        <span class="tag tag-otel">OpenTelemetry</span>
-        <span class="tag tag-network">Network</span>
+        <span style="background:#4f7fff20;color:#4f7fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #4f7fff40;">AI Infrastructure</span>
       </div>
-
-      <div class="finding">
-        <h3>1. New OTLP Metrics API: Agentless OpenTelemetry Ingestion into Datadog</h3>
-        <p>Datadog launched a new OTLP Metrics API that allows applications to send OpenTelemetry metrics directly into Datadog without deploying a collector or the Datadog Agent. It supports cloud-managed OTel distributions (AWS ADOT, Azure Monitor OTel Distro) and serverless platforms (Azure Functions, Cloudflare Workers, Vercel) that emit OTLP natively. This expands Datadog's OTel ingestion methods to include agentless direct push via the OTel HTTP Exporter. Metrics land immediately in existing Datadog dashboards and alerts alongside traces and logs.</p>
-        <a href="https://www.datadoghq.com/blog/otlp-metrics-api/" target="_blank">🔗 datadoghq.com/blog/otlp-metrics-api/</a>
-        <div class="relevance-box">
-          <strong>🎯 F5 Relevance</strong>
-          <span>F5 NGINX and BIG-IP can emit OpenTelemetry telemetry — this API creates a direct, agentless pipeline from F5 infrastructure into Datadog observability, a strong joint integration story for enterprise customers running F5 in cloud or serverless-adjacent environments.</span>
+      
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">1. MinIO Announces MemKV: Purpose-Built Context Memory Store for AI Inference</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Announced May 12, 2026, MinIO launched MemKV, a purpose-built key-value context memory store designed for AI inference workloads on the NVIDIA STX architecture. MemKV delivers microsecond-latency context retrieval at petascale, enabling LLMs and agentic AI applications to maintain persistent, high-speed session memory.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">F5's AI gateway and API security capabilities could protect and intelligently route traffic to MemKV inference endpoints — a natural integration point for F5 BIG-IP AI traffic management and NGINX gateway.</div>
+          </div>
+          <a href="https://www.min.io/press/minio-announces-memkv-purpose-built-context-memory-store-for-ai-inference" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
         </div>
-      </div>
-
-      <div class="finding">
-        <h3>2. CNM Network Health: AI-Guided TLS, DNS, and Policy Diagnostics for Cloud Networks</h3>
-        <p>Datadog's Cloud Network Monitoring (CNM) added a new "Network Health" capability that correlates real-time flow data, TCP metrics, and cloud configuration to diagnose exactly why service-to-service connections fail. It specifically detects TLS certificate expiration, trust chain failures, and cipher/config mismatches — surfacing root causes and recommended remediation steps. DNS failures (NXDOMAIN, SERVFAIL, timeouts) are correlated with live flow data and resolver context. AI-powered Watchdog insights surface contributing factors and unusual patterns to accelerate MTTR.</p>
-        <a href="https://www.datadoghq.com/blog/cnm-network-health/" target="_blank">🔗 datadoghq.com/blog/cnm-network-health/</a>
-        <div class="relevance-box">
-          <strong>🎯 F5 Relevance</strong>
-          <span>F5 BIG-IP is a primary TLS termination and SSL offload platform in enterprise networks — a partnership where Datadog CNM Network Health surfaces BIG-IP TLS/cert issues and DNS health in real time would be highly compelling for joint customers, and could integrate with F5's telemetry streaming and NGINX observability exports.</span>
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">2. F5 and MinIO Co-Present Webinar: Distributed Data Transport and Endpoint Resilience for AI Pipelines</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">On May 14, 2026, F5 Solutions Architect Mark Menger and MinIO Strategic AI Advisor Raj Grewal co-presented Part 2 of a four-part webinar series covering adaptive routing, intelligent DNS, end-to-end encryption, and data classification to protect AI pipelines.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">This is a live, active F5–MinIO partnership with joint customer-facing content already in market.</div>
+          </div>
+          <a href="https://www.f5.com/company/events/webinars/distributed-data-transport-and-endpoint-resilience-for-ai-pipelines" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
         </div>
-      </div>
     </div>
-
-  </div>
-</div>
-
-<div class="footer">
-  Automated daily research run &nbsp;|&nbsp; F5 Partner Research Agent &nbsp;|&nbsp; May 22, 2026 09:58 ET<br>
-  <a href="https://sgorman50.github.io/f5-partner-research/">sgorman50.github.io/f5-partner-research</a>
+    <div id="scality" style="background:#1a1d27;border-radius:12px;padding:24px;margin-bottom:20px;border-top:3px solid #f59e0b;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+        <div>
+          <span style="font-size:18px;font-weight:700;color:#e8eaf0;">Scality</span>
+          <a href="https://scality.com" style="color:#94a3b8;font-size:13px;text-decoration:none;margin-left:8px;">https://scality.com</a>
+        </div>
+        <span style="background:#4f7fff20;color:#4f7fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #4f7fff40;">AI Infrastructure</span>
+      </div>
+      
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">1. Scality Launches ADI (Autonomous Data Infrastructure) for AI Workloads</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Scality launched ADI in May 2026 — a platform that autonomously aligns storage media, performance, and protection to each stage of the AI data lifecycle at multi-petabyte to exabyte scale. ADI is purpose-built for GPU-intensive AI training and inference pipelines.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">Scality ADI exposes massive S3-compatible endpoints serving GPU-hungry AI pipelines. F5's AI Gateway and NGINX-based API management are the traffic and access control layer in front of AI model endpoints.</div>
+          </div>
+          <a href="https://www.scality.com/adi/" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">2. Scality Debuts Industry-First AI Ecosystem Certifications with 20+ AI/ML Frameworks</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">In October 2025, Scality announced an AI ecosystem certification program validating interoperability with 20+ leading AI/ML tools including PyTorch, TensorFlow, JAX, LangChain, MLflow, Kubeflow, and Ray.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">Joint marketing opportunity: Scality covers 'AI data at rest and in pipeline,' F5 covers 'AI data in transit and API access control.'</div>
+          </div>
+          <a href="https://www.globenewswire.com/fr/news-release/2025/10/14/3166160/0/en/scality-debuts-industry-first-ai-certifications-with-20-leading-applications.html" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+    </div>
+    <div id="sectigo" style="background:#1a1d27;border-radius:12px;padding:24px;margin-bottom:20px;border-top:3px solid #10b981;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+        <div>
+          <span style="font-size:18px;font-weight:700;color:#e8eaf0;">Sectigo</span>
+          <a href="https://sectigo.com" style="color:#94a3b8;font-size:13px;text-decoration:none;margin-left:8px;">https://sectigo.com</a>
+        </div>
+        <span style="background:#10b98120;color:#10b981;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #10b98140;">PKI & Certificates</span>
+      </div>
+      
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">1. Sectigo Partners with F5 to Deliver Automated CLM Across F5 ADSP</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Sectigo and F5 announced an expanded partnership (April 29, 2026) integrating Sectigo Certificate Manager directly into F5's ADSP, automating the full SSL/TLS certificate lifecycle across F5 BIG-IP environments via ACME-based enrollment.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">DIRECT active partnership. Sectigo CLM is already integrated into F5 ADSP and BIG-IP — especially critical as CA/Browser Forum mandates 47-day certificate lifespans by 2029.</div>
+          </div>
+          <a href="https://www.businesswire.com/news/home/20260429734702/en/Sectigo-Partners-with-F5-to-Deliver-Automated-Certificate-Lifecycle-Management-Across-F5-ADSP" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">2. Sectigo Completes Entrust Public Certificate Migration, Adding 500K+ Certificates</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Sectigo completed the migration of Entrust's entire public certificate customer base to SCM — the largest and most technically complex public PKI infrastructure transfer on record. Over 500,000 certificates now on SCM with PQC readiness.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">Sectigo is now the leading independent CA and CLM platform. F5 engineers should prioritize the joint SCM+ADSP integration story for high-volume SSL/TLS renewal at scale.</div>
+          </div>
+          <a href="https://www.sectigo.com/resource-library/sectigo-completes-entrust-migration" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+    </div>
+    <div id="opswat" style="background:#1a1d27;border-radius:12px;padding:24px;margin-bottom:20px;border-top:3px solid #ef4444;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+        <div>
+          <span style="font-size:18px;font-weight:700;color:#e8eaf0;">OPSWAT</span>
+          <a href="https://www.opswat.com" style="color:#94a3b8;font-size:13px;text-decoration:none;margin-left:8px;">https://www.opswat.com</a>
+        </div>
+        <span style="background:#ef444420;color:#ef4444;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #ef444440;">Security</span>
+      </div>
+      
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">1. OPSWAT and Emerson Announce Global Reseller Agreement for Critical Infrastructure OT Cybersecurity</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">On April 16, 2026, OPSWAT and Emerson announced a global strategic reseller agreement integrating OPSWAT's OT-focused patch management into Emerson's Ovation Automation Platform, targeting power and water utilities across ~800 sites.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">As OPSWAT scales OT/ICS security into critical infrastructure via Emerson, F5 can position BIG-IP and NGINX as the secure application delivery and zero trust access layer for those same industrial environments.</div>
+          </div>
+          <a href="https://www.opswat.com/blog/opswat-and-emerson-to-strengthen-cybersecurity-for-critical-infrastructure-operators-with-global-reseller-agreement" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">2. OPSWAT Launches AI-Native Pre-Execution Threat Detection Engine 'Predictive Alin AI' for MetaDefender</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Announced April 8, 2026, OPSWAT launched Predictive Alin AI — its first in-house AI-native, pre-execution malware detection engine for MetaDefender Core and MetaDefender Cloud, predicting malicious behavior in under 100ms.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">A joint integration could route suspicious file uploads or API payloads through F5's gateway to OPSWAT's MetaDefender for pre-execution inspection — a unified AI-driven inspection pipeline for regulated sectors.</div>
+          </div>
+          <a href="https://www.opswat.com/blog/opswat-launches-ai-native-pre-execution-detection-engine-for-metadefender-platform" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+    </div>
+    <div id="netapp" style="background:#1a1d27;border-radius:12px;padding:24px;margin-bottom:20px;border-top:3px solid #06b6d4;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+        <div>
+          <span style="font-size:18px;font-weight:700;color:#e8eaf0;">NetApp</span>
+          <a href="https://www.netapp.com" style="color:#94a3b8;font-size:13px;text-decoration:none;margin-left:8px;">https://www.netapp.com</a>
+        </div>
+        <span style="background:#4f7fff20;color:#4f7fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #4f7fff40;">AI Infrastructure</span>
+      </div>
+      
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">1. NetApp Collaborates with Google Cloud to Power Data Infrastructure for Distributed Cloud</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">NetApp and Google Cloud signed a four-year Enterprise Agreement to deploy NetApp AFF, StorageGRID, and Trident within Google Distributed Cloud (GDC), Google's air-gapped sovereign cloud platform. StorageGRID provides S3-compatible access for AI workloads in air-gapped environments.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">StorageGRID S3 endpoints in air-gapped GDC environments need secure, policy-enforced ingress — a strong fit for F5 BIG-IP (load balancing, SSL offload) and NGINX (API gateway). F5 and NetApp could jointly target regulated-industry customers (government, finance, defense).</div>
+          </div>
+          <a href="https://www.businesswire.com/news/home/20260416100502/en/NetApp-Collaborates-with-Google-Cloud-to-Power-Data-Infrastructure-for-Distributed-Cloud" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">2. Two Ways Customers Are Using StorageGRID for Analytics and Data Protection</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">A NetApp community Tech-ONTAP blog post (April 2, 2026) details two emerging enterprise patterns for StorageGRID: as a system-of-record for AI/analytics datasets, and as a scalable, policy-driven backup target.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">As StorageGRID becomes a hub for AI/analytics S3 traffic, F5 NGINX can serve as the S3 API gateway and load balancer in front of StorageGRID nodes. Joint opportunity: F5 + NetApp StorageGRID as a secure, governed on-prem AI data lake.</div>
+          </div>
+          <a href="https://community.netapp.com/t5/Tech-ONTAP-Blogs/Two-Ways-Customers-Are-Using-StorageGRID-for-Analytics-and-Data-Protection/ba-p/466604" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+    </div>
+    <div id="crowdstrike" style="background:#1a1d27;border-radius:12px;padding:24px;margin-bottom:20px;border-top:3px solid #dc2626;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+        <div>
+          <span style="font-size:18px;font-weight:700;color:#e8eaf0;">CrowdStrike</span>
+          <a href="https://www.crowdstrike.com" style="color:#94a3b8;font-size:13px;text-decoration:none;margin-left:8px;">https://www.crowdstrike.com</a>
+        </div>
+        <span style="background:#ef444420;color:#ef4444;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #ef444440;">Security</span>
+      </div>
+      
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">1. CrowdStrike Unveils Unified Data Protection Across Endpoints, Cloud, GenAI and SaaS</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">CrowdStrike launched Falcon Data Protection innovations securing data across endpoints, cloud, GenAI apps, and SaaS. Key capabilities include cloud runtime enforcement via eBPF, GenAI Data Leak Prevention, and Falcon Privileged Access for Just-in-Time elevated access.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">F5's WAF, API gateway, and SSL/TLS inspection layer sits in front of the same SaaS/cloud apps Falcon Data Protection monitors. A joint solution could combine F5's network-layer visibility with CrowdStrike's real-time data exfiltration prevention.</div>
+          </div>
+          <a href="https://www.crowdstrike.com/en-us/press-releases/crowdstrike-unveils-unified-data-protection/" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">2. CrowdStrike Debuts Falcon Privileged Access for Unified Hybrid Identity Security with Agentic AI SOC</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">CrowdStrike launched Falcon Privileged Access, integrating just-in-time dynamic privilege elevation with real-time risk signals from Entra ID, Okta, Ping, and SaaS apps. Charlotte AI Agentic Detection Triage autonomously prioritizes identity-based detections with ~98% accuracy.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">CrowdStrike's real-time identity risk signals could feed into F5 BIG-IP APM or F5 Distributed Cloud to dynamically enforce access policies based on live threat posture — a classic zero trust adaptive access pattern.</div>
+          </div>
+          <a href="https://www.crowdstrike.com/en-us/press-releases/crowdstrike-debuts-falcon-privileged-access-unified-hybrid-identity-security/" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+    </div>
+    <div id="digicert" style="background:#1a1d27;border-radius:12px;padding:24px;margin-bottom:20px;border-top:3px solid #7c3aed;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+        <div>
+          <span style="font-size:18px;font-weight:700;color:#e8eaf0;">DigiCert</span>
+          <a href="https://www.digicert.com" style="color:#94a3b8;font-size:13px;text-decoration:none;margin-left:8px;">https://www.digicert.com</a>
+        </div>
+        <span style="background:#10b98120;color:#10b981;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #10b98140;">PKI & Certificates</span>
+      </div>
+      
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">1. Certificate Lifecycle Management Reaches an Inflection Point — 2026 IDC MarketScape</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">DigiCert published a post (April 24, 2026) arguing CLM is now a visible operational risk. The 200-day maximum TLS cert lifetime took effect March 15, 2026, with reductions to 100 days (March 2027) and 47 days (March 2029) ahead.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">F5 BIG-IP and NGINX are primary TLS termination points. The 47-day cert mandate creates urgent demand for automated rotation at the load balancer layer — a joint F5 + DigiCert solution integrating Trust Lifecycle Manager (via ACME) with BIG-IP SSL orchestration directly addresses this.</div>
+          </div>
+          <a href="https://www.digicert.com/blog/certificate-lifecycle-management-reaches-inflection-point" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">2. TLS Certificate Rule Changes: 2026–2029 Timeline — 200-Day Limit Now Active</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">DigiCert published a comprehensive timeline (March 31, 2026) covering all CA/Browser Forum-mandated TLS certificate rule changes through 2029. DigiCert states that ACME protocol automation is no longer optional.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">With 200-day cert lifetimes already live, every F5 BIG-IP and NGINX deployment managing TLS termination must support automated certificate renewal. F5's existing ACME support positions it as a natural integration partner for DigiCert's ACME-based CLM services.</div>
+          </div>
+          <a href="https://www.digicert.com/blog/tls-certificate-rule-changes" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+    </div>
+    <div id="encryption-consulting" style="background:#1a1d27;border-radius:12px;padding:24px;margin-bottom:20px;border-top:3px solid #0ea5e9;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+        <div>
+          <span style="font-size:18px;font-weight:700;color:#e8eaf0;">Encryption Consulting</span>
+          <a href="https://www.encryptionconsulting.com" style="color:#94a3b8;font-size:13px;text-decoration:none;margin-left:8px;">https://www.encryptionconsulting.com</a>
+        </div>
+        <span style="background:#10b98120;color:#10b981;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #10b98140;">PKI & Certificates</span>
+      </div>
+      
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">1. ABI Research Names Encryption Consulting in 3 Reports on the Future of CLM (May 2026)</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">ABI Research featured Encryption Consulting across three May 2026 analyst reports, recognizing their CertSecure Manager for platformization of CLM, quantum-safe certificate lifecycle management, and automation capabilities.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">Encryption Consulting's CertSecure Manager, now analyst-validated for multi-cloud CLM and quantum-safe automation, is a strong integration partner for automating certificate provisioning directly to F5 NGINX/BIG-IP instances.</div>
+          </div>
+          <a href="https://www.encryptionconsulting.com/abi-research-clm-market-reports/" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">2. ACME Clients on Linux for Easy SSL/TLS Management (May 8, 2026)</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Encryption Consulting published a guide on using ACME protocol clients on Linux for automated SSL/TLS certificate lifecycle management — covering issuance, renewal, and revocation automation without manual intervention.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">F5 NGINX already supports ACME-based certificate automation. A partnership with Encryption Consulting's ACME-capable CertSecure Manager could deliver a seamless, enterprise-grade certificate automation pipeline for F5 appliances and NGINX instances.</div>
+          </div>
+          <a href="https://www.encryptionconsulting.com/acme-clients-linux-ssl-tls-management/" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+    </div>
+    <div id="keyfactor" style="background:#1a1d27;border-radius:12px;padding:24px;margin-bottom:20px;border-top:3px solid #f97316;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+        <div>
+          <span style="font-size:18px;font-weight:700;color:#e8eaf0;">Keyfactor</span>
+          <a href="https://www.keyfactor.com" style="color:#94a3b8;font-size:13px;text-decoration:none;margin-left:8px;">https://www.keyfactor.com</a>
+        </div>
+        <span style="background:#10b98120;color:#10b981;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #10b98140;">PKI & Certificates</span>
+      </div>
+      
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">1. Keyfactor Attains FedRAMP Moderate Authorization for Certificate Lifecycle Automation as a Service</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Announced May 19, 2026, Keyfactor's cloud-based CLAaaS achieved FedRAMP Moderate authorization, helping U.S. federal agencies discover, manage, issue, renew, and report on digital certificates across hybrid environments.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">F5 BIG-IP and NGINX are deeply embedded in U.S. federal agency infrastructure. A joint F5 + Keyfactor CLAaaS solution positioned to federal customers would address FedRAMP-mandated zero trust and accelerating certificate rotation requirements.</div>
+          </div>
+          <a href="https://www.keyfactor.com/press-releases/keyfactor-attains-fedramp-moderate-authorization/" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">2. Keyfactor Accelerates Enterprise Post-Quantum Readiness and Crypto-Agility</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Announced March 3, 2026, Keyfactor released expanded platform capabilities addressing PQC readiness, PKI automation at scale, and cryptographic visibility — including hybrid cryptographic models combining classical and quantum-safe algorithms.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">Keyfactor's hybrid PQC model and CA-agnostic lifecycle management could integrate with F5's NGINX App Protect and BIG-IP SSL profiles to automate cert rotation without outages as lifespans shrink to 47 days.</div>
+          </div>
+          <a href="https://www.keyfactor.com/press-releases/keyfactor-accelerates-enterprise-post-quantum-readiness-and-crypto-agility-amid-shrinking-certificate-lifespans/" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+    </div>
+    <div id="mazebolt" style="background:#1a1d27;border-radius:12px;padding:24px;margin-bottom:20px;border-top:3px solid #ec4899;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+        <div>
+          <span style="font-size:18px;font-weight:700;color:#e8eaf0;">MazeBolt</span>
+          <a href="https://mazebolt.com" style="color:#94a3b8;font-size:13px;text-decoration:none;margin-left:8px;">https://mazebolt.com</a>
+        </div>
+        <span style="background:#ef444420;color:#ef4444;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #ef444440;">Security</span>
+      </div>
+      
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">1. 7 Ways AI is Transforming DDoS Risk (May 2026)</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Published May 18, 2026, this post details how AI is reshaping DDoS attacks across seven dimensions including automated attack orchestration, behavioral adaptation, and real-time decision-making. MazeBolt positions RADAR with AI-powered SmartCycle as the continuous validation layer.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">F5 is already an ADSP Select Partner with MazeBolt. F5's DDoS mitigation (BIG-IP AFM, Silverline, NGINX App Protect) combined with MazeBolt RADAR's continuous AI-powered validation closes the gap between assumed and actual DDoS readiness.</div>
+          </div>
+          <a href="https://mazebolt.com/blog/7-ways-ai-is-transforming-ddos-risk" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">2. RSA 2026 Preview: From Testing to Remediation, RADAR Closes the Gap</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Published February 26, 2026, this post explains how MazeBolt's AI-enhanced RADAR platform bridges the critical gap between DDoS vulnerability detection and actual remediation across OSI Layers 3–7.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">The MSSP multi-tenant angle aligns directly with F5's managed security provider channel — a strong co-sell and co-market story for enterprise and service provider accounts.</div>
+          </div>
+          <a href="https://mazebolt.com/blog/testing-to-remediation-mazebolts-ai-enhanced-radar-closes-the-gap" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+    </div>
+    <div id="sumo-logic" style="background:#1a1d27;border-radius:12px;padding:24px;margin-bottom:20px;border-top:3px solid #14b8a6;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+        <div>
+          <span style="font-size:18px;font-weight:700;color:#e8eaf0;">Sumo Logic</span>
+          <a href="https://www.sumologic.com" style="color:#94a3b8;font-size:13px;text-decoration:none;margin-left:8px;">https://www.sumologic.com</a>
+        </div>
+        <span style="background:#8b5cf620;color:#8b5cf6;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #8b5cf640;">Observability</span>
+      </div>
+      
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">1. NGINX OpenTelemetry Remote Management Source Template + OTel Collector Insights App</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Sumo Logic has a dedicated NGINX OTel Remote Management Source Template enabling centralized, remote collection of NGINX access/error logs and metrics via OTel Collectors from a single UI. NGINX is now a first-class citizen in Sumo Logic's OTel ecosystem.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">F5 owns NGINX, making Sumo Logic's NGINX-OTel Remote Management template a direct integration touchpoint. A formal F5+Sumo Logic partnership could deliver a joint NGINX Advanced Monitoring solution.</div>
+          </div>
+          <a href="https://www.sumologic.com/help/docs/send-data/opentelemetry-collector/remote-management/source-templates/nginx/" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">2. Sumo Logic Bets Future on OpenTelemetry as Unified Observability Standard ('Observability 2.0')</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Sumo Logic has publicly committed its platform strategy to OpenTelemetry as the universal standard for logs, metrics, traces, and spans. The company ships its own OTel Collector and has released Remote Management capabilities to govern OTel Collectors at scale.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">F5's AI Traffic Management, API Gateway, and distributed cloud services all generate OTLP-compatible telemetry. Sumo Logic's OTel-first platform is a natural observability layer for F5 BIG-IP, NGINX, and WAF telemetry.</div>
+          </div>
+          <a href="https://www.sumologic.com/blog/sumo-logics-investment-in-otel" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+    </div>
+    <div id="datadog" style="background:#1a1d27;border-radius:12px;padding:24px;margin-bottom:20px;border-top:3px solid #6366f1;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+        <div>
+          <span style="font-size:18px;font-weight:700;color:#e8eaf0;">Datadog</span>
+          <a href="https://www.datadoghq.com" style="color:#94a3b8;font-size:13px;text-decoration:none;margin-left:8px;">https://www.datadoghq.com</a>
+        </div>
+        <span style="background:#8b5cf620;color:#8b5cf6;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #8b5cf640;">Observability</span>
+      </div>
+      
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">1. Datadog Launches OTLP Metrics API for Agentless OpenTelemetry Ingestion</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Datadog announced a new OTLP Metrics API that allows OpenTelemetry metrics to be sent directly to Datadog without requiring a collector or the Datadog Agent. This enables serverless environments to stream OTLP-format metrics straight to Datadog's endpoint.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">F5 NGINX and BIG-IP support OpenTelemetry instrumentation. This agentless ingestion path makes it significantly easier to pipe F5 application delivery telemetry into Datadog — a zero-friction observability on-ramp.</div>
+          </div>
+          <a href="https://www.datadoghq.com/blog/otlp-metrics-api/" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">2. Datadog NDM Adds VPN Tunnel Metadata Collection and Firewall Troubleshooting via SNMP</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Datadog's Network Device Monitoring (NDM) team added VPN tunnel metadata collection for SNMP, enabling topology visibility into VPN sessions alongside existing interface and routing telemetry.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">F5 BIG-IP exposes SNMP MIBs covering LTM virtual servers, pool health, SSL offload, and system metrics. F5 and Datadog could co-develop an official BIG-IP SNMP profile for NDM.</div>
+          </div>
+          <a href="https://github.com/DataDog/datadog-agent/pull/37339" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+    </div>
+    <div id="dynatrace" style="background:#1a1d27;border-radius:12px;padding:24px;margin-bottom:20px;border-top:3px solid #1d4ed8;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+        <div>
+          <span style="font-size:18px;font-weight:700;color:#e8eaf0;">Dynatrace</span>
+          <a href="https://www.dynatrace.com" style="color:#94a3b8;font-size:13px;text-decoration:none;margin-left:8px;">https://www.dynatrace.com</a>
+        </div>
+        <span style="background:#8b5cf620;color:#8b5cf6;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #8b5cf640;">Observability</span>
+      </div>
+      
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">1. Dynatrace Acquires Bindplane: OpenTelemetry-Based Telemetry Pipeline Control Plane (Closed April 2026)</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Dynatrace completed its acquisition of Bindplane, a modern telemetry pipeline built on OpenTelemetry open standards that acts as a control plane for logs, metrics, and traces from disparate sources including network and edge infrastructure.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">F5 BIG-IP and NGINX generate rich telemetry that could be ingested via Bindplane's OTel-based pipeline into Dynatrace. F5 could certify BIG-IP/NGINX as a first-class Bindplane telemetry source.</div>
+          </div>
+          <a href="https://www.dynatrace.com/news/blog/dynatrace-to-acquire-bindplane-telemetry-pipeline/" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">2. Dynatrace Launches OpenTelemetry Collector Self-Monitoring Dashboards with Davis AI Anomaly Detection</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Dynatrace released OTel Collector Self-Monitoring with ready-made dashboards tracking health, throughput, and performance of OTel collector fleets. Davis AI automatically baselines collector behavior and raises alerts on deviations.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">F5 NGINX and BIG-IP can emit OpenTelemetry traces and metrics natively. F5 and Dynatrace could jointly promote a reference architecture where F5 NGINX acts as the OTel-instrumented data plane and Dynatrace provides the AI-powered observability backend.</div>
+          </div>
+          <a href="https://www.dynatrace.com/news/blog/introducing-opentelemetry-collector-self-monitoring-dashboards/" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+    </div>
+    <div id="ping-identity" style="background:#1a1d27;border-radius:12px;padding:24px;margin-bottom:20px;border-top:3px solid #c026d3;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+        <div>
+          <span style="font-size:18px;font-weight:700;color:#e8eaf0;">Ping Identity</span>
+          <a href="https://www.pingidentity.com" style="color:#94a3b8;font-size:13px;text-decoration:none;margin-left:8px;">https://www.pingidentity.com</a>
+        </div>
+        <span style="background:#f59e0b20;color:#f59e0b;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #f59e0b40;">Zero Trust & Identity</span>
+      </div>
+      
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">1. AI Identity Security: What Leaders Need to Know about Claude Mythos Preview</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Published May 8, 2026 by Ping Identity CISO Russ Kirby, this post argues that every breach still hinges on a compromised identity. Ping frames identity as the 'control plane' of security — emphasizing continuous verification and governance across human and non-human (AI agent) identities.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">F5 BIG-IP APM is a leading SAML SP/IdP proxy and OAuth/OIDC relay. There is a natural co-sell: F5 APM enforces access policy at the network/app layer while PingOne/PingFederate provides the identity trust signal.</div>
+          </div>
+          <a href="https://www.pingidentity.com/en/resources/blog/post/ai-identity-security-claude-mythos.html" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">2. Extended Workforce Identity Security for AI-Driven Threats: New Webinar Series</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Announced May 7, 2026, Ping Identity launched a 2-part webinar series addressing AI-powered attacks targeting the extended workforce — deepfakes, voice cloning, and MFA fatigue — through its 'Verified Trust' approach.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">F5 BIG-IP APM terminates SAML and OIDC federation flows for remote and partner access — the exact attack surface Ping is addressing. MFA fatigue and credential-based attacks traverse F5 APM before hitting the IdP.</div>
+          </div>
+          <a href="https://www.pingidentity.com/en/resources/blog/post/extended-workforce-identity-security-ai.html" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+    </div>
+    <div id="illumio" style="background:#1a1d27;border-radius:12px;padding:24px;margin-bottom:20px;border-top:3px solid #16a34a;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+        <div>
+          <span style="font-size:18px;font-weight:700;color:#e8eaf0;">Illumio</span>
+          <a href="https://www.illumio.com" style="color:#94a3b8;font-size:13px;text-decoration:none;margin-left:8px;">https://www.illumio.com</a>
+        </div>
+        <span style="background:#06b6d420;color:#06b6d4;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #06b6d440;">Zero Trust & Security</span>
+      </div>
+      
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">1. Illumio Defines Breach Containment for the AI Era with Network Posture</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Announced April 23, 2026, Illumio launched Network Posture — an AI security graph enhancement delivering real-time visibility of lateral movement risk across hybrid, multi-cloud, and OT environments. New enforcement integrations to Fortinet and Check Point extend containment reach.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">F5 BIG-IP and NGINX govern north-south traffic at the perimeter; Illumio's east-west microsegmentation is a natural complement. A joint F5 + Illumio zero trust story is a compelling co-sell for enterprise and federal customers.</div>
+          </div>
+          <a href="https://www.illumio.com/news/illumio-defines-breach-containment-for-ai-era" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+        <div style="margin-bottom:20px;">
+          <div style="font-size:14px;font-weight:700;color:#e8eaf0;margin-bottom:6px;">2. Microsoft Deploys Illumio Insights and Segmentation Across Its Entire Corporate IT Environment</div>
+          <div style="font-size:13px;color:#9aa3b3;line-height:1.7;margin-bottom:10px;">Microsoft Corporation deployed Illumio Insights and Illumio Segmentation across its global hybrid multi-cloud corporate IT environment, pairing Illumio's automated containment with Microsoft Sentinel for end-to-end breach defense.</div>
+          <div style="background:#1e2a4a;border-left:4px solid #4f7fff;border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:8px;">
+            <div style="font-size:11px;font-weight:700;color:#7fb3ff;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">🎯 F5 Relevance</div>
+            <div style="font-size:13px;color:#b8c5e0;line-height:1.6;">Microsoft is a major F5 partner. Illumio's deep Microsoft deployment creates a natural three-way partner ecosystem: F5 for app delivery/WAF on Azure, Illumio for microsegmentation, and Sentinel for SIEM/SOAR.</div>
+          </div>
+          <a href="https://www.illumio.com/blog/illumio-collaborates-with-microsoft-to-strengthen-companys-cyber-resilience-and-prevent-breaches-at-scale" style="font-size:12px;color:#4f7fff;text-decoration:none;">→ Source</a>
+        </div>
+    </div>
+    <div class="footer">
+      <strong style="color:#e8eaf0;">F5 Partner Research Agent</strong> &nbsp;·&nbsp; Automated daily briefing &nbsp;·&nbsp; May 22, 2026 at 10:32 AM ET<br>
+      <a href="https://sgorman50.github.io/f5-partner-research/" style="color:#4f7fff;">📄 https://sgorman50.github.io/f5-partner-research/</a>
+    </div>
+  </main>
 </div>
 </body>
 </html>
