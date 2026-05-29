@@ -3,255 +3,473 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>F5 Partner Research — May 28, 2026</title>
+<title>F5 Partner Research — May 29, 2026</title>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0f1117; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; min-height: 100vh; }
-  .budget-banner { background: linear-gradient(90deg, #d97706, #f59e0b); padding: 8px 20px; text-align: center; font-size: 13px; color: #1a1a1a; font-weight: 600; }
-  .top-nav { background: #0d1117; border-bottom: 1px solid #1e2433; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
-  .nav-brand { color: #4f7fff; font-size: 16px; font-weight: 700; letter-spacing: 0.5px; }
-  .nav-meta { color: #64748b; font-size: 13px; }
-  .layout { display: flex; max-width: 1280px; margin: 0 auto; padding: 32px 20px; gap: 28px; }
-  .sidebar { width: 220px; flex-shrink: 0; }
-  .sidebar-section { background: #1a1d27; border-radius: 10px; padding: 16px; margin-bottom: 18px; border: 1px solid #1e2433; }
-  .sidebar-title { color: #94a3b8; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-  .sidebar-link { display: block; color: #cbd5e1; font-size: 13px; padding: 5px 8px; border-radius: 5px; text-decoration: none; transition: background 0.15s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .sidebar-link:hover { background: #252836; color: #4f7fff; }
-  .main { flex: 1; min-width: 0; }
-  .stats-bar { display: flex; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
-  .stat-card { background: #1a1d27; border: 1px solid #1e2433; border-radius: 10px; padding: 16px 20px; flex: 1; min-width: 120px; text-align: center; }
-  .stat-num { font-size: 28px; font-weight: 800; color: #4f7fff; }
-  .stat-label { font-size: 12px; color: #64748b; margin-top: 4px; }
-  .section-header { margin-bottom: 20px; }
-  .section-header h1 { font-size: 22px; font-weight: 700; color: #f1f5f9; }
-  .section-header p { color: #64748b; font-size: 14px; margin-top: 4px; }
-  .card { background: #1a1d27; border-radius: 10px; padding: 22px 24px; margin-bottom: 18px; border: 1px solid #1e2433; transition: border-color 0.2s; }
-  .card:hover { border-color: #2d3748; }
-  .company-badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 5px; text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 10px; }
-  .card-title { font-size: 16px; font-weight: 700; color: #f1f5f9; margin-bottom: 10px; line-height: 1.4; }
-  .card-summary { color: #94a3b8; font-size: 14px; line-height: 1.65; margin-bottom: 14px; }
-  .f5-box { background: rgba(79, 127, 255, 0.08); border-left: 3px solid #4f7fff; border-radius: 0 6px 6px 0; padding: 10px 14px; margin-bottom: 12px; font-size: 13px; color: #93c5fd; line-height: 1.55; }
-  .f5-label { font-weight: 700; color: #60a5fa; }
-  .card-link { color: #4f7fff; font-size: 13px; text-decoration: none; }
-  .card-link:hover { text-decoration: underline; }
-  .footer { text-align: center; padding: 32px 20px; border-top: 1px solid #1e2433; color: #475569; font-size: 13px; margin-top: 20px; }
-  .footer a { color: #4f7fff; text-decoration: none; }
-  @media (max-width: 768px) { .layout { flex-direction: column; } .sidebar { width: 100%; } }
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --accent: #4f7fff;
+    --accent2: #7ba3ff;
+    --text: #e8eaf6;
+    --text2: #9aa0b8;
+    --border: #2a2f45;
+    --green: #2a9d8f;
+    --red: #e63946;
+    --orange: #f4a261;
+    --purple: #6a4c93;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+  
+  /* NAV */
+  .nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .nav-brand { font-weight: 700; font-size: 15px; color: var(--accent2); letter-spacing: 0.3px; }
+  .nav-meta { font-size: 12px; color: var(--text2); }
+  .budget-pill { background: #332b00; border: 1px solid #f5d429; color: #f5d429; border-radius: 20px; padding: 3px 10px; font-size: 11px; font-weight: 600; margin-left: 10px; }
+
+  /* LAYOUT */
+  .layout { display: flex; flex: 1; }
+  
+  /* SIDEBAR */
+  .sidebar { width: 220px; min-width: 220px; background: var(--surface); border-right: 1px solid var(--border); padding: 20px 0; position: sticky; top: 56px; height: calc(100vh - 56px); overflow-y: auto; }
+  .sidebar-section { padding: 0 16px; margin-bottom: 20px; }
+  .sidebar-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text2); margin-bottom: 8px; }
+  .run-item { font-size: 12px; color: var(--accent2); padding: 4px 0; }
+  .jump-link { display: block; font-size: 12px; color: var(--text2); padding: 4px 8px; border-radius: 4px; text-decoration: none; transition: all 0.15s; }
+  .jump-link:hover { background: var(--surface2); color: var(--text); }
+
+  /* MAIN */
+  .main { flex: 1; padding: 24px; max-width: 820px; }
+  
+  /* HERO */
+  .hero { background: linear-gradient(135deg, #0d2467 0%, #1a3a8f 100%); border-radius: 12px; padding: 28px 32px; margin-bottom: 20px; border: 1px solid #2040a0; }
+  .hero h1 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .hero p { font-size: 13px; color: #8aabee; }
+  .budget-banner { background: #1a1500; border: 1px solid #6a5200; border-radius: 8px; padding: 10px 16px; margin-bottom: 20px; font-size: 13px; color: #d4aa00; }
+
+  /* STATS BAR */
+  .stats { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; flex: 1; min-width: 100px; text-align: center; }
+  .stat .num { font-size: 24px; font-weight: 700; color: var(--accent2); }
+  .stat .lbl { font-size: 10px; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+
+  /* CATEGORY */
+  .category-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text2); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin: 28px 0 14px 0; }
+
+  /* CARDS */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 14px; overflow: hidden; }
+  .card-header { padding: 14px 18px 10px 18px; }
+  .company-name { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text2); margin-bottom: 5px; }
+  .finding-title { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.4; }
+  .card-body { padding: 0 18px 14px 18px; }
+  .summary-text { font-size: 13px; color: var(--text2); line-height: 1.65; margin-bottom: 12px; }
+  .relevance-box { background: var(--surface2); border-left: 3px solid var(--accent); border-radius: 4px; padding: 10px 14px; margin-bottom: 10px; }
+  .relevance-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent2); margin-bottom: 5px; }
+  .relevance-box p { font-size: 13px; color: var(--text); line-height: 1.5; }
+  .source-link { font-size: 12px; color: var(--accent2); text-decoration: none; }
+  .source-link:hover { text-decoration: underline; }
+
+  /* FOOTER */
+  .footer { text-align: center; padding: 24px; font-size: 12px; color: var(--text2); border-top: 1px solid var(--border); }
+  .footer a { color: var(--accent2); text-decoration: none; }
 </style>
 </head>
 <body>
-<div class="budget-banner">⚡ Budget Run — Web Search Edition &nbsp;·&nbsp; May 28, 2026 at 08:16 AM ET &nbsp;·&nbsp; ~92% lower cost than standard run</div>
-<nav class="top-nav">
-  <div class="nav-brand">⬡ F5 Partner Research</div>
-  <div class="nav-meta">May 28, 2026 &nbsp;·&nbsp; ⚡ Budget Run</div>
+
+<nav class="nav">
+  <div class="nav-brand">F5 Partner Research <span class="budget-pill">⚡ Budget Run</span></div>
+  <div class="nav-meta">May 29, 2026 · 08:22 AM ET</div>
 </nav>
+
 <div class="layout">
   <aside class="sidebar">
     <div class="sidebar-section">
-      <div class="sidebar-title">Jump To</div>
-      <a href="#minio" class="sidebar-link">MinIO</a><a href="#scality" class="sidebar-link">Scality</a><a href="#sectigo" class="sidebar-link">Sectigo</a><a href="#opswat" class="sidebar-link">OPSWAT</a><a href="#netapp" class="sidebar-link">NetApp</a><a href="#crowdstrike" class="sidebar-link">CrowdStrike</a><a href="#digicert" class="sidebar-link">DigiCert</a><a href="#encryption-consulting" class="sidebar-link">Encryption Consulting</a><a href="#keyfactor" class="sidebar-link">Keyfactor</a><a href="#mazebolt" class="sidebar-link">MazeBolt</a><a href="#sumo-logic" class="sidebar-link">Sumo Logic</a><a href="#datadog" class="sidebar-link">Datadog</a><a href="#dynatrace" class="sidebar-link">Dynatrace</a><a href="#ping-identity" class="sidebar-link">Ping Identity</a><a href="#illumio" class="sidebar-link">Illumio</a>
+      <div class="sidebar-label">Recent Runs</div>
+      <div class="run-item">⚡ May 29, 2026</div>
     </div>
     <div class="sidebar-section">
-      <div class="sidebar-title">Recent Runs</div>
-      <a href="/f5-partner-research/archive/2026-05-28.html" class="sidebar-link">⚡ May 28, 2026</a>
+      <div class="sidebar-label">Jump To</div>
+      <a class="jump-link" href="#crowdstrike">CrowdStrike</a>
+<a class="jump-link" href="#datadog">Datadog</a>
+<a class="jump-link" href="#digicert">DigiCert</a>
+<a class="jump-link" href="#dynatrace">Dynatrace</a>
+<a class="jump-link" href="#encryption-consulting">Encryption Consulting</a>
+<a class="jump-link" href="#illumio">Illumio</a>
+<a class="jump-link" href="#keyfactor">Keyfactor</a>
+<a class="jump-link" href="#mazebolt">MazeBolt</a>
+<a class="jump-link" href="#netapp">NetApp</a>
+<a class="jump-link" href="#opswat">OPSWAT</a>
+<a class="jump-link" href="#ping-identity">Ping Identity</a>
+<a class="jump-link" href="#scality">Scality</a>
+<a class="jump-link" href="#sectigo">Sectigo</a>
+<a class="jump-link" href="#sumo-logic">Sumo Logic</a>
+
     </div>
   </aside>
+  
   <main class="main">
-    <div class="stats-bar">
-      <div class="stat-card"><div class="stat-num">15</div><div class="stat-label">Companies</div></div>
-      <div class="stat-card"><div class="stat-num">20</div><div class="stat-label">Findings</div></div>
-      <div class="stat-card"><div class="stat-num">⚡</div><div class="stat-label">Budget Run</div></div>
-    </div>
-    <div class="section-header">
-      <h1>Daily Briefing — May 28, 2026</h1>
-      <p>Partner intelligence for F5 engineers &nbsp;·&nbsp; Web search edition</p>
+    <div class="hero">
+      <h1>F5 Partner Research — Daily Briefing</h1>
+      <p>May 29, 2026 &nbsp;·&nbsp; 15 Companies Monitored &nbsp;·&nbsp; Prepared for F5 Engineering &amp; BD</p>
     </div>
     
-        <div class="card" id="minio" style="border-left:4px solid #6366f1;">
-            <div class="company-badge" style="background:#312e81;color:#6366f1;">MinIO</div>
-            <h3 class="card-title">MinIO Announces MemKV — Purpose-Built Context Memory Store for AI Inference</h3>
-            <p class="card-summary">MinIO launched MemKV, a key-value context store turning petabyte-scale NVMe flash into a shared GPU memory tier via RDMA for AI inference on NVIDIA STX architecture. It provides microsecond-latency context retrieval across GPU clusters at SSD economics. At 128-GPU enterprise deployments it boosted GPU utilization from ~50% to >90%, saving ~$2M/year in compute costs. Complements AIStor as MinIO's second product pillar.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> F5 manages AI inference traffic at the load-balancer tier; MemKV's RDMA-accelerated shared memory layer creates an opportunity for F5 to optimize and secure high-throughput, low-latency KV-cache traffic between GPU pods and NVMe pools — directly relevant to F5's AI traffic management and NVIDIA ecosystem positioning.
-            </div>
-            <a href="https://www.min.io/press/minio-announces-memkv-purpose-built-context-memory-store-for-ai-inference" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="scality" style="border-left:4px solid #10b981;">
-            <div class="company-badge" style="background:#064e3b;color:#10b981;">Scality</div>
-            <h3 class="card-title">Scality Launches ADI — Autonomous Data Infrastructure for Enterprise AI</h3>
-            <p class="card-summary">Scality announced ADI on May 12, 2026 combining RING and ARTESCA with an AI-powered Guardian operations engine for autonomous expansion, healing, and upgrades. ADI spans NVMe SSD, HDD, tape, and cloud with RDMA-accelerated KV cache for multi-TB/s GPU workloads. Supports MCP-enabled extensibility and CORE5 cyber resilience at exabyte scale.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> F5 and Scality have an active partnership (Feb 2026) for secure, high-performance AI data infrastructure. Scality ADI's MCP extensibility and RDMA storage layer strengthen this joint solution — F5 can position BIG-IP and NGINX as the secure traffic delivery front-end for ADI-backed AI workloads across hybrid cloud.
-            </div>
-            <a href="https://www.scality.com/press-releases/scality-adi-launch/" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="scality" style="border-left:4px solid #10b981;">
-            <div class="company-badge" style="background:#064e3b;color:#10b981;">Scality</div>
-            <h3 class="card-title">ARTESCA + Veeam HA Unified Appliance — Triple High Availability with $100K Cyber Guarantee</h3>
-            <p class="card-summary">Scality launched the ARTESCA+ Veeam HA appliance (April 29, 2026) — first with triple HA (application, database, and storage tiers) in one stack. Scales 50 TB to 10 PB with S3 immutable storage and a $100,000 cyber guarantee. Zero-trust access and automated deployment reduce misconfiguration risk.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> S3 immutable storage with zero-trust access is directly relevant to F5's API gateway and SSL/TLS termination — F5 can secure ARTESCA's S3-compatible object storage endpoints, adding WAF and certificate management to Scality's hardened backup appliance.
-            </div>
-            <a href="https://www.scality.com/press-releases/automated-ha-failover-veeam/" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="sectigo" style="border-left:4px solid #f59e0b;">
-            <div class="company-badge" style="background:#78350f;color:#f59e0b;">Sectigo</div>
-            <h3 class="card-title">Sectigo Partners with F5 to Automate CLM in F5 ADSP</h3>
-            <p class="card-summary">Sectigo formally announced its integration with F5 ADSP enabling automatic issuance, deployment, renewal, and replacement of SSL/TLS certificates across BIG-IP environments via Sectigo Certificate Manager (SCM). The integration embeds CLM directly into F5 ADSP across on-premises, hybrid, cloud, and edge deployments, addressing the rising volume of 90-day certificate renewals.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> DIRECT F5 PARTNERSHIP — The Sectigo-F5 ADSP integration is a native CLM workflow in BIG-IP environments. F5 teams should co-sell and position this with customers managing large certificate fleets across hybrid deployments as certificate lifespans continue to shrink.
-            </div>
-            <a href="https://www.sectigo.com/resource-library/sectigo-f5-partnership-certificate-lifecycle-management-f5-adsp" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="sectigo" style="border-left:4px solid #f59e0b;">
-            <div class="company-badge" style="background:#78350f;color:#f59e0b;">Sectigo</div>
-            <h3 class="card-title">Sectigo Launches Private PQC Certificates and New Partner Platform</h3>
-            <p class="card-summary">Sectigo launched Private PQC in SCM (April 14, 2026) enabling enterprises to issue and manage private post-quantum SSL/TLS certificates using ML-DSA algorithms (ML-DSA-44, -65, -87) within existing workflows via a hosted virtual HSM. On May 25, 2026 Sectigo also unveiled a new partner platform with AI-assisted CLM workflows and MSP channel for recurring CLM services.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> F5 BIG-IP handles TLS termination at scale — PQC-ready ML-DSA certificates from Sectigo will need lifecycle management across F5 ADCs. This creates a direct F5+Sectigo co-innovation opportunity around PQC certificate delivery and automated renewal within F5 ADSP.
-            </div>
-            <a href="https://www.sectigo.com/resource-library/private-pqc-in-sectigo-certificate-manager" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="opswat" style="border-left:4px solid #ef4444;">
-            <div class="company-badge" style="background:#7f1d1d;color:#ef4444;">OPSWAT</div>
-            <h3 class="card-title">OPSWAT Launches AI-Native Pre-Execution Detection Engine and MetaDefender OT Security v4.0</h3>
-            <p class="card-summary">OPSWAT released an AI-native Predictive AI pre-execution detection engine for MetaDefender (April 8, 2026) with near-zero false positives for sensitive OT environments. MetaDefender OT Security v4.0 (May 12, 2026) adds hardened OS, AWS AMI, IEC 61850 SCD ingestion, and vulnerability lifecycle management. MetaDefender Endpoint v7.6.2605 (May 20, 2026) adds certificate-based file verification across all core security features.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> OPSWAT's deep content inspection complements F5's WAF capabilities. An F5+OPSWAT integration could embed MetaDefender's multi-scanning and CDR (Content Disarm & Reconstruction) inline into F5's traffic pipeline — a compelling zero-trust file-inspection use case for regulated industries.
-            </div>
-            <a href="https://www.opswat.com/company/press-releases" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="netapp" style="border-left:4px solid #0ea5e9;">
-            <div class="company-badge" style="background:#0c4a6e;color:#0ea5e9;">NetApp</div>
-            <h3 class="card-title">StorageGRID 12.0 — Trillion-Object Scale with AI/ML S3 Caching Layer</h3>
-            <p class="card-summary">NetApp released StorageGRID 12.0 supporting up to one trillion objects with an S3 caching layer specifically designed to accelerate AI/ML training workflows. Cross-grid replication with S3 Object Lock, S3 AssumeRole trust policies, and configurable bucket regions improve governance and flexibility for enterprise AI data pipelines.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> F5 can front-end StorageGRID's S3 endpoints with BIG-IP LTM for load balancing, TLS offload, and WAF protection across trillion-object clusters. StorageGRID 12.0's AI focus drives higher-frequency S3 API calls that require scalable, secure traffic management.
-            </div>
-            <a href="https://docs.netapp.com/us-en/storagegrid/release-notes/whats-new.html" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="netapp" style="border-left:4px solid #0ea5e9;">
-            <div class="company-badge" style="background:#0c4a6e;color:#0ea5e9;">NetApp</div>
-            <h3 class="card-title">ONTAP + AWS S3 Access Points with Dremio for AI-Ready Analytics</h3>
-            <p class="card-summary">NetApp's March 2026 blog explains how AWS S3 Access Points for Amazon FSx for NetApp ONTAP enable direct S3-style access to ONTAP volumes without data migration, unlocking AI-ready analytics via Dremio Cloud with AI Functions (AI_GENERATE, AI_CLASSIFY) operating directly on ONTAP data.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> F5 NGINX and BIG-IP can serve as the secure API gateway for Dremio Cloud + ONTAP S3 Access Point pipelines, managing authentication, rate limiting, and TLS termination for AI data queries — a strong multi-cloud hybrid architecture play for F5's API security portfolio.
-            </div>
-            <a href="https://www.netapp.com/blog/ai-insights-ontap-s3-access-points-dremio/" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="crowdstrike" style="border-left:4px solid #f97316;">
-            <div class="company-badge" style="background:#7c2d12;color:#f97316;">CrowdStrike</div>
-            <h3 class="card-title">CrowdStrike Integrates Claude Opus 4.7 — Agentic SOAR, Vulnerability Discovery, and AI Governance</h3>
-            <p class="card-summary">CrowdStrike announced integration of Claude Opus 4.7 across Falcon (May 21, 2026), powering AI-driven vulnerability discovery in Falcon Exposure Management, agentic SOAR workflows via Charlotte Agentic SOAR, and enterprise AI agent building via AgentWorks. Claude Enterprise activity logs are ingested into Falcon Next-Gen SIEM for AI governance and monitoring at scale.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> F5 WAF attack telemetry and SSL inspection events could be forwarded to Falcon Next-Gen SIEM for correlation with agentic AI threat detection. A Falcon+F5 SIEM integration or SOAR playbook triggering F5 policy changes represents a strong joint security operations partnership opportunity.
-            </div>
-            <a href="https://ir.crowdstrike.com/news-releases/news-release-details/crowdstrike-puts-claude-opus-47-work-across-falcon-platform-and" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="digicert" style="border-left:4px solid #8b5cf6;">
-            <div class="company-badge" style="background:#4c1d95;color:#8b5cf6;">DigiCert</div>
-            <h3 class="card-title">DigiCert Launches AI Trust Architecture — Cryptographic Identity for AI Agents, Models, and Content</h3>
-            <p class="card-summary">DigiCert announced AI Trust Architecture (April 30, 2026) extending PKI principles to AI agents (cryptographic identity, lifecycle management), AI models (signed packaging, chain of custody), and digital content (C2PA-standard tamper-evident provenance). DigiCert ONE is available on Microsoft Azure Marketplace with a locally hosted India option for data sovereignty.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> F5's API gateway and TLS termination sit in the path of AI agent-to-agent communication. DigiCert's AI Trust Architecture creates an opportunity for F5 to enforce certificate-based mTLS for AI agent traffic, combining DigiCert PKI with F5 BIG-IP's TLS inspection and policy enforcement for authenticated AI workloads.
-            </div>
-            <a href="https://www.digicert.com/news/digicert-introduces-new-ai-trust-architecture" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="encryption-consulting" style="border-left:4px solid #06b6d4;">
-            <div class="company-badge" style="background:#164e63;color:#06b6d4;">Encryption Consulting</div>
-            <h3 class="card-title">CertSecure Manager v3.3 — Zero-Touch TLS Renewal Explicitly Includes F5 Platforms</h3>
-            <p class="card-summary">Encryption Consulting released CertSecure Manager v3.3 (May 19, 2026) delivering zero-touch TLS certificate renewal across Apache, Nginx, IIS, F5, Citrix NetScaler, JBoss, MongoDB, Oracle DB, and MSSQL Server. Expanded CA support covers 11 providers including Google Public CA and AWS. A Certificate Risk Profile Engine classifies certs by algorithm and validity. ServiceNow and Splunk SIEM integration embed CLM into existing security workflows.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> CertSecure Manager v3.3 EXPLICITLY NAMES F5 as a supported platform for zero-touch renewal. F5 should evaluate co-marketing this capability — automated renewal prevents TLS outages on F5 ADCs and aligns with the industry move to 90-day and soon 47-day certificate lifespans.
-            </div>
-            <a href="https://www.prnewswire.com/news-releases/with-200-day-certificate-limits-now-in-effect-encryption-consulting-releases-certsecure-manager-v3-3-with-zero-touch-renewal-for-every-major-enterprise-platform-302775874.html" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="keyfactor" style="border-left:4px solid #ec4899;">
-            <div class="company-badge" style="background:#831843;color:#ec4899;">Keyfactor</div>
-            <h3 class="card-title">Keyfactor Spring 2026 — Composite PQC Certificates, EJBCA Crypto Agility, and AgileSec SaaS</h3>
-            <p class="card-summary">Keyfactor's Spring 2026 update introduces composite certificates in EJBCA combining classical and quantum-safe algorithms, hardware-backed device identity via ACME attestation, and PKCS#11-backed PQC signing with composite timestamping. AgileSec launches as a SaaS offering providing cryptographic discovery and PQ capability context for prioritized remediation across enterprise infrastructure.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> Keyfactor's composite PQC certificates are directly relevant to F5 BIG-IP TLS termination — as enterprises deploy hybrid classical/quantum-safe certs, F5 ADCs must support them. F5+Keyfactor joint positioning around automated PQC certificate delivery at the application delivery tier is a near-term opportunity.
-            </div>
-            <a href="https://www.keyfactor.com/spring-update-2026/" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="keyfactor" style="border-left:4px solid #ec4899;">
-            <div class="company-badge" style="background:#831843;color:#ec4899;">Keyfactor</div>
-            <h3 class="card-title">Keyfactor + IBM Consulting — Joint Quantum-Safe Transformation Solution</h3>
-            <p class="card-summary">Keyfactor and IBM Consulting announced a joint solution (January 2026) combining Keyfactor's PKI and certificate lifecycle automation with IBM's cybersecurity governance for quantum-safe enterprise transformation. Covers risk scoring, modern PKI automation, cryptographic Centers of Excellence, and scalable quantum-safe operating models aligned with NIST, EU, and global PQC guidance.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> IBM Consulting's enterprise reach combined with Keyfactor's PKI automation creates large-scale PQC transformation programs where F5 ADCs are critical certificate deployment endpoints. F5 should engage Keyfactor and IBM to ensure BIG-IP and NGINX are first-class targets in enterprise PQC playbooks.
-            </div>
-            <a href="https://www.keyfactor.com/press-releases/keyfactor-and-ibm-consulting-launch-joint-solution-to-accelerate-enterprise-quantum-safe-transformation/" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="mazebolt" style="border-left:4px solid #14b8a6;">
-            <div class="company-badge" style="background:#134e4a;color:#14b8a6;">MazeBolt</div>
-            <h3 class="card-title">MazeBolt Joins F5 ADSP Partner Program — Continuous DDoS Validation Integration</h3>
-            <p class="card-summary">MazeBolt joined the F5 ADSP Partner Program in February 2026, signaling deeper integration with the F5 ecosystem for DDoS defense and application security. RADAR provides non-disruptive, continuous DDoS simulations with AI-powered SmartCycle vulnerability prioritization. In April 2026, MazeBolt deployed RADAR for a major Greek financial institution to continuously validate their DDoS protection stack.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> DIRECT F5 ADSP PARTNER — MazeBolt RADAR continuously validates that F5 BIG-IP DDoS mitigations are correctly configured and effective. F5 teams can position MazeBolt as the validation layer that proves F5 DDoS defenses work, creating a compelling joint customer story around measurable DDoS resilience.
-            </div>
-            <a href="https://mazebolt.com/whats-new" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="sumo-logic" style="border-left:4px solid #6366f1;">
-            <div class="company-badge" style="background:#312e81;color:#6366f1;">Sumo Logic</div>
-            <h3 class="card-title">Sumo Logic OTel Collector Enhancements — Docker, Winget, and CDN-Based Deployment</h3>
-            <p class="card-summary">Sumo Logic released multiple OTel Collector deployment improvements in 2026: Docker installation for reliable, scalable monitoring (April), Winget support for Windows OTel lifecycle management (May 4), and CDN-based installation for Chef, Puppet, and Ansible (February). These updates reduce friction for enterprise OTel Collector deployments across hybrid environments.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> Sumo Logic's expanded OTel Collector deployment flexibility makes it easier for F5 infrastructure teams to send BIG-IP and NGINX telemetry to Sumo Logic. F5 should ensure its OTel-compatible telemetry outputs are documented as Sumo Logic ingestion sources, positioning Sumo Logic as a monitoring back-end for F5 application delivery infrastructure.
-            </div>
-            <a href="https://www.sumologic.com/help/release-notes-collector/2026/05/04/otel/" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="datadog" style="border-left:4px solid #f59e0b;">
-            <div class="company-badge" style="background:#78350f;color:#f59e0b;">Datadog</div>
-            <h3 class="card-title">Datadog Agent 7.79.0 — OTel Defaults, macOS BPF Network Monitoring, and Juniper Mist Integration</h3>
-            <p class="card-summary">Datadog released Agent 7.79.0 (May 20, 2026) with OTLP endpoint defaults updated to localhost:4317/4318, macOS network monitoring via BPF/libpcap, and a Juniper Mist integration (Preview, March 2026) ingesting AI-powered wireless/network telemetry into Datadog dashboards for correlation with application observability.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> Datadog's network equipment monitoring expansions position it as a unified network+application observability platform. F5 should ensure out-of-the-box Datadog dashboards exist for BIG-IP and NGINX so F5 metrics correlate with network equipment telemetry in Datadog's unified observability view.
-            </div>
-            <a href="https://www.datadoghq.com/blog/juniper-mist-integration/" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="dynatrace" style="border-left:4px solid #10b981;">
-            <div class="company-badge" style="background:#064e3b;color:#10b981;">Dynatrace</div>
-            <h3 class="card-title">Dynatrace Acquires Bindplane — Full OpenTelemetry Telemetry Pipeline Control Plane</h3>
-            <p class="card-summary">Dynatrace completed its acquisition of Bindplane (April 15, 2026), a modern OTel telemetry pipeline acting as a control plane for data collection, filtering, enrichment, and routing across multi-cloud and hybrid environments. Enables AI-powered observability, reduced ingest costs through filtering, standardized signals, and flexible multi-tool routing.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> F5 generates rich application delivery telemetry that can be routed via Bindplane/Dynatrace OTel pipelines. F5 should partner on making BIG-IP and NGINX first-class telemetry sources in the Bindplane collector library, piping F5 observability into Dynatrace Davis AI for anomaly detection.
-            </div>
-            <a href="https://www.dynatrace.com/news/blog/dynatrace-to-acquire-bindplane-telemetry-pipeline/" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="dynatrace" style="border-left:4px solid #10b981;">
-            <div class="company-badge" style="background:#064e3b;color:#10b981;">Dynatrace</div>
-            <h3 class="card-title">Dynatrace Expands AI Coding Agent Monitoring via OpenTelemetry</h3>
-            <p class="card-summary">Dynatrace (April 30, 2026) extended OTel-based observability to Claude Code, Gemini CLI, Codex CLI, GitHub Copilot SDK, and OpenCode, providing unified visibility across sessions, tokens, costs, tool behavior, and runtime impact. Alerts monitor latency, failures, and token spend with MCP-based IDE access.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> As F5 customers deploy AI agents in production, Dynatrace's OTel-based AI agent observability creates a natural partnership — F5 application delivery infra serving AI agent traffic can be monitored end-to-end in Dynatrace, from the network edge to the AI agent runtime.
-            </div>
-            <a href="https://www.dynatrace.com/news/blog/dynatrace-expands-ai-coding-agent-monitoring/" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="ping-identity" style="border-left:4px solid #ef4444;">
-            <div class="company-badge" style="background:#7f1d1d;color:#ef4444;">Ping Identity</div>
-            <h3 class="card-title">PingFederate 13.0.3 and PingCentral 3.1 — OAuth and SAML Reliability Updates</h3>
-            <p class="card-summary">Ping Identity released PingFederate 13.0.3 (May 2026) fixing OAuth client management array handling and Admin API OAuth authentication failures. PingCentral 3.1 (April 2026) added configurable SAML SP signature policies during template creation, reducing federation deployment delays. Security hardening includes DOM-based XSS fixes and CVE mitigations.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> PingFederate is a common IdP that F5 APM integrates with for OAuth and SAML-based access control. Reliability fixes in PingFederate 13.0.x are relevant to F5 APM customers using Ping as their identity provider — F5 should validate BIG-IP APM compatibility with PingFederate 13.0.3 and surface joint configuration guidance.
-            </div>
-            <a href="https://docs.pingidentity.com/pingfederate/13.0/release_notes/pf_release_notes.html" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
-        <div class="card" id="illumio" style="border-left:4px solid #8b5cf6;">
-            <div class="company-badge" style="background:#4c1d95;color:#8b5cf6;">Illumio</div>
-            <h3 class="card-title">Illumio Featured as AI-Era Zero-Trust Micro-Segmentation Pillar in Enterprise Security Triad</h3>
-            <p class="card-summary">A May 27, 2026 ITWeb analysis positions Illumio's micro-segmentation as the essential internal containment pillar in an AI-era zero-trust triad (Appgate for access, Illumio for workload containment, FireMon for policy orchestration). Illumio halts autonomous lateral movement by AI-driven malware seeking high-value targets inside hybrid/multi-cloud networks.</p>
-            <div class="f5-box">
-                <span class="f5-label">F5 Relevance:</span> F5 BIG-IP and NGINX sit at the application delivery perimeter while Illumio micro-segments workloads behind them — a complementary east-west + north-south security architecture. F5 and Illumio together offer end-to-end zero-trust: F5 secures ingress/egress and API traffic while Illumio enforces workload-to-workload policy inside the network.
-            </div>
-            <a href="https://www.itweb.co.za/article/the-ai-era-triad-how-appgate-illumio-firemon-defend-the-enterprise-against-ai-driven-cyber-risks/GxwQD71DnwVvlPVo" class="card-link" target="_blank" rel="noopener">🔗 Read more →</a>
-        </div>
+    <div class="budget-banner">
+      ⚡ <strong>Budget Run</strong> — This briefing was generated using parallel web search (no subagents). Same coverage, ~92% lower cost. All findings sourced from indexed web results as of May 29, 2026.
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">15</div><div class="lbl">Companies</div></div>
+      <div class="stat"><div class="num">22</div><div class="lbl">Findings</div></div>
+      <div class="stat"><div class="num">5</div><div class="lbl">Active F5 Touches</div></div>
+      <div class="stat"><div class="num">⚡</div><div class="lbl">Budget Run</div></div>
+    </div>
+    
+    <div class="category-header" id="cat-certificate-lifecycle">Certificate Lifecycle</div>
+
+<div class="card" id="sectigo">
+  <div class="card-header" style="border-left: 4px solid #e63946;">
+    <div class="company-name">🔐 Sectigo</div>
+    <div class="finding-title">Sectigo Partners with F5 to Automate CLM in F5 ADSP</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">Sectigo announced a direct partnership with F5 (Apr 29, 2026) integrating Sectigo Certificate Manager (SCM) with F5 ADSP to automate SSL/TLS certificate issuance, deployment, renewal, and replacement within BIG-IP environments across on-prem, hybrid, cloud, and edge. Addresses six-month renewal cycles with future quantum-ready posture.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>Active F5 partnership — Sectigo CLM is now embedded in F5 ADSP. Follow-on opportunities include expanding PQC certificate support within BIG-IP and co-selling the joint CLM solution for F5 enterprise customers.</p>
+    </div>
+    <a class="source-link" href="https://www.businesswire.com/news/home/20260429734702/en/Sectigo-Partners-with-F5-to-Deliver-Automated-Certificate-Lifecycle-Management-Across-F5-ADSP" target="_blank">→ Source</a>
+  </div>
+</div>
+
+<div class="card" id="sectigo">
+  <div class="card-header" style="border-left: 4px solid #e63946;">
+    <div class="company-name">🔐 Sectigo</div>
+    <div class="finding-title">Sectigo Introduces Private PQC Certificates in SCM</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">Sectigo launched Private PQC (Apr 14, 2026) enabling post-quantum cryptography testing within existing SCM workflows — supporting ML-DSA-44, -65, -87 algorithms backed by Sectigo's hosted virtual HSM. No new infrastructure required for customers.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>With the active F5 ADSP integration, Sectigo's PQC certificates could extend to F5 BIG-IP TLS termination, positioning F5 as quantum-ready at the application delivery layer.</p>
+    </div>
+    <a class="source-link" href="https://www.sectigo.com/resource-library/private-pqc-in-sectigo-certificate-manager" target="_blank">→ Source</a>
+  </div>
+</div>
+
+<div class="card" id="digicert">
+  <div class="card-header" style="border-left: 4px solid #f4a261;">
+    <div class="company-name">🏛️ DigiCert</div>
+    <div class="finding-title">DigiCert Mandates CT Logging for All Public TLS Certificates — June 1, 2026</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">DigiCert mandates Certificate Transparency logging for all public TLS certificates starting June 1, 2026, aligned with Chrome Root Program requirements. CT opt-out removed from CertCentral. Customers needing non-CT certificates must migrate to Private PKI.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>Mandatory CT logging accelerates certificate automation demand — every F5 BIG-IP customer managing public TLS faces new compliance requirements. F5 ADSP with DigiCert CLM is a compelling automated solution.</p>
+    </div>
+    <a class="source-link" href="https://knowledge.digicert.com/alerts/digicert-enforce-ct-logging-for-all-public-tls-certificates" target="_blank">→ Source</a>
+  </div>
+</div>
+
+<div class="card" id="digicert">
+  <div class="card-header" style="border-left: 4px solid #f4a261;">
+    <div class="company-name">🏛️ DigiCert</div>
+    <div class="finding-title">DigiCert Named IDC MarketScape Leader in CLM</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">DigiCert's April 2026 analysis argues CLM has shifted from background task to critical operational risk. IDC MarketScape 2026 names DigiCert a CLM Leader. Emphasis on continuous lifecycle operations, multi-CA support, and PQC planning at scale.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>DigiCert's CLM leadership directly overlaps with F5's SSL/TLS termination stack. Deepening F5-DigiCert CLM integration — automated cert provisioning to BIG-IP and NGINX — is a high-value partnership lane.</p>
+    </div>
+    <a class="source-link" href="https://www.digicert.com/blog/clm-reaching-an-inflection-point" target="_blank">→ Source</a>
+  </div>
+</div>
+
+<div class="card" id="keyfactor">
+  <div class="card-header" style="border-left: 4px solid #2a9d8f;">
+    <div class="company-name">🔑 Keyfactor</div>
+    <div class="finding-title">Keyfactor Spring 2026: Composite PQC Certificates and AgileSec + CrowdStrike Connector</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">Keyfactor's Spring 2026 update introduces composite certificates (classical + quantum-safe) in EJBCA, expanded HSM support, DNS-based domain validation, and AgileSec connectors for MS SQL Server, CBOM, and CrowdStrike. New Signum + SignServer SaaS for quantum-ready signing.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>Keyfactor composite PQC certs address F5 BIG-IP TLS infrastructure needing quantum-safe upgrades. CrowdStrike connector creates a three-way opportunity: Keyfactor visibility + CrowdStrike telemetry + F5 application delivery.</p>
+    </div>
+    <a class="source-link" href="https://www.keyfactor.com/spring-update-2026/" target="_blank">→ Source</a>
+  </div>
+</div>
+
+<div class="card" id="keyfactor">
+  <div class="card-header" style="border-left: 4px solid #2a9d8f;">
+    <div class="company-name">🔑 Keyfactor</div>
+    <div class="finding-title">Keyfactor + IBM Consulting Launch Joint Quantum-Safe Transformation Solution</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">Keyfactor and IBM Consulting announced (Jan 22, 2026) a joint solution combining Keyfactor PKI/CLM automation with IBM's PQC delivery governance. Delivers end-to-end CBOM, risk scoring, and phased PQC modernization aligned to NIST and EU guidance.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>F5 can position its quantum-ready TLS termination as the application delivery component of IBM-Keyfactor PQC transformation programs — natural three-way GTM motion.</p>
+    </div>
+    <a class="source-link" href="https://www.keyfactor.com/press-releases/keyfactor-and-ibm-consulting-launch-joint-solution-to-accelerate-enterprise-quantum-safe-transformation/" target="_blank">→ Source</a>
+  </div>
+</div>
+
+<div class="card" id="encryption-consulting">
+  <div class="card-header" style="border-left: 4px solid #6a4c93;">
+    <div class="company-name">🔏 Encryption Consulting</div>
+    <div class="finding-title">CertSecure Manager v3.3 with Zero-Touch F5 Certificate Renewal</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">Encryption Consulting released CertSecure Manager v3.3 (May 19, 2026) with zero-touch TLS renewal explicitly supporting F5, Citrix NetScaler, Apache, Nginx, IIS, and 11 CA providers. Includes a Certificate Risk Profile Engine and ServiceNow/Splunk integration.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>CertSecure Manager v3.3 explicitly lists F5 as a supported platform for zero-touch renewal — direct CLM integration with F5 BIG-IP. F5 should engage Encryption Consulting to certify and co-market this integration.</p>
+    </div>
+    <a class="source-link" href="https://www.prnewswire.com/news-releases/with-200-day-certificate-limits-now-in-effect-encryption-consulting-releases-certsecure-manager-v3-3-with-zero-touch-renewal-for-every-major-enterprise-platform-302775874.html" target="_blank">→ Source</a>
+  </div>
+</div>
+<div class="category-header" id="cat-observability">Observability</div>
+
+<div class="card" id="dynatrace">
+  <div class="card-header" style="border-left: 4px solid #e63946;">
+    <div class="company-name">📊 Dynatrace</div>
+    <div class="finding-title">Dynatrace Acquires Bindplane for OpenTelemetry Telemetry Pipeline Control</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">Dynatrace completed the acquisition of Bindplane (by Apr 15, 2026), an OTel-based telemetry pipeline acting as a control plane at the data source. Enables standardizing, filtering, enriching, and routing telemetry across observability, security, and storage platforms.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>Bindplane collects telemetry from infrastructure including network devices like F5 BIG-IP. F5 should ensure BIG-IP telemetry is supported in Bindplane's receiver catalog, turning F5 devices into first-class OTel data sources for Dynatrace.</p>
+    </div>
+    <a class="source-link" href="https://www.dynatrace.com/news/blog/dynatrace-to-acquire-bindplane-telemetry-pipeline/" target="_blank">→ Source</a>
+  </div>
+</div>
+
+<div class="card" id="dynatrace">
+  <div class="card-header" style="border-left: 4px solid #e63946;">
+    <div class="company-name">📊 Dynatrace</div>
+    <div class="finding-title">Dynatrace Expands SNMP Network Device Auto-Discovery in Discovery & Coverage App</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">Dynatrace expanded its Discovery & Coverage app to provide end-to-end SNMP-based network device observability with automatic IPv4/IPv6 discovery. Auto-onboards device extensions, creates Network Availability Monitors, and centralizes device health in Dynatrace Grail.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>F5 BIG-IP is a common SNMP-manageable network device in enterprise deployments. Dynatrace's auto-discovery expansion is an opportunity to certify and promote F5 BIG-IP in Dynatrace's network coverage catalog.</p>
+    </div>
+    <a class="source-link" href="https://www.dynatrace.com/news/blog/accelerate-snmp-network-device-observability-with-dynatrace-discovery-coverage/" target="_blank">→ Source</a>
+  </div>
+</div>
+
+<div class="card" id="datadog">
+  <div class="card-header" style="border-left: 4px solid #f4a261;">
+    <div class="company-name">🐕 Datadog</div>
+    <div class="finding-title">Datadog Native OpenTelemetry Support in Kubernetes Explorer (Preview)</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">Datadog released (Preview, Mar 23, 2026) native OTel support in the Kubernetes Explorer, natively ingesting and semantically mapping OTel metrics to Datadog representations. Supports cross-origin data from mixed OTel/Datadog Agent pipelines with unified K8s views.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>F5 NGINX and BIG-IP are frequently deployed in Kubernetes environments. Datadog's native OTel K8s Explorer creates an opportunity to surface F5 proxy/load balancer telemetry in Datadog's K8s observability layer.</p>
+    </div>
+    <a class="source-link" href="https://www.datadoghq.com/blog/native-otel-kubernetes-explorer/" target="_blank">→ Source</a>
+  </div>
+</div>
+
+<div class="card" id="datadog">
+  <div class="card-header" style="border-left: 4px solid #f4a261;">
+    <div class="company-name">🐕 Datadog</div>
+    <div class="finding-title">Datadog Adds Juniper Mist Network Monitoring Integration</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">Datadog released a Juniper Mist integration (Preview, Mar 25, 2026) bringing device/client health, port and PoE telemetry, and traffic metrics into Datadog. Enables correlation between user experience, application, and infrastructure data.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>Datadog's expanding network device monitoring signals growing demand for unified network+application observability. F5 BIG-IP should be a prominent device in Datadog's NDM catalog.</p>
+    </div>
+    <a class="source-link" href="https://www.datadoghq.com/blog/juniper-mist-integration/" target="_blank">→ Source</a>
+  </div>
+</div>
+
+<div class="card" id="sumo-logic">
+  <div class="card-header" style="border-left: 4px solid #2a9d8f;">
+    <div class="company-name">📈 Sumo Logic</div>
+    <div class="finding-title">Sumo Logic Expands OpenTelemetry Collector: Docker, CDN, and Winget Support</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">Sumo Logic released multiple OTel Collector updates in 2026: Docker deployment support (Apr 10), CDN-based distribution for Ansible/Chef/Puppet (Feb 19), and Winget/Windows Package Manager support (May 4). Improves deployment flexibility and lifecycle management across enterprise environments.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>Sumo Logic's OTel Collector improvements expand telemetry collection reach across enterprise infrastructure including F5 BIG-IP. F5 should ensure BIG-IP telemetry feeds are well-supported in Sumo Logic's OTel pipeline.</p>
+    </div>
+    <a class="source-link" href="https://www.sumologic.com/help/release-notes-collector/2026/04/10/otel" target="_blank">→ Source</a>
+  </div>
+</div>
+<div class="category-header" id="cat-security">Security</div>
+
+<div class="card" id="crowdstrike">
+  <div class="card-header" style="border-left: 4px solid #e63946;">
+    <div class="company-name">🦅 CrowdStrike</div>
+    <div class="finding-title">CrowdStrike Integrates Claude AI Activity Monitoring into Falcon SIEM & Charlotte SOAR</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">CrowdStrike announced (May 21, 2026) integration of Claude Enterprise AI activity via Claude's Compliance API into Falcon Next-Gen SIEM and Charlotte Agentic SOAR. Provides centralized visibility, detection, and governance for enterprise AI usage alongside endpoints, identities, and cloud workloads.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>CrowdStrike's AI activity monitoring aligns with F5's AI traffic management portfolio. F5 secures the API/network layer that Claude and agentic AI workflows traverse — joint narrative around securing the full AI request lifecycle.</p>
+    </div>
+    <a class="source-link" href="https://www.crowdstrike.com/en-us/press-releases/crowdstrike-delivers-visibility-and-monitoring-for-claude-activity/" target="_blank">→ Source</a>
+  </div>
+</div>
+
+<div class="card" id="crowdstrike">
+  <div class="card-header" style="border-left: 4px solid #e63946;">
+    <div class="company-name">🦅 CrowdStrike</div>
+    <div class="finding-title">CrowdStrike Launches Project QuiltWorks — AI Vulnerability Coalition with OpenAI, IBM, Accenture</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">CrowdStrike launched Project QuiltWorks (Apr 23, 2026), an industry coalition to address frontier AI-driven vulnerability discovery in production code. Partners include Accenture, EY, IBM, Kroll, and OpenAI with AI-powered vulnerability scanning and adversary-informed risk prioritization.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>QuiltWorks positions CrowdStrike as a broad AI security orchestrator. F5's AI traffic management and WAF capabilities complement QuiltWorks — potential co-sell as the network security layer in the QuiltWorks ecosystem.</p>
+    </div>
+    <a class="source-link" href="https://ir.crowdstrike.com/news-releases/news-release-details/crowdstrike-launches-project-quiltworks-uniting-cybersecurity" target="_blank">→ Source</a>
+  </div>
+</div>
+
+<div class="card" id="illumio">
+  <div class="card-header" style="border-left: 4px solid #2a9d8f;">
+    <div class="company-name">🔵 Illumio</div>
+    <div class="finding-title">Illumio Launches Agentless Hybrid Visibility + Breach Containment Platform</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">Illumio announced (Feb 27, 2026) the first platform combining agentless visibility with breach containment for hybrid data centers and cloud. Illumio Insights ingests real-time firewall telemetry from Check Point and Fortinet to map traffic and detect lateral movement without agents.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>Illumio's agentless visibility through firewall telemetry should extend to F5 BIG-IP. F5 generates rich traffic flow data that could feed Illumio Insights for lateral movement detection — joint breach containment narrative for hybrid environments.</p>
+    </div>
+    <a class="source-link" href="https://www.illumio.com/news/illumio-delivers-agentless-visibility-and-breach-containment-for-hybrid-environments" target="_blank">→ Source</a>
+  </div>
+</div>
+
+<div class="card" id="illumio">
+  <div class="card-header" style="border-left: 4px solid #2a9d8f;">
+    <div class="company-name">🔵 Illumio</div>
+    <div class="finding-title">Illumio Network Posture Exposes Real-Time Lateral Movement Risk for Hybrid/OT Environments</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">Illumio announced (Apr 23, 2026) Network Posture under Illumio Insights to expose end-to-end lateral movement risk in real time, continuously analyzing against NIST CSF, PCI DSS, SOC 2, and DORA. Extends risk to OT via Armis and integrates with Fortinet and Check Point.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>F5 BIG-IP security policies as enforcement points within Illumio's zero trust segmentation creates a compelling joint DORA/PCI compliance narrative for financial sector customers.</p>
+    </div>
+    <a class="source-link" href="https://www.illumio.com/news/illumio-defines-breach-containment-for-ai-era" target="_blank">→ Source</a>
+  </div>
+</div>
+
+<div class="card" id="opswat">
+  <div class="card-header" style="border-left: 4px solid #6a4c93;">
+    <div class="company-name">🛡️ OPSWAT</div>
+    <div class="finding-title">OPSWAT + Emerson Global Reseller Agreement for OT Cybersecurity Patch Management</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">OPSWAT and Emerson announced a global reseller agreement (Apr 16, 2026) integrating OPSWAT's OT-safe patch management into Emerson's Ovation Automation Platform. MetaDefender Endpoint powers the security suite for power and water utilities across 800+ sites globally.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>OPSWAT's OT security expansion deepens reach into critical infrastructure where F5's application delivery stack is increasingly deployed. Partnership opportunity: securing OT/IT convergence points where F5 BIG-IP or NGINX proxies data between OT and enterprise networks.</p>
+    </div>
+    <a class="source-link" href="https://www.opswat.com/blog/opswat-and-emerson-to-strengthen-cybersecurity-for-critical-infrastructure-operators-with-global-reseller-agreement" target="_blank">→ Source</a>
+  </div>
+</div>
+<div class="category-header" id="cat-identity">Identity</div>
+
+<div class="card" id="ping-identity">
+  <div class="card-header" style="border-left: 4px solid #e63946;">
+    <div class="company-name">🪪 Ping Identity</div>
+    <div class="finding-title">Ping Identity Redefines Identity Control Plane for Agentic Enterprise</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">Ping Identity announced (May 27, 2026) programmable identity via MCP/CLI/APIs, Agent Discovery and Governance for AI agents as first-class identities, and Privileged Access for Desktop Agents with just-in-time access without secret exposure.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>Ping's agentic identity governance intersects with F5's AI traffic management and zero trust positioning. As AI agents traverse F5's application delivery infrastructure, Ping identity controls complement F5 inline policy enforcement — joint narrative for securing AI agent traffic.</p>
+    </div>
+    <a class="source-link" href="https://www.prnewswire.com/news-releases/ping-identity-redefines-the-identity-control-plane-for-the-agentic-enterprise-302782107.html" target="_blank">→ Source</a>
+  </div>
+</div>
+
+<div class="card" id="ping-identity">
+  <div class="card-header" style="border-left: 4px solid #e63946;">
+    <div class="company-name">🪪 Ping Identity</div>
+    <div class="finding-title">Ping Identity Wins 2026 Google Cloud Security Partner of the Year for IAM</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">Ping Identity was named 2026 Google Cloud Security Partner of the Year for IAM (Apr 22, 2026), recognized for passwordless access, device/browser trust, and identity-first controls for AI-driven interactions within Google Cloud, Workspace, and Chrome Enterprise.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>Ping's deep GCP IAM integration combined with F5's growing GCP presence creates a differentiated joint cloud security stack for enterprise GCP deployments.</p>
+    </div>
+    <a class="source-link" href="https://press.pingidentity.com/2026-04-22-Ping-Identity-Wins-2026-Google-Cloud-Security-Partner-of-the-Year-Award-for-Identity-Access-Management" target="_blank">→ Source</a>
+  </div>
+</div>
+<div class="category-header" id="cat-storage--infrastructure">Storage & Infrastructure</div>
+
+<div class="card" id="scality">
+  <div class="card-header" style="border-left: 4px solid #2a9d8f;">
+    <div class="company-name">💾 Scality</div>
+    <div class="finding-title">Scality Launches ADI — Autonomous Data Infrastructure for AI at Exabyte Scale</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">Scality launched ADI (May 12, 2026), an AI-driven data platform with Guardian autonomous operations engine. Supports NVMe, HDD, tape, and cloud with RDMA-accelerated KV cache for GPU-scale AI workloads. Emphasizes CORE5 cyber resilience framework and sovereign control.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>Scality's RDMA-accelerated KV cache targets the same GPU-scale inference pipelines F5 is optimizing AI traffic for. Partnership opportunity: F5 load balancing AI inference traffic into Scality ADI storage clusters.</p>
+    </div>
+    <a class="source-link" href="https://www.scality.com/press-releases/scality-adi-launch/" target="_blank">→ Source</a>
+  </div>
+</div>
+
+<div class="card" id="netapp">
+  <div class="card-header" style="border-left: 4px solid #f4a261;">
+    <div class="company-name">📦 NetApp</div>
+    <div class="finding-title">NetApp StorageGRID 12.0: Cross-Grid S3 Object Lock Replication and AssumeRole API</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">StorageGRID 12.0 introduces cross-grid replication between S3 Object Lock-enabled buckets, an S3 trust policy supporting the AssumeRole API for short-term credentials, and improved Cassandra metadata efficiency. Targets enterprise AI/ML workloads and regulated environments.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>StorageGRID's expanded S3 compatibility strengthens AI data pipeline use. F5 opportunity: load balancing and securing S3 API traffic to StorageGRID clusters using BIG-IP, with zero trust policy enforcement at the S3 access layer.</p>
+    </div>
+    <a class="source-link" href="https://docs.netapp.com/us-en/storagegrid/release-notes/whats-new.html" target="_blank">→ Source</a>
+  </div>
+</div>
+<div class="category-header" id="cat-ddos--resilience">DDoS & Resilience</div>
+
+<div class="card" id="mazebolt">
+  <div class="card-header" style="border-left: 4px solid #e63946;">
+    <div class="company-name">🌀 MazeBolt</div>
+    <div class="finding-title">MazeBolt RADAR Deployed at Greek Financial Institution for Continuous AI-Powered DDoS Validation</div>
+  </div>
+  <div class="card-body">
+    <p class="summary-text">MazeBolt announced (Apr 21, 2026) deployment of RADAR at a major Greek financial institution via Pylones Hellas. RADAR provides autonomous, non-disruptive DDoS simulation using SmartCycle AI to generate vulnerability datasets for prioritized remediation — addressing that 86% of enterprises test DDoS defenses only yearly or less.</p>
+    <div class="relevance-box">
+      <div class="relevance-label">F5 RELEVANCE</div>
+      <p>MazeBolt RADAR validates the same application surfaces protected by F5 DDoS mitigation (BIG-IP, Silverline). A joint 'test and protect' offering for financial sector customers would pair MazeBolt continuous validation with F5 DDoS protection.</p>
+    </div>
+    <a class="source-link" href="https://mazebolt.com/press/greek-financial-leader-enhances-ddos-defense-with-mazebolts-continuous-validation-platform" target="_blank">→ Source</a>
+  </div>
+</div>
+
+    
+    <div class="footer">
+      <p>F5 Partner Research Agent &nbsp;·&nbsp; Budget Run via Parallel Web Search &nbsp;·&nbsp; May 29, 2026</p>
+      <p style="margin-top:6px;"><a href="https://sgorman50.github.io/f5-partner-research/">→ View Archive</a></p>
+      <p style="margin-top:6px;color:#555;">For internal F5 use only. Findings sourced from public web index.</p>
+    </div>
   </main>
 </div>
-<div class="footer">
-  <p>F5 Partner Research Agent &nbsp;·&nbsp; May 28, 2026 &nbsp;·&nbsp; ⚡ Budget Run (Web Search)</p>
-  <p style="margin-top:6px;"><a href="https://sgorman50.github.io/f5-partner-research/">sgorman50.github.io/f5-partner-research</a></p>
-</div>
+
 </body>
 </html>
