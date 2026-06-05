@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F5 Partner Research — June 5, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1117; color: #c9d1e0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; min-height: 100vh; }
+  a { color: #4f7fff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Sticky header */
+  .site-header { position: sticky; top: 0; z-index: 100; background: #0f1117; border-bottom: 1px solid #1f2335; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; }
+  .site-header h1 { font-size: 16px; font-weight: 700; color: #e2e8f0; letter-spacing: 0.3px; }
+  .header-meta { font-size: 12px; color: #4a5568; }
+  .budget-pill { background: #2d2a1a; border: 1px solid #78600a; color: #d4a017; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-left: 12px; }
+
+  /* Layout */
+  .layout { display: flex; max-width: 1200px; margin: 0 auto; padding: 32px 24px; gap: 32px; }
+  
+  /* Sidebar */
+  .sidebar { width: 200px; flex-shrink: 0; position: sticky; top: 65px; align-self: flex-start; max-height: calc(100vh - 80px); overflow-y: auto; }
+  .sidebar-section { margin-bottom: 24px; }
+  .sidebar-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #4a5568; margin-bottom: 8px; }
+  .nav-link { display: block; font-size: 13px; color: #7f8ea3; padding: 5px 8px; border-radius: 5px; margin-bottom: 2px; transition: background 0.15s, color 0.15s; }
+  .nav-link:hover { background: #1a1d27; color: #e2e8f0; text-decoration: none; }
+  .nav-link.muted { color: #3d4a5c; font-style: italic; }
+  .archive-link { display: block; font-size: 12px; color: #4f7fff; padding: 4px 8px; border-radius: 4px; margin-bottom: 2px; }
+
+  /* Stats bar */
+  .stats-bar { display: flex; gap: 12px; margin-bottom: 28px; }
+  .stat-card { background: #1a1d27; border: 1px solid #1f2335; border-radius: 8px; padding: 14px 20px; flex: 1; text-align: center; }
+  .stat-num { font-size: 26px; font-weight: 700; color: #4f7fff; }
+  .stat-label { font-size: 10px; color: #4a5568; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 3px; }
+
+  /* Main content */
+  .main { flex: 1; min-width: 0; }
+  .run-header { margin-bottom: 24px; }
+  .run-date { font-size: 24px; font-weight: 700; color: #e2e8f0; margin-bottom: 4px; }
+  .run-subtitle { font-size: 14px; color: #4a5568; }
+
+  /* Cards */
+  .company-card { background: #1a1d27; border: 1px solid #1f2335; border-left: 4px solid #4f7fff; border-radius: 8px; padding: 22px 26px; margin-bottom: 16px; }
+  .company-card.no-news { border-left-color: #2a3045; opacity: 0.6; }
+  .card-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .company-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #4f7fff; background: #0e1a3a; padding: 3px 8px; border-radius: 4px; }
+  .company-badge.muted { color: #3d4a5c; background: #12151e; }
+  .pub-date { font-size: 11px; color: #3d4a5c; }
+  .finding-title { font-size: 15px; font-weight: 600; color: #e2e8f0; line-height: 1.4; margin-bottom: 10px; }
+  .finding-title a { color: #e2e8f0; }
+  .finding-title a:hover { color: #4f7fff; }
+  .finding-title.muted { color: #3d4a5c; font-style: italic; font-weight: 400; }
+  .summary { font-size: 13px; color: #7f8ea3; line-height: 1.65; margin-bottom: 12px; }
+  .summary.muted { color: #2a3045; }
+  .relevance-box { background: #0e1a3a; border-left: 3px solid #4f7fff; border-radius: 0 6px 6px 0; padding: 10px 14px; margin-top: 12px; }
+  .relevance-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #4f7fff; margin-bottom: 4px; }
+  .relevance-box p { font-size: 12px; color: #6b9ddb; line-height: 1.55; }
+
+  /* Section divider */
+  .section-divider { border: none; border-top: 1px solid #1f2335; margin: 28px 0 20px; }
+  .section-heading { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #3d4a5c; margin-bottom: 16px; }
+
+  /* Footer */
+  .site-footer { text-align: center; padding: 32px 24px; font-size: 12px; color: #2a3045; border-top: 1px solid #1f2335; margin-top: 48px; }
+
+  @media (max-width: 768px) {
+    .layout { flex-direction: column; padding: 16px; }
+    .sidebar { width: 100%; position: static; max-height: none; }
+    .stats-bar { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>F5 Partner Research <span class="budget-pill">⚡ Budget Run</span></h1>
+  <span class="header-meta">Daily Briefing &nbsp;·&nbsp; June 5, 2026</span>
+</header>
+
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Jump To</div>
+      <a href="#company-arista" class="nav-link ">Arista</a>
+<a href="#company-cisco" class="nav-link ">Cisco</a>
+<a href="#company-crowdstrike" class="nav-link ">CrowdStrike</a>
+<a href="#company-dell" class="nav-link ">Dell</a>
+<a href="#company-equinix" class="nav-link ">Equinix</a>
+<a href="#company-intel" class="nav-link ">Intel</a>
+<a href="#company-minio" class="nav-link ">MinIO</a>
+<a href="#company-nvidia" class="nav-link ">Nvidia</a>
+<a href="#company-redhat" class="nav-link ">Red Hat</a>
+<a href="#company-ansible" class="nav-link muted">Ansible</a>
+<a href="#company-epic" class="nav-link muted">Epic</a>
+<a href="#company-hpegreenlake" class="nav-link muted">HPE GreenLake</a>
+<a href="#company-netapp" class="nav-link muted">NetApp</a>
+<a href="#company-nutanix" class="nav-link muted">Nutanix</a>
+<a href="#company-scality" class="nav-link muted">Scality</a>
+
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Recent Runs</div>
+      <a class="archive-link" href="/f5-partner-research/archive/2026-06-05.html">June 5, 2026</a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="run-header">
+      <div class="run-date">June 5, 2026</div>
+      <div class="run-subtitle">15 companies monitored &nbsp;·&nbsp; 7-day recency window &nbsp;·&nbsp; ⚡ Web-search budget run</div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+      <div class="stat-card"><div class="stat-num">9</div><div class="stat-label">Findings</div></div>
+      <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">No Recent News</div></div>
+      <div class="stat-card"><div class="stat-num">15</div><div class="stat-label">Companies</div></div>
+      <div class="stat-card"><div class="stat-num">7</div><div class="stat-label">Day Window</div></div>
+    </div>
+
+    <!-- News findings -->
+    
+        <div class="company-card" id="company-arista">
+          <div class="card-meta">
+            <span class="company-badge">Arista</span>
+            <span class="pub-date">June 3, 2026</span>
+          </div>
+          <h3 class="finding-title"><a href="https://seekingalpha.com/article/4911543-arista-networks-inc-anet-presents-at-bank-of-america-2026-global-technology-conference" target="_blank">Arista CEO Raises FY2026 Growth Guidance to 28% at BofA Global Technology Conference</a></h3>
+          <p class="summary">Arista Networks CEO Jayshree Ullal and President Todd Nightingale presented at the Bank of America 2026 Global Technology Conference on June 3, 2026. The company raised its full-year guidance from 25% to 28% growth, crediting hyperscaler spending cycles and architectural shifts driven by AI networking deployments. The discussion emphasized Arista's sustained value proposition in AI-era networking and its governance of large-scale customer technology transitions.</p>
+          <div class="relevance-box">
+            <div class="relevance-label">⚡ F5 Relevance</div>
+            <p>Arista's AI networking momentum and hyperscaler-driven architecture shifts are directly adjacent to F5's AI traffic management and multi-cloud networking portfolio — a strong signal for joint solution conversations around AI fabric connectivity and load balancing at scale.</p>
+          </div>
+        </div>
+        <div class="company-card" id="company-cisco">
+          <div class="card-meta">
+            <span class="company-badge">Cisco</span>
+            <span class="pub-date">June 2, 2026</span>
+          </div>
+          <h3 class="finding-title"><a href="https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m06/cisco-unveils-agentic-platform-for-operating-and-defending-critical-it-infrastructure.html" target="_blank">Cisco Unveils Agentic Cloud Control Platform for Operating and Defending Critical IT Infrastructure</a></h3>
+          <p class="summary">Announced at Cisco Live US on June 2, 2026, Cisco Cloud Control is a unified agentic operations platform spanning networking, security, compute, observability, and collaboration. It introduces AgenticOps with real-time runtime defense (Live Protect), Quantum Ready Assessments, and an open-sourced Foundry Security Spec. A companion announcement, Cisco Multicloud Fabric, delivers managed site-to-cloud and cloud-to-cloud connectivity with zero trust and embedded ThousandEyes monitoring.</p>
+          <div class="relevance-box">
+            <div class="relevance-label">⚡ F5 Relevance</div>
+            <p>Cisco's AgenticOps, zero-trust policy enforcement, and Quantum Ready Assessments are directly relevant to F5's AI traffic management, zero trust, and post-quantum cryptography initiatives — rich co-positioning opportunities around securing agentic AI infrastructure and application-layer policy.</p>
+          </div>
+        </div>
+        <div class="company-card" id="company-crowdstrike">
+          <div class="card-meta">
+            <span class="company-badge">CrowdStrike</span>
+            <span class="pub-date">June 2026</span>
+          </div>
+          <h3 class="finding-title"><a href="https://www.crowdstrike.com/en-us/blog/crowdstrike-nvidia-bring-enterprise-grade-security-to-the-ai-factory/" target="_blank">CrowdStrike and NVIDIA Bring Enterprise-Grade Security to AI Factory with BlueField-4 STX Integration</a></h3>
+          <p class="summary">CrowdStrike announced a strategic collaboration with NVIDIA in June 2026 to secure AI infrastructure at the silicon level, introducing NVIDIA Vera BlueField-4 STX with DOCA Vault, Argus, and Flow for real-time visibility into agent behavior, data access, and network activity. Falcon AIDR (AI Detection and Response) was simultaneously announced for securing AI agents, MCP servers, API gateways, and cloud environments at runtime.</p>
+          <div class="relevance-box">
+            <div class="relevance-label">⚡ F5 Relevance</div>
+            <p>CrowdStrike's focus on securing MCP servers, API gateways, and agentic AI workloads overlaps directly with F5's API security and WAF portfolio — an opportunity to explore joint threat-intelligence-enriched API protection or co-sell messaging for AI application security.</p>
+          </div>
+        </div>
+        <div class="company-card" id="company-dell">
+          <div class="card-meta">
+            <span class="company-badge">Dell</span>
+            <span class="pub-date">June 1, 2026</span>
+          </div>
+          <h3 class="finding-title"><a href="https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2026~06~dell-ai-factory-with-nvidia-adds-dell-poweredge-servers-with-nvidia-vera-cpus-to-support-agentic-ai-at-scale.htm" target="_blank">Dell AI Factory Adds PowerEdge Servers with NVIDIA Vera CPUs and Expanded AI Data Platform for Agentic AI</a></h3>
+          <p class="summary">Announced on June 1, 2026, Dell expanded the AI Factory with NVIDIA by adding PowerEdge R9822 and M9822 servers with NVIDIA Vera CPUs for agentic AI, analytics, and HPC workloads. The AI Data Platform gained NVIDIA STX-enabled AI-native storage and a Starburst-powered Data Analytics Engine delivering up to 3× faster query throughput. Security integrations include CrowdStrike Falcon and Confidential Compute with Fortanix to protect model weights and data in use.</p>
+          <div class="relevance-box">
+            <div class="relevance-label">⚡ F5 Relevance</div>
+            <p>Dell's AI Factory expansion — especially NVIDIA STX-enabled AI-native storage and agentic AI infrastructure — aligns with F5's AI inference traffic management and S3/RDMA data flow interests; Confidential Compute is relevant to F5's zero-trust and application security discussions.</p>
+          </div>
+        </div>
+        <div class="company-card" id="company-equinix">
+          <div class="card-meta">
+            <span class="company-badge">Equinix</span>
+            <span class="pub-date">June 3, 2026</span>
+          </div>
+          <h3 class="finding-title"><a href="https://blog.equinix.com/blog/2026/06/03/how-verizon-and-equinix-are-building-the-network-foundation-for-enterprise-ai/" target="_blank">Verizon and Equinix Launch Programmable Network Foundation for Enterprise AI Connectivity</a></h3>
+          <p class="summary">Verizon and Equinix announced a joint programmable network solution on June 3, 2026 that automates near-real-time provisioning of connections across cloud, on-premises, and AI service providers via Equinix Fabric and Verizon APIs. Customers can connect to thousands of cloud ecosystems in days rather than weeks, with initial rollout across four major U.S. metros, building on Verizon AI Connect and Equinix's Distributed AI Hub.</p>
+          <div class="relevance-box">
+            <div class="relevance-label">⚡ F5 Relevance</div>
+            <p>Equinix's automated, programmable fabric for AI workloads directly intersects with F5's multi-cloud networking and application delivery — F5 could position BIG-IP or NGINX as the application-layer intelligence layer on top of Equinix/Verizon's AI network fabric.</p>
+          </div>
+        </div>
+        <div class="company-card" id="company-intel">
+          <div class="card-meta">
+            <span class="company-badge">Intel</span>
+            <span class="pub-date">June 3, 2026</span>
+          </div>
+          <h3 class="finding-title"><a href="https://newsroom.intel.com/data-center/intel-introduces-ethernet-e835-controllers-network-adapters" target="_blank">Intel Launches Ethernet E835 Controllers (200 GbE) and Xeon 6+ Processors with Agentic AI Focus</a></h3>
+          <p class="summary">Intel announced on June 3, 2026 the Ethernet E835 Controllers and Network Adapters (800 Series), delivering up to 200 GbE for high-density AI, cloud, edge, and Telco deployments. Security features include hardware Root of Trust, SPDM 1.2 attestation, and FIPS 140-3 Level 1 compliant cryptographic modules for zero-trust architectures. New Xeon 6+ processors and the Crescent Island GPU were also unveiled targeting agentic AI inference workloads.</p>
+          <div class="relevance-box">
+            <div class="relevance-label">⚡ F5 Relevance</div>
+            <p>Intel's 200 GbE E835 with hardware-rooted zero-trust security aligns directly with F5's high-speed networking and PKI/certificate lifecycle management interests — the FIPS 140-3 and SPDM attestation features are adjacent to F5's post-quantum cryptography and zero-trust portfolio.</p>
+          </div>
+        </div>
+        <div class="company-card" id="company-minio">
+          <div class="card-meta">
+            <span class="company-badge">MinIO</span>
+            <span class="pub-date">June 1, 2026</span>
+          </div>
+          <h3 class="finding-title"><a href="https://www.hpcwire.com/off-the-wire/minio-adds-nvidia-vera-bluefield-4-support-to-secure-ai-data-pipelines/" target="_blank">MinIO Adds NVIDIA Vera BlueField-4 STX Support to Secure AI Data Pipelines with Silicon-Level Protection</a></h3>
+          <p class="summary">MinIO announced on June 1, 2026 support for NVIDIA Vera BlueField-4 STX and DOCA Vault, integrating silicon-level security into its AIStor S3-compatible object storage stack. Together with MemKV (a KV cache context memory store using RDMA), MinIO delivers a trusted data path from persistent S3 storage to GPU context memory, covering model weights, training datasets, inference context, and agent memory.</p>
+          <div class="relevance-box">
+            <div class="relevance-label">⚡ F5 Relevance</div>
+            <p>MinIO's secured S3-over-RDMA path from object storage to GPU via BlueField-4 is highly relevant to F5's S3 data flow and AI inference interests — F5 could position its API gateway and traffic management capabilities to secure and orchestrate these high-speed AI data pipeline flows.</p>
+          </div>
+        </div>
+        <div class="company-card" id="company-nvidia">
+          <div class="card-meta">
+            <span class="company-badge">Nvidia</span>
+            <span class="pub-date">June 4, 2026</span>
+          </div>
+          <h3 class="finding-title"><a href="https://www.devdiscourse.com/article/business/3930008-nvidia-and-tsmc-revolutionize-ai-data-centers-with-cutting-edge-cpo-switches" target="_blank">NVIDIA and TSMC Begin Shipping Spectrum-X Co-Packaged Optics Switches for AI Data Centers (400 Tbps)</a></h3>
+          <p class="summary">NVIDIA, in collaboration with TSMC, announced and began shipping next-generation Spectrum-X co-packaged optics (CPO) switches on June 4, 2026, delivering up to 400 Tbps throughput while reducing power consumption and transmission distance. The Vera Rubin platform simultaneously ramped into full production, featuring CPO-based 200 Gb/s SerDes Ethernet photonics, BlueField-4 DPUs with Confidential Computing, and a unified agentic AI stack with Microsoft.</p>
+          <div class="relevance-box">
+            <div class="relevance-label">⚡ F5 Relevance</div>
+            <p>NVIDIA's 400 Tbps CPO switch fabric and Vera Rubin production ramp represent the AI networking substrate on which F5's traffic management and API gateway solutions will increasingly operate — directly touching F5's High Speed Ethernet and UltraEthernet strategy.</p>
+          </div>
+        </div>
+        <div class="company-card" id="company-redhat">
+          <div class="card-meta">
+            <span class="company-badge">Red Hat</span>
+            <span class="pub-date">June 1, 2026</span>
+          </div>
+          <h3 class="finding-title"><a href="https://access.redhat.com/security/vulnerabilities/RHSB-2026-006" target="_blank">Red Hat Discloses Supply Chain Compromise of @redhat-cloud-services npm Packages (RHSB-2026-006)</a></h3>
+          <p class="summary">On June 1, 2026, Red Hat disclosed a supply chain security incident (RHSB-2026-006) affecting npm packages under the @redhat-cloud-services namespace, linked to a compromised GitHub account. The incident affected frontend JavaScript libraries in the Hybrid Cloud Console; Red Hat confirmed no production releases were published during the compromise window. Affected package versions were removed from npm, and all builds are being validated.</p>
+          <div class="relevance-box">
+            <div class="relevance-label">⚡ F5 Relevance</div>
+            <p>Supply chain security incidents affecting cloud-service packages are directly relevant to F5's application and API security portfolio — F5's WAF, API gateway, and threat detection solutions can be positioned as a defense-in-depth layer for organizations consuming Red Hat cloud services.</p>
+          </div>
+        </div>
+
+    <!-- No news section -->
+    <hr class="section-divider">
+    <div class="section-heading">No recent news (last 7 days)</div>
+    
+        <div class="company-card no-news" id="company-ansible">
+          <div class="card-meta">
+            <span class="company-badge muted">Ansible</span>
+          </div>
+          <h3 class="finding-title muted">No recent interesting news</h3>
+          <p class="summary muted">No content matching the research criteria was found within the last 7 days.</p>
+        </div>
+        <div class="company-card no-news" id="company-epic">
+          <div class="card-meta">
+            <span class="company-badge muted">Epic</span>
+          </div>
+          <h3 class="finding-title muted">No recent interesting news</h3>
+          <p class="summary muted">No content matching the research criteria was found within the last 7 days.</p>
+        </div>
+        <div class="company-card no-news" id="company-hpegreenlake">
+          <div class="card-meta">
+            <span class="company-badge muted">HPE GreenLake</span>
+          </div>
+          <h3 class="finding-title muted">No recent interesting news</h3>
+          <p class="summary muted">No content matching the research criteria was found within the last 7 days.</p>
+        </div>
+        <div class="company-card no-news" id="company-netapp">
+          <div class="card-meta">
+            <span class="company-badge muted">NetApp</span>
+          </div>
+          <h3 class="finding-title muted">No recent interesting news</h3>
+          <p class="summary muted">No content matching the research criteria was found within the last 7 days.</p>
+        </div>
+        <div class="company-card no-news" id="company-nutanix">
+          <div class="card-meta">
+            <span class="company-badge muted">Nutanix</span>
+          </div>
+          <h3 class="finding-title muted">No recent interesting news</h3>
+          <p class="summary muted">No content matching the research criteria was found within the last 7 days.</p>
+        </div>
+        <div class="company-card no-news" id="company-scality">
+          <div class="card-meta">
+            <span class="company-badge muted">Scality</span>
+          </div>
+          <h3 class="finding-title muted">No recent interesting news</h3>
+          <p class="summary muted">No content matching the research criteria was found within the last 7 days.</p>
+        </div>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  F5 Partner Research Agent &nbsp;·&nbsp; June 5, 2026 &nbsp;·&nbsp; ⚡ Budget / Web-Search Run &nbsp;·&nbsp; Internal use only
+</footer>
+
+</body>
+</html>
