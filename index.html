@@ -2,132 +2,257 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>F5 Partner Research — Tuesday, June 10, 2026</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>F5 Partner Research — June 11, 2026</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0f1117; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; min-height: 100vh; }
-  a { color: #4f7fff; }
-  .layout { display: flex; min-height: 100vh; }
-  .sidebar { width: 220px; min-width: 220px; background: #13151f; border-right: 1px solid #1e2130; padding: 24px 16px; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
-  .main { flex: 1; padding: 32px 40px; max-width: 860px; }
-  .sticky-header { position: sticky; top: 0; background: #0f1117; border-bottom: 1px solid #1e2130; padding: 14px 40px; z-index: 10; display: flex; align-items: center; justify-content: space-between; }
-  .stats-bar { display: flex; gap: 12px; margin: 20px 0 28px 0; flex-wrap: wrap; }
-  .stat { background: #1a1d27; border-radius: 8px; padding: 12px 20px; text-align: center; }
-  .stat-num { font-size: 26px; font-weight: 700; color: #4f7fff; }
-  .stat-label { font-size: 11px; color: #64748b; margin-top: 2px; }
-  .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #4f7fff; margin: 28px 0 14px 0; }
-  @media (max-width: 700px) {
-    .layout { flex-direction: column; }
-    .sidebar { width: 100%; height: auto; position: relative; }
-    .main { padding: 20px; }
-    .sticky-header { padding: 12px 20px; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0f1117;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh}
+  a{color:#60a5fa;text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .sticky-header{position:sticky;top:0;z-index:100;background:#0f1117;border-bottom:1px solid #1e2130;padding:12px 24px;display:flex;align-items:center;gap:16px}
+  .sticky-header img{height:36px}
+  .sticky-header .run-date{font-size:13px;color:#94a3b8;margin-left:auto}
+
+  .layout{display:flex;gap:0}
+  .sidebar{width:220px;min-width:220px;padding:24px 16px;border-right:1px solid #1e2130;position:sticky;top:61px;height:calc(100vh - 61px);overflow-y:auto}
+  .sidebar h4{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:#475569;margin-bottom:10px}
+  .sidebar .run-link{display:block;font-size:12px;color:#60a5fa;padding:4px 0;border-bottom:1px solid #1e2130}
+  .jump-link{display:block;font-size:12px;color:#94a3b8;padding:4px 6px;border-radius:4px;margin-bottom:2px}
+  .jump-link:hover{background:#1a1d27;color:#e2e8f0;text-decoration:none}
+
+  .main{flex:1;padding:28px 32px;max-width:800px}
+  .page-title{font-size:22px;font-weight:700;color:#f1f5f9;margin-bottom:4px}
+  .page-sub{font-size:13px;color:#64748b;margin-bottom:20px}
+
+  .stats{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+  .stat{background:#1a1d27;border:1px solid #2a2d3e;border-radius:8px;padding:12px 20px;text-align:center;min-width:90px}
+  .stat-n{font-size:24px;font-weight:700;color:#4f7fff}
+  .stat-label{font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+
+  .section-title{font-size:11px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.8px;margin:0 0 14px 0;padding-bottom:6px;border-bottom:1px solid #1e2130}
+
+  .card{background:#1a1d27;border-radius:8px;padding:20px 22px;margin-bottom:16px}
+  .card-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .tag{color:#fff;font-size:11px;font-weight:700;padding:3px 9px;border-radius:12px;letter-spacing:.3px}
+  .date{font-size:12px;color:#64748b}
+  .card-title{font-size:15px;font-weight:700;color:#f1f5f9;margin-bottom:10px;line-height:1.4}
+  .card-body{font-size:13px;color:#94a3b8;line-height:1.7;margin-bottom:10px}
+  .card-link{font-size:12px;color:#60a5fa}
+  .f5box{background:#1e2d4a;border-left:3px solid #4f7fff;border-radius:4px;padding:10px 14px;margin-top:14px}
+  .f5label{font-size:10px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px}
+  .f5text{font-size:12px;color:#93c5fd;line-height:1.5}
+
+  .no-news-card{opacity:.55;border-left:3px solid #334155}
+  .no-news-tag{background:#334155}
+  .no-news-text{font-size:12px;color:#64748b;font-style:italic}
+
+  .footer{border-top:1px solid #1e2130;margin-top:32px;padding-top:16px;text-align:center;font-size:12px;color:#475569}
+
+  @media(max-width:640px){
+    .sidebar{display:none}
+    .main{padding:16px}
   }
 </style>
 </head>
 <body>
 
-<div style="position:sticky;top:0;background:#13151f;border-bottom:1px solid #1e2130;padding:12px 32px;z-index:20;display:flex;align-items:center;justify-content:space-between;">
-  <div style="display:flex;align-items:center;gap:12px;">
-    <img src="assets/header.png" style="height:36px;border-radius:4px;" alt="Partner Intelligence">
-    <span style="font-size:14px;font-weight:600;color:#e2e8f0;">F5 Partner Intelligence</span>
-  </div>
-  <span style="font-size:12px;color:#64748b;">Tuesday, June 10, 2026</span>
+<div class="sticky-header">
+  <img src="assets/header.png" alt="Partner Intelligence">
+  <span style="font-size:14px;font-weight:600;color:#e2e8f0;">F5 Partner Research</span>
+  <span class="run-date">June 11, 2026 &bull; 8:05 AM ET</span>
 </div>
 
 <div class="layout">
+  <aside class="sidebar">
+    <h4>Recent Runs</h4>
+    <a class="run-link" href="archive/2026-06-11.html">June 11, 2026</a>
+    <a class="run-link" href="archive/2026-06-10.html">June 10, 2026</a>
+    <a class="run-link" href="archive/2026-06-09.html">June 9, 2026</a>
+    <a class="run-link" href="archive/2026-06-08.html">June 8, 2026</a>
+    <a class="run-link" href="archive/2026-06-07.html">June 7, 2026</a>
 
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#4f7fff;margin-bottom:10px;">Recent Runs</p>
-    <a href="archive/2026-06-10.html" style="display:block;padding:6px 10px;border-radius:5px;color:#94a3b8;font-size:12px;text-decoration:none;background:#1a1d27;margin-bottom:4px;">2026-06-10</a>
-    <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#4f7fff;margin:20px 0 10px 0;">Jump To</p>
-    <a href="#arista" style="display:block;padding:5px 10px;border-radius:5px;color:#94a3b8;font-size:12px;text-decoration:none;hover:background:#1a1d27;">Arista</a><a href="#crowdstrike" style="display:block;padding:5px 10px;border-radius:5px;color:#94a3b8;font-size:12px;text-decoration:none;hover:background:#1a1d27;">CrowdStrike</a><a href="#minio" style="display:block;padding:5px 10px;border-radius:5px;color:#94a3b8;font-size:12px;text-decoration:none;hover:background:#1a1d27;">MinIO</a>
-  </div>
+    <h4 style="margin-top:20px">Jump To</h4>
+    <a href="#co-arista" class="jump-link">Arista</a><a href="#co-crowdstrike" class="jump-link">CrowdStrike</a><a href="#co-crowdstrike" class="jump-link">CrowdStrike</a><a href="#co-crowdstrike" class="jump-link">CrowdStrike</a><a href="#co-minio" class="jump-link">MinIO</a><a href="#co-minio" class="jump-link">MinIO</a><a href="#co-red-hat" class="jump-link">Red Hat</a>
+  </aside>
 
-  <!-- Main Content -->
-  <div class="main">
-    <h1 style="font-size:22px;font-weight:700;color:#e2e8f0;margin-bottom:4px;">Top Partner News Discovered</h1>
-    <p style="font-size:14px;color:#64748b;margin-bottom:0;">Tuesday, June 10, 2026</p>
+  <main class="main">
+    <div class="page-title">Top Partner News Discovered</div>
+    <div class="page-sub">Wednesday, June 11, 2026 &bull; 15 companies monitored</div>
 
-    <div class="stats-bar">
-      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Findings</div></div>
-      <div class="stat"><div class="stat-num" style="color:#64748b;">11</div><div class="stat-label">No News</div></div>
-      <div class="stat"><div class="stat-num" style="color:#64748b;">15</div><div class="stat-label">Companies</div></div>
+    <div class="stats">
+      <div class="stat"><div class="stat-n">7</div><div class="stat-label">Findings</div></div>
+      <div class="stat"><div class="stat-n" style="color:#475569">11</div><div class="stat-label">No News</div></div>
+      <div class="stat"><div class="stat-n" style="color:#f1f5f9">15</div><div class="stat-label">Monitored</div></div>
     </div>
 
-    <div class="section-label">Partner Findings</div>
+    <div class="section-title">Findings</div>
     
-        <div id="arista" style="background:#1a1d27;border-radius:10px;border-left:4px solid #0ea5e9;padding:20px 24px;margin-bottom:16px;">
-          <div style="margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-            <span style="background:#0ea5e9;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;">Arista</span>
-            <span style="font-size:12px;color:#64748b;">June 9, 2026</span>
-          </div>
-          <h3 style="font-size:16px;font-weight:700;color:#e2e8f0;margin:0 0 10px 0;">Arista 7060XE7 Series: 1.6 Tbps AI Fabric Portfolio Goes Into Production</h3>
-          <p style="font-size:14px;color:#94a3b8;line-height:1.65;margin:0 0 14px 0;">Arista announced its 7060XE7 Series, a next-generation 1.6 Tbps Ethernet switch portfolio based on Broadcom Tomahawk 6 silicon, designed for rack-scale AI infrastructure. The portfolio supports both scale-out and scale-up AI workloads with 224G SerDes and 100 Tbps switching capacity. A liquid-cooled, ORv3 open-rack design is included, and Arista's EtherLink capabilities are expanding with open-standard compute fabrics targeting GPU networking.</p>
-          <div style="background:#0f1117;border-radius:6px;padding:12px 14px;margin-bottom:12px;">
-            <p style="font-size:12px;font-weight:700;color:#4f7fff;margin:0 0 4px 0;">🔵 F5 Relevance</p>
-            <p style="font-size:13px;color:#c7d2e6;margin:0;line-height:1.5;">Arista's 1.6 Tbps Ethernet fabric aligns directly with F5's High Speed Ethernet/UltraEthernet interest and AI traffic management. F5 Distributed Cloud and BIG-IP could serve as application delivery and security layers in AI fabric deployments where Arista provides the high-speed networking substrate.</p>
-          </div>
-          <a href="https://siliconangle.com/2026/06/09/ai-supersystem-shift-aristas-1-6t-announcement-ethernet-inflection-point/" target="_blank" style="color:#4f7fff;font-size:13px;text-decoration:none;">Read more →</a>
-        </div>
-        
-        <div id="crowdstrike" style="background:#1a1d27;border-radius:10px;border-left:4px solid #ef4444;padding:20px 24px;margin-bottom:16px;">
-          <div style="margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-            <span style="background:#ef4444;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;">CrowdStrike</span>
-            <span style="font-size:12px;color:#64748b;">June 9, 2026</span>
-          </div>
-          <h3 style="font-size:16px;font-weight:700;color:#e2e8f0;margin:0 0 10px 0;">CrowdStrike 2026 Technology Threat Report: China Targets AI Capabilities</h3>
-          <p style="font-size:14px;color:#94a3b8;line-height:1.65;margin:0 0 14px 0;">CrowdStrike released its 2026 Technology Threat Landscape Report on June 9, identifying China-nexus adversaries as the top threat to the technology sector, with a focus on stealing AI capabilities and intellectual property. 340+ U.S.-based tech entities were impacted by password-spraying campaigns from groups like MURKY PANDA and WARP PANDA. DPRK-nexus actors now use AI-enhanced personas to infiltrate tech firms, accounting for 47% of state-sponsored intrusions.</p>
-          <div style="background:#0f1117;border-radius:6px;padding:12px 14px;margin-bottom:12px;">
-            <p style="font-size:12px;font-weight:700;color:#4f7fff;margin:0 0 4px 0;">🔵 F5 Relevance</p>
-            <p style="font-size:13px;color:#c7d2e6;margin:0;line-height:1.5;">This threat intelligence is directly relevant to F5's security portfolio — particularly WAF, DDoS protection, API security, and Zero Trust offerings. The AI-targeting trend reinforces F5's opportunity to position its AI traffic management and security inspection capabilities as critical defenses for AI infrastructure.</p>
-          </div>
-          <a href="https://www.crowdstrike.com/en-us/press-releases/crowdstrike-2026-technology-threat-report-china-targets-ai/" target="_blank" style="color:#4f7fff;font-size:13px;text-decoration:none;">Read more →</a>
-        </div>
-        
-        <div id="crowdstrike" style="background:#1a1d27;border-radius:10px;border-left:4px solid #ef4444;padding:20px 24px;margin-bottom:16px;">
-          <div style="margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-            <span style="background:#ef4444;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;">CrowdStrike</span>
-            <span style="font-size:12px;color:#64748b;">June 8, 2026</span>
-          </div>
-          <h3 style="font-size:16px;font-weight:700;color:#e2e8f0;margin:0 0 10px 0;">CrowdStrike and Zscaler Integrate Continuous Identity Security into Zero Trust Access</h3>
-          <p style="font-size:14px;color:#94a3b8;line-height:1.65;margin:0 0 14px 0;">CrowdStrike and Zscaler announced an integration combining CrowdStrike's Continuous Identity with Zscaler's Adaptive Access Engine for real-time, risk-based access control. When CrowdStrike detects high-risk activity, Zscaler automatically adjusts access policies via open standards (OpenID SSF and CAEP), restricting sensitive resources and preventing lateral movement without manual intervention.</p>
-          <div style="background:#0f1117;border-radius:6px;padding:12px 14px;margin-bottom:12px;">
-            <p style="font-size:12px;font-weight:700;color:#4f7fff;margin:0 0 4px 0;">🔵 F5 Relevance</p>
-            <p style="font-size:13px;color:#c7d2e6;margin:0;line-height:1.5;">F5's Zero Trust and identity-aware access capabilities (SAML, OAuth, OIDC) align closely with this CrowdStrike–Zscaler integration. F5 could complement this ecosystem by providing application-layer enforcement and API security controls that integrate with the same open identity standards (CAEP/SSF).</p>
-          </div>
-          <a href="https://www.crowdstrike.com/en-us/blog/crowdstrike-zscaler-bring-continuous-identity-security-to-zero-trust-access/" target="_blank" style="color:#4f7fff;font-size:13px;text-decoration:none;">Read more →</a>
-        </div>
-        
-        <div id="minio" style="background:#1a1d27;border-radius:10px;border-left:4px solid #f59e0b;padding:20px 24px;margin-bottom:16px;">
-          <div style="margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-            <span style="background:#f59e0b;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;text-transform:uppercase;">MinIO</span>
-            <span style="font-size:12px;color:#64748b;">June 8, 2026</span>
-          </div>
-          <h3 style="font-size:16px;font-weight:700;color:#e2e8f0;margin:0 0 10px 0;">MinIO AIStor Certified as ClickHouse House Mates Integration for On-Premises S3 Storage</h3>
-          <p style="font-size:14px;color:#94a3b8;line-height:1.65;margin:0 0 14px 0;">MinIO AIStor joined the ClickHouse House Mates program as a certified integration for high-performance, on-premises S3-compatible storage. The partnership validates AIStor as a trusted storage layer for ClickHouse Private, emphasizing complete S3 API compatibility, exabyte-scale performance, and active-active replication across sites. AIStor provides native Apache Iceberg support for centralized data to feed real-time analytics, observability, and AI/ML pipelines.</p>
-          <div style="background:#0f1117;border-radius:6px;padding:12px 14px;margin-bottom:12px;">
-            <p style="font-size:12px;font-weight:700;color:#4f7fff;margin:0 0 4px 0;">🔵 F5 Relevance</p>
-            <p style="font-size:13px;color:#c7d2e6;margin:0;line-height:1.5;">MinIO's S3 data path is a key area of F5 interest — F5 can inspect, secure, and accelerate S3 API traffic between AIStor and ClickHouse/AI analytics workloads. This integration reinforces MinIO's role as a core AI data infrastructure layer where F5 traffic management and API security are natural additions.</p>
-          </div>
-          <a href="https://www.min.io/blog/minio-aistor-joins-clickhouse-house-mates" target="_blank" style="color:#4f7fff;font-size:13px;text-decoration:none;">Read more →</a>
-        </div>
-        
-
-    <div class="section-label">No Recent News</div>
-    <div style="background:#1a1d27;border-radius:10px;padding:18px 20px;">
-      <p style="font-size:12px;color:#64748b;margin-bottom:10px;">No content matching research criteria found within the last 3 days.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:4px;">
-        <span style="background:#1a1d27;color:#64748b;font-size:12px;padding:5px 12px;border-radius:16px;border:1px solid #2a2d3a;display:inline-block;margin:3px;">Ansible</span><span style="background:#1a1d27;color:#64748b;font-size:12px;padding:5px 12px;border-radius:16px;border:1px solid #2a2d3a;display:inline-block;margin:3px;">Cisco</span><span style="background:#1a1d27;color:#64748b;font-size:12px;padding:5px 12px;border-radius:16px;border:1px solid #2a2d3a;display:inline-block;margin:3px;">Dell</span><span style="background:#1a1d27;color:#64748b;font-size:12px;padding:5px 12px;border-radius:16px;border:1px solid #2a2d3a;display:inline-block;margin:3px;">Epic</span><span style="background:#1a1d27;color:#64748b;font-size:12px;padding:5px 12px;border-radius:16px;border:1px solid #2a2d3a;display:inline-block;margin:3px;">Equinix</span><span style="background:#1a1d27;color:#64748b;font-size:12px;padding:5px 12px;border-radius:16px;border:1px solid #2a2d3a;display:inline-block;margin:3px;">HPE GreenLake</span><span style="background:#1a1d27;color:#64748b;font-size:12px;padding:5px 12px;border-radius:16px;border:1px solid #2a2d3a;display:inline-block;margin:3px;">Intel</span><span style="background:#1a1d27;color:#64748b;font-size:12px;padding:5px 12px;border-radius:16px;border:1px solid #2a2d3a;display:inline-block;margin:3px;">NetApp</span><span style="background:#1a1d27;color:#64748b;font-size:12px;padding:5px 12px;border-radius:16px;border:1px solid #2a2d3a;display:inline-block;margin:3px;">Nutanix</span><span style="background:#1a1d27;color:#64748b;font-size:12px;padding:5px 12px;border-radius:16px;border:1px solid #2a2d3a;display:inline-block;margin:3px;">Nvidia</span><span style="background:#1a1d27;color:#64748b;font-size:12px;padding:5px 12px;border-radius:16px;border:1px solid #2a2d3a;display:inline-block;margin:3px;">RedHat</span><span style="background:#1a1d27;color:#64748b;font-size:12px;padding:5px 12px;border-radius:16px;border:1px solid #2a2d3a;display:inline-block;margin:3px;">Scality</span>
+    <div class="card" id="co-arista" style="border-left:4px solid #7c3aed">
+      <div class="card-header">
+        <span class="tag" style="background:#7c3aed">ARISTA</span>
+        <span class="date">June 9, 2026</span>
+      </div>
+      <h3 class="card-title">Arista Introduces Next-Generation 1.6 Terabit Portfolio for AI Fabrics</h3>
+      <p class="card-body">Arista announces the 7060XE7 Series rack-scale switches (up to 128×800G ports) for AI fabric infrastructure, supporting air-cooled and liquid-cooled configurations. Built on Broadcom Tomahawk 6 silicon with open Multipath Reliable Connection (MRC) protocol for RDMA across multiple paths. Air-cooled 64-port variant targeted for Q4 2026, liquid-cooled and 128-port models in Q1 2027.</p>
+      <a href="https://www.arista.com/en/company/news/press-release/24102-pr-20260609" target="_blank" class="card-link">Read more &rarr;</a>
+      <div class="f5box">
+        <div class="f5label">F5 RELEVANCE</div>
+        <div class="f5text">High-speed AI fabric Ethernet networking is directly relevant to F5's AI traffic management and inference optimization; MRC/RDMA-over-Ethernet aligns with F5's High Speed Ethernet and S3-over-RDMA interests.</div>
+      </div>
+    </div>
+    <div class="card" id="co-crowdstrike" style="border-left:4px solid #dc2626">
+      <div class="card-header">
+        <span class="tag" style="background:#dc2626">CROWDSTRIKE</span>
+        <span class="date">June 9, 2026</span>
+      </div>
+      <h3 class="card-title">CrowdStrike 2026 Technology Threat Report: China Targets AI</h3>
+      <p class="card-body">CrowdStrike's 2026 Technology Threat Landscape Report reveals China-nexus adversaries are the dominant threat to tech sector AI IP, driving over 58% of state-sponsored intrusions. DPRK actors embed operatives using AI-enhanced personas, while eCrime groups deploy AI-generated scripts for credential theft.</p>
+      <a href="https://www.crowdstrike.com/en-us/press-releases/crowdstrike-2026-technology-threat-report-china-targets-ai/" target="_blank" class="card-link">Read more &rarr;</a>
+      <div class="f5box">
+        <div class="f5label">F5 RELEVANCE</div>
+        <div class="f5text">AI-targeted threat intelligence is highly relevant to F5's WAF, DDoS, and API security offerings; supply chain intrusions and AI-powered credential theft map directly to F5's zero-trust and identity-aware access capabilities.</div>
+      </div>
+    </div>
+    <div class="card" id="co-crowdstrike" style="border-left:4px solid #dc2626">
+      <div class="card-header">
+        <span class="tag" style="background:#dc2626">CROWDSTRIKE</span>
+        <span class="date">June 8, 2026</span>
+      </div>
+      <h3 class="card-title">CrowdStrike and Zscaler Bring Continuous Identity Security to Zero Trust Access</h3>
+      <p class="card-body">CrowdStrike and Zscaler integrate Falcon Next-Gen Identity Security with Zscaler's Adaptive Access Engine using OpenID SSF and CAEP open standards for real-time, risk-based zero trust access decisions. When Falcon detects high identity risk, Zscaler automatically adjusts access — stopping lateral movement before breaches occur.</p>
+      <a href="https://www.crowdstrike.com/en-us/blog/crowdstrike-zscaler-bring-continuous-identity-security-to-zero-trust-access/" target="_blank" class="card-link">Read more &rarr;</a>
+      <div class="f5box">
+        <div class="f5label">F5 RELEVANCE</div>
+        <div class="f5text">The use of CAEP/SSF open standards for continuous identity signals is relevant to F5's OAuth/OIDC and identity-aware access portfolio; this partnership highlights an integration opportunity for F5 Distributed Cloud with identity providers.</div>
+      </div>
+    </div>
+    <div class="card" id="co-crowdstrike" style="border-left:4px solid #dc2626">
+      <div class="card-header">
+        <span class="tag" style="background:#dc2626">CROWDSTRIKE</span>
+        <span class="date">June 10, 2026</span>
+      </div>
+      <h3 class="card-title">CrowdStrike Joins OpenID Foundation and IDPro</h3>
+      <p class="card-body">CrowdStrike joined the OpenID Foundation as a Sustaining Corporate Member and also joined IDPro, committing real-time Falcon platform intelligence and open standards work (SSF and CAEP) to advance continuous, risk-aware identity security across identity providers, SaaS platforms, and security tools.</p>
+      <a href="https://www.crowdstrike.com/en-us/press-releases/crowdstrike-joins-openid-foundation-and-idpro/" target="_blank" class="card-link">Read more &rarr;</a>
+      <div class="f5box">
+        <div class="f5label">F5 RELEVANCE</div>
+        <div class="f5text">F5 is deeply invested in OAuth 2.0, OIDC, and identity federation; CrowdStrike's OpenID Foundation membership and SSF/CAEP contributions create a direct integration and co-marketing opportunity around zero-trust identity for F5.</div>
+      </div>
+    </div>
+    <div class="card" id="co-minio" style="border-left:4px solid #0891b2">
+      <div class="card-header">
+        <span class="tag" style="background:#0891b2">MINIO</span>
+        <span class="date">June 10, 2026</span>
+      </div>
+      <h3 class="card-title">MinIO Enables Databricks to Access On-Premises Data Without Replication</h3>
+      <p class="card-body">MinIO announces Databricks integration as a founding member of the Databricks Software-Defined Storage Ecosystem, enabling direct access to on-premises S3 data via the OpenSharing protocol without data duplication. On-prem tables appear natively in Databricks Unity Catalog via a simple JSON credential file, bringing zero-copy hybrid workload insights.</p>
+      <a href="https://www.min.io/blog/the-on-premises-data-databricks-couldnt-reach-until-now" target="_blank" class="card-link">Read more &rarr;</a>
+      <div class="f5box">
+        <div class="f5label">F5 RELEVANCE</div>
+        <div class="f5text">S3 data flows between on-premises storage and cloud analytics platforms are directly relevant to F5's S3 data flow security, API gateway, and traffic management portfolio — securing the MinIO-to-Databricks data path is a natural F5 use case.</div>
+      </div>
+    </div>
+    <div class="card" id="co-minio" style="border-left:4px solid #0891b2">
+      <div class="card-header">
+        <span class="tag" style="background:#0891b2">MINIO</span>
+        <span class="date">June 8, 2026</span>
+      </div>
+      <h3 class="card-title">MinIO AIStor Joins ClickHouse House Mates Program</h3>
+      <p class="card-body">MinIO AIStor joins ClickHouse's House Mates program as a certified, high-performance, exabyte-scale S3-compatible storage partner for on-premises ClickHouse Private AI and analytics deployments.</p>
+      <a href="https://www.min.io/blog/minio-aistor-joins-clickhouse-house-mates" target="_blank" class="card-link">Read more &rarr;</a>
+      <div class="f5box">
+        <div class="f5label">F5 RELEVANCE</div>
+        <div class="f5text">Expanding S3-compatible object storage partnerships for AI/analytics workloads grows the on-premises data plane where F5 can provide S3 data flow security and API access control.</div>
+      </div>
+    </div>
+    <div class="card" id="co-red-hat" style="border-left:4px solid #be123c">
+      <div class="card-header">
+        <span class="tag" style="background:#be123c">RED HAT</span>
+        <span class="date">June 10, 2026</span>
+      </div>
+      <h3 class="card-title">What's New in Red Hat Ansible Automation Platform 2.7</h3>
+      <p class="card-body">Red Hat releases Ansible Automation Platform 2.7 (GA) featuring native MCP server integration (Technology Preview) enabling AI agents to query jobs, collect facts, and launch workflows via natural language. New visual execution environment builder, centralized content catalog, and Automation Intelligent Assistant with bring-your-own-knowledge.</p>
+      <a href="https://developers.redhat.com/articles/2026/06/10/whats-new-red-hat-ansible-automation-platform-2-7" target="_blank" class="card-link">Read more &rarr;</a>
+      <div class="f5box">
+        <div class="f5label">F5 RELEVANCE</div>
+        <div class="f5text">Native MCP server integration in AAP 2.7 enables AI agents to orchestrate F5 BIG-IP and NGINX automation tasks via natural language — a significant agentic AI automation opportunity for F5's Ansible-based management workflows.</div>
       </div>
     </div>
 
-    <div style="margin-top:40px;padding-top:20px;border-top:1px solid #1e2130;text-align:center;">
-      <p style="font-size:12px;color:#475569;">F5 Partner Intelligence &bull; Daily Briefing &bull; <a href="https://sgorman50.github.io/f5-partner-research/">View Archive</a></p>
+    <div class="section-title" style="margin-top:28px">No Recent News</div>
+    
+    <div class="card no-news-card">
+      <div class="card-header">
+        <span class="tag no-news-tag">ANSIBLE</span>
+      </div>
+      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
     </div>
-  </div>
+    <div class="card no-news-card">
+      <div class="card-header">
+        <span class="tag no-news-tag">CISCO</span>
+      </div>
+      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
+    </div>
+    <div class="card no-news-card">
+      <div class="card-header">
+        <span class="tag no-news-tag">DELL</span>
+      </div>
+      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
+    </div>
+    <div class="card no-news-card">
+      <div class="card-header">
+        <span class="tag no-news-tag">EPIC</span>
+      </div>
+      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
+    </div>
+    <div class="card no-news-card">
+      <div class="card-header">
+        <span class="tag no-news-tag">EQUINIX</span>
+      </div>
+      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
+    </div>
+    <div class="card no-news-card">
+      <div class="card-header">
+        <span class="tag no-news-tag">HPE GREENLAKE</span>
+      </div>
+      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
+    </div>
+    <div class="card no-news-card">
+      <div class="card-header">
+        <span class="tag no-news-tag">INTEL</span>
+      </div>
+      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
+    </div>
+    <div class="card no-news-card">
+      <div class="card-header">
+        <span class="tag no-news-tag">NETAPP</span>
+      </div>
+      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
+    </div>
+    <div class="card no-news-card">
+      <div class="card-header">
+        <span class="tag no-news-tag">NUTANIX</span>
+      </div>
+      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
+    </div>
+    <div class="card no-news-card">
+      <div class="card-header">
+        <span class="tag no-news-tag">NVIDIA</span>
+      </div>
+      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
+    </div>
+    <div class="card no-news-card">
+      <div class="card-header">
+        <span class="tag no-news-tag">SCALITY</span>
+      </div>
+      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
+    </div>
 
+    <div class="footer">
+      F5 Partner Research Agent &bull; <a href="https://sgorman50.github.io/f5-partner-research/">Archive</a>
+    </div>
+  </main>
 </div>
 </body>
 </html>
