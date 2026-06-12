@@ -2,257 +2,187 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>F5 Partner Research — June 11, 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F5 Partner Intelligence — 2026-06-12</title>
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#0f1117;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh}
-  a{color:#60a5fa;text-decoration:none}
-  a:hover{text-decoration:underline}
-
-  .sticky-header{position:sticky;top:0;z-index:100;background:#0f1117;border-bottom:1px solid #1e2130;padding:12px 24px;display:flex;align-items:center;gap:16px}
-  .sticky-header img{height:36px}
-  .sticky-header .run-date{font-size:13px;color:#94a3b8;margin-left:auto}
-
-  .layout{display:flex;gap:0}
-  .sidebar{width:220px;min-width:220px;padding:24px 16px;border-right:1px solid #1e2130;position:sticky;top:61px;height:calc(100vh - 61px);overflow-y:auto}
-  .sidebar h4{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:#475569;margin-bottom:10px}
-  .sidebar .run-link{display:block;font-size:12px;color:#60a5fa;padding:4px 0;border-bottom:1px solid #1e2130}
-  .jump-link{display:block;font-size:12px;color:#94a3b8;padding:4px 6px;border-radius:4px;margin-bottom:2px}
-  .jump-link:hover{background:#1a1d27;color:#e2e8f0;text-decoration:none}
-
-  .main{flex:1;padding:28px 32px;max-width:800px}
-  .page-title{font-size:22px;font-weight:700;color:#f1f5f9;margin-bottom:4px}
-  .page-sub{font-size:13px;color:#64748b;margin-bottom:20px}
-
-  .stats{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap}
-  .stat{background:#1a1d27;border:1px solid #2a2d3e;border-radius:8px;padding:12px 20px;text-align:center;min-width:90px}
-  .stat-n{font-size:24px;font-weight:700;color:#4f7fff}
-  .stat-label{font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
-
-  .section-title{font-size:11px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.8px;margin:0 0 14px 0;padding-bottom:6px;border-bottom:1px solid #1e2130}
-
-  .card{background:#1a1d27;border-radius:8px;padding:20px 22px;margin-bottom:16px}
-  .card-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-  .tag{color:#fff;font-size:11px;font-weight:700;padding:3px 9px;border-radius:12px;letter-spacing:.3px}
-  .date{font-size:12px;color:#64748b}
-  .card-title{font-size:15px;font-weight:700;color:#f1f5f9;margin-bottom:10px;line-height:1.4}
-  .card-body{font-size:13px;color:#94a3b8;line-height:1.7;margin-bottom:10px}
-  .card-link{font-size:12px;color:#60a5fa}
-  .f5box{background:#1e2d4a;border-left:3px solid #4f7fff;border-radius:4px;padding:10px 14px;margin-top:14px}
-  .f5label{font-size:10px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px}
-  .f5text{font-size:12px;color:#93c5fd;line-height:1.5}
-
-  .no-news-card{opacity:.55;border-left:3px solid #334155}
-  .no-news-tag{background:#334155}
-  .no-news-text{font-size:12px;color:#64748b;font-style:italic}
-
-  .footer{border-top:1px solid #1e2130;margin-top:32px;padding-top:16px;text-align:center;font-size:12px;color:#475569}
-
-  @media(max-width:640px){
-    .sidebar{display:none}
-    .main{padding:16px}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1117; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; min-height: 100vh; }
+  .sticky-header { position: sticky; top: 0; z-index: 100; background: #0f1117; border-bottom: 1px solid #1e2230; padding: 12px 24px; display: flex; align-items: center; gap: 16px; }
+  .sticky-header img { height: 40px; }
+  .sticky-header h1 { font-size: 16px; font-weight: 700; color: #f1f5f9; }
+  .sticky-header .run-date { font-size: 13px; color: #64748b; margin-left: auto; }
+  .layout { display: flex; min-height: calc(100vh - 65px); }
+  .sidebar { width: 220px; min-width: 220px; background: #13151f; border-right: 1px solid #1e2230; padding: 20px 16px; position: sticky; top: 65px; height: calc(100vh - 65px); overflow-y: auto; }
+  .sidebar h3 { font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 12px; }
+  .sidebar-link { display: block; padding: 7px 10px; border-radius: 6px; font-size: 13px; color: #94a3b8; text-decoration: none; margin-bottom: 3px; transition: background 0.15s; }
+  .sidebar-link:hover { background: #1e2230; color: #f1f5f9; }
+  .sidebar-section { margin-bottom: 24px; }
+  .main { flex: 1; padding: 24px 28px; max-width: 820px; }
+  .stats-bar { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+  .stat { background: #1a1d27; border: 1px solid #2d3147; border-radius: 8px; padding: 10px 18px; font-size: 13px; font-weight: 600; color: #94a3b8; }
+  .stat span { color: #4f7fff; font-size: 18px; font-weight: 700; display: block; }
+  .section-title { font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.8px; margin: 24px 0 14px 0; }
+  .card { background: #1a1d27; border-radius: 10px; padding: 20px 22px; margin-bottom: 14px; border-left: 4px solid #4f7fff; transition: border-color 0.2s; }
+  .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .company-tag { font-size: 11px; font-weight: 700; color: #fff; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .card-date { font-size: 12px; color: #64748b; }
+  .card-title { font-size: 15px; font-weight: 700; color: #f1f5f9; text-decoration: none; line-height: 1.4; display: block; margin-bottom: 9px; }
+  .card-title:hover { color: #4f7fff; }
+  .card-summary { font-size: 13px; color: #94a3b8; line-height: 1.65; margin-bottom: 13px; }
+  .relevance-box { background: #151825; border-left: 3px solid #4f7fff; border-radius: 0 6px 6px 0; padding: 10px 14px; }
+  .relevance-label { font-size: 11px; font-weight: 700; color: #4f7fff; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .relevance-text { font-size: 13px; color: #93c5fd; line-height: 1.55; }
+  .no-news-section { margin-top: 28px; }
+  .no-news-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .no-news-chip { background: #13151f; border: 1px solid #2d3147; border-radius: 6px; padding: 8px 14px; font-size: 13px; color: #475569; font-weight: 500; }
+  .footer { padding: 24px 28px; font-size: 12px; color: #475569; border-top: 1px solid #1e2230; margin-top: 24px; }
+  .footer a { color: #4f7fff; text-decoration: none; }
+  @media (max-width: 700px) {
+    .sidebar { display: none; }
+    .main { padding: 16px; }
   }
 </style>
 </head>
 <body>
-
-<div class="sticky-header">
+<header class="sticky-header">
   <img src="assets/header.png" alt="Partner Intelligence">
-  <span style="font-size:14px;font-weight:600;color:#e2e8f0;">F5 Partner Research</span>
-  <span class="run-date">June 11, 2026 &bull; 8:05 AM ET</span>
-</div>
-
+  <h1>F5 Partner Intelligence</h1>
+  <span class="run-date">June 12, 2026</span>
+</header>
 <div class="layout">
-  <aside class="sidebar">
-    <h4>Recent Runs</h4>
-    <a class="run-link" href="archive/2026-06-11.html">June 11, 2026</a>
-    <a class="run-link" href="archive/2026-06-10.html">June 10, 2026</a>
-    <a class="run-link" href="archive/2026-06-09.html">June 9, 2026</a>
-    <a class="run-link" href="archive/2026-06-08.html">June 8, 2026</a>
-    <a class="run-link" href="archive/2026-06-07.html">June 7, 2026</a>
-
-    <h4 style="margin-top:20px">Jump To</h4>
-    <a href="#co-arista" class="jump-link">Arista</a><a href="#co-crowdstrike" class="jump-link">CrowdStrike</a><a href="#co-crowdstrike" class="jump-link">CrowdStrike</a><a href="#co-crowdstrike" class="jump-link">CrowdStrike</a><a href="#co-minio" class="jump-link">MinIO</a><a href="#co-minio" class="jump-link">MinIO</a><a href="#co-red-hat" class="jump-link">Red Hat</a>
-  </aside>
-
+  <nav class="sidebar">
+    <div class="sidebar-section">
+      <h3>Jump To</h3>
+      <a href="#arista-0" class="sidebar-link">Arista</a>
+<a href="#crowdstrike-2" class="sidebar-link">CrowdStrike</a>
+<a href="#intel-3" class="sidebar-link">Intel</a>
+<a href="#minio-4" class="sidebar-link">MinIO</a>
+<a href="#nvidia-5" class="sidebar-link">Nvidia</a>
+<a href="#red-hat-6" class="sidebar-link">Red Hat</a>
+    </div>
+    <div class="sidebar-section">
+      <h3>Recent Runs</h3>
+      <a href="archive/2026-06-12.html" class="sidebar-link">Jun 12, 2026</a>
+      <a href="archive/2026-06-11.html" class="sidebar-link">Jun 11, 2026</a>
+      <a href="archive/2026-06-10.html" class="sidebar-link">Jun 10, 2026</a>
+      <a href="archive/2026-06-09.html" class="sidebar-link">Jun 9, 2026</a>
+    </div>
+  </nav>
   <main class="main">
-    <div class="page-title">Top Partner News Discovered</div>
-    <div class="page-sub">Wednesday, June 11, 2026 &bull; 15 companies monitored</div>
-
-    <div class="stats">
-      <div class="stat"><div class="stat-n">7</div><div class="stat-label">Findings</div></div>
-      <div class="stat"><div class="stat-n" style="color:#475569">11</div><div class="stat-label">No News</div></div>
-      <div class="stat"><div class="stat-n" style="color:#f1f5f9">15</div><div class="stat-label">Monitored</div></div>
+    <div class="stats-bar">
+      <div class="stat"><span>7</span>Findings</div>
+      <div class="stat"><span>9</span>No New News</div>
+      <div class="stat"><span>15</span>Companies Monitored</div>
+      <div class="stat"><span>3d</span>Recency Window</div>
     </div>
-
-    <div class="section-title">Findings</div>
+    <div class="section-title">Top Partner Findings — Friday, June 12, 2026</div>
     
-    <div class="card" id="co-arista" style="border-left:4px solid #7c3aed">
+    <div class="card" id="arista-0">
       <div class="card-header">
-        <span class="tag" style="background:#7c3aed">ARISTA</span>
-        <span class="date">June 9, 2026</span>
+        <span class="company-tag" style="background:#0061d5;">Arista</span>
+        <span class="card-date">June 9, 2026</span>
       </div>
-      <h3 class="card-title">Arista Introduces Next-Generation 1.6 Terabit Portfolio for AI Fabrics</h3>
-      <p class="card-body">Arista announces the 7060XE7 Series rack-scale switches (up to 128×800G ports) for AI fabric infrastructure, supporting air-cooled and liquid-cooled configurations. Built on Broadcom Tomahawk 6 silicon with open Multipath Reliable Connection (MRC) protocol for RDMA across multiple paths. Air-cooled 64-port variant targeted for Q4 2026, liquid-cooled and 128-port models in Q1 2027.</p>
-      <a href="https://www.arista.com/en/company/news/press-release/24102-pr-20260609" target="_blank" class="card-link">Read more &rarr;</a>
-      <div class="f5box">
-        <div class="f5label">F5 RELEVANCE</div>
-        <div class="f5text">High-speed AI fabric Ethernet networking is directly relevant to F5's AI traffic management and inference optimization; MRC/RDMA-over-Ethernet aligns with F5's High Speed Ethernet and S3-over-RDMA interests.</div>
-      </div>
-    </div>
-    <div class="card" id="co-crowdstrike" style="border-left:4px solid #dc2626">
-      <div class="card-header">
-        <span class="tag" style="background:#dc2626">CROWDSTRIKE</span>
-        <span class="date">June 9, 2026</span>
-      </div>
-      <h3 class="card-title">CrowdStrike 2026 Technology Threat Report: China Targets AI</h3>
-      <p class="card-body">CrowdStrike's 2026 Technology Threat Landscape Report reveals China-nexus adversaries are the dominant threat to tech sector AI IP, driving over 58% of state-sponsored intrusions. DPRK actors embed operatives using AI-enhanced personas, while eCrime groups deploy AI-generated scripts for credential theft.</p>
-      <a href="https://www.crowdstrike.com/en-us/press-releases/crowdstrike-2026-technology-threat-report-china-targets-ai/" target="_blank" class="card-link">Read more &rarr;</a>
-      <div class="f5box">
-        <div class="f5label">F5 RELEVANCE</div>
-        <div class="f5text">AI-targeted threat intelligence is highly relevant to F5's WAF, DDoS, and API security offerings; supply chain intrusions and AI-powered credential theft map directly to F5's zero-trust and identity-aware access capabilities.</div>
-      </div>
-    </div>
-    <div class="card" id="co-crowdstrike" style="border-left:4px solid #dc2626">
-      <div class="card-header">
-        <span class="tag" style="background:#dc2626">CROWDSTRIKE</span>
-        <span class="date">June 8, 2026</span>
-      </div>
-      <h3 class="card-title">CrowdStrike and Zscaler Bring Continuous Identity Security to Zero Trust Access</h3>
-      <p class="card-body">CrowdStrike and Zscaler integrate Falcon Next-Gen Identity Security with Zscaler's Adaptive Access Engine using OpenID SSF and CAEP open standards for real-time, risk-based zero trust access decisions. When Falcon detects high identity risk, Zscaler automatically adjusts access — stopping lateral movement before breaches occur.</p>
-      <a href="https://www.crowdstrike.com/en-us/blog/crowdstrike-zscaler-bring-continuous-identity-security-to-zero-trust-access/" target="_blank" class="card-link">Read more &rarr;</a>
-      <div class="f5box">
-        <div class="f5label">F5 RELEVANCE</div>
-        <div class="f5text">The use of CAEP/SSF open standards for continuous identity signals is relevant to F5's OAuth/OIDC and identity-aware access portfolio; this partnership highlights an integration opportunity for F5 Distributed Cloud with identity providers.</div>
-      </div>
-    </div>
-    <div class="card" id="co-crowdstrike" style="border-left:4px solid #dc2626">
-      <div class="card-header">
-        <span class="tag" style="background:#dc2626">CROWDSTRIKE</span>
-        <span class="date">June 10, 2026</span>
-      </div>
-      <h3 class="card-title">CrowdStrike Joins OpenID Foundation and IDPro</h3>
-      <p class="card-body">CrowdStrike joined the OpenID Foundation as a Sustaining Corporate Member and also joined IDPro, committing real-time Falcon platform intelligence and open standards work (SSF and CAEP) to advance continuous, risk-aware identity security across identity providers, SaaS platforms, and security tools.</p>
-      <a href="https://www.crowdstrike.com/en-us/press-releases/crowdstrike-joins-openid-foundation-and-idpro/" target="_blank" class="card-link">Read more &rarr;</a>
-      <div class="f5box">
-        <div class="f5label">F5 RELEVANCE</div>
-        <div class="f5text">F5 is deeply invested in OAuth 2.0, OIDC, and identity federation; CrowdStrike's OpenID Foundation membership and SSF/CAEP contributions create a direct integration and co-marketing opportunity around zero-trust identity for F5.</div>
-      </div>
-    </div>
-    <div class="card" id="co-minio" style="border-left:4px solid #0891b2">
-      <div class="card-header">
-        <span class="tag" style="background:#0891b2">MINIO</span>
-        <span class="date">June 10, 2026</span>
-      </div>
-      <h3 class="card-title">MinIO Enables Databricks to Access On-Premises Data Without Replication</h3>
-      <p class="card-body">MinIO announces Databricks integration as a founding member of the Databricks Software-Defined Storage Ecosystem, enabling direct access to on-premises S3 data via the OpenSharing protocol without data duplication. On-prem tables appear natively in Databricks Unity Catalog via a simple JSON credential file, bringing zero-copy hybrid workload insights.</p>
-      <a href="https://www.min.io/blog/the-on-premises-data-databricks-couldnt-reach-until-now" target="_blank" class="card-link">Read more &rarr;</a>
-      <div class="f5box">
-        <div class="f5label">F5 RELEVANCE</div>
-        <div class="f5text">S3 data flows between on-premises storage and cloud analytics platforms are directly relevant to F5's S3 data flow security, API gateway, and traffic management portfolio — securing the MinIO-to-Databricks data path is a natural F5 use case.</div>
-      </div>
-    </div>
-    <div class="card" id="co-minio" style="border-left:4px solid #0891b2">
-      <div class="card-header">
-        <span class="tag" style="background:#0891b2">MINIO</span>
-        <span class="date">June 8, 2026</span>
-      </div>
-      <h3 class="card-title">MinIO AIStor Joins ClickHouse House Mates Program</h3>
-      <p class="card-body">MinIO AIStor joins ClickHouse's House Mates program as a certified, high-performance, exabyte-scale S3-compatible storage partner for on-premises ClickHouse Private AI and analytics deployments.</p>
-      <a href="https://www.min.io/blog/minio-aistor-joins-clickhouse-house-mates" target="_blank" class="card-link">Read more &rarr;</a>
-      <div class="f5box">
-        <div class="f5label">F5 RELEVANCE</div>
-        <div class="f5text">Expanding S3-compatible object storage partnerships for AI/analytics workloads grows the on-premises data plane where F5 can provide S3 data flow security and API access control.</div>
-      </div>
-    </div>
-    <div class="card" id="co-red-hat" style="border-left:4px solid #be123c">
-      <div class="card-header">
-        <span class="tag" style="background:#be123c">RED HAT</span>
-        <span class="date">June 10, 2026</span>
-      </div>
-      <h3 class="card-title">What's New in Red Hat Ansible Automation Platform 2.7</h3>
-      <p class="card-body">Red Hat releases Ansible Automation Platform 2.7 (GA) featuring native MCP server integration (Technology Preview) enabling AI agents to query jobs, collect facts, and launch workflows via natural language. New visual execution environment builder, centralized content catalog, and Automation Intelligent Assistant with bring-your-own-knowledge.</p>
-      <a href="https://developers.redhat.com/articles/2026/06/10/whats-new-red-hat-ansible-automation-platform-2-7" target="_blank" class="card-link">Read more &rarr;</a>
-      <div class="f5box">
-        <div class="f5label">F5 RELEVANCE</div>
-        <div class="f5text">Native MCP server integration in AAP 2.7 enables AI agents to orchestrate F5 BIG-IP and NGINX automation tasks via natural language — a significant agentic AI automation opportunity for F5's Ansible-based management workflows.</div>
+      <a href="https://www.arista.com/en/company/news/press-release/24102-pr-20260609" target="_blank" class="card-title">Arista Introduces Next-Generation 1.6Terabit Portfolio for AI Fabrics</a>
+      <p class="card-summary">Arista announces its next-generation 1.6T networking portfolio led by the 7060XE7 Series, designed as the foundation for rack-scale AI infrastructure supporting workloads from thousands to hundreds of thousands of XPUs. Products include air-cooled (64x 1.6T, Q4 2026) and liquid-cooled (64x 1.6T, Q1 2027) variants, with a webinar scheduled for June 25, 2026.</p>
+      <div class="relevance-box">
+        <div class="relevance-label">F5 Relevance</div>
+        <div class="relevance-text">High-speed AI fabric networking at 1.6T directly intersects with F5's AI traffic management portfolio. These AI fabrics create new east-west traffic flows between GPU clusters and storage where F5 NGINX and Distributed Cloud can manage inference request routing and load balancing.</div>
       </div>
     </div>
 
-    <div class="section-title" style="margin-top:28px">No Recent News</div>
-    
-    <div class="card no-news-card">
+    <div class="card" id="arista-1">
       <div class="card-header">
-        <span class="tag no-news-tag">ANSIBLE</span>
+        <span class="company-tag" style="background:#0061d5;">Arista</span>
+        <span class="card-date">June 9, 2026</span>
       </div>
-      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
-    </div>
-    <div class="card no-news-card">
-      <div class="card-header">
-        <span class="tag no-news-tag">CISCO</span>
+      <a href="https://blogs.arista.com/blog/three-genius-ideas-for-ai-fabrics" target="_blank" class="card-title">Three Genius Ideas for AI Fabrics</a>
+      <p class="card-summary">Arista's blog outlines three AI fabric architectural innovations: multi-planar leaf-spine networks (up to 8 independent planes), Multipath Reliable Connection (MRC) — an open protocol for traffic dispersal with ECN-based congestion handling — and Segment Routing over IPv6 (SRv6) for load balancing within and across AI fabric planes. Previews next-gen 7060XE7 leaf switches and 7800 AI spine.</p>
+      <div class="relevance-box">
+        <div class="relevance-label">F5 Relevance</div>
+        <div class="relevance-text">MRC and SRv6 are emerging open standards for AI fabric load distribution — F5's application delivery expertise is directly applicable. These AI fabric architectures are integration points for F5 to position as the L4-L7 delivery and security layer above Arista's L2-L3 AI fabric.</div>
       </div>
-      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
-    </div>
-    <div class="card no-news-card">
-      <div class="card-header">
-        <span class="tag no-news-tag">DELL</span>
-      </div>
-      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
-    </div>
-    <div class="card no-news-card">
-      <div class="card-header">
-        <span class="tag no-news-tag">EPIC</span>
-      </div>
-      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
-    </div>
-    <div class="card no-news-card">
-      <div class="card-header">
-        <span class="tag no-news-tag">EQUINIX</span>
-      </div>
-      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
-    </div>
-    <div class="card no-news-card">
-      <div class="card-header">
-        <span class="tag no-news-tag">HPE GREENLAKE</span>
-      </div>
-      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
-    </div>
-    <div class="card no-news-card">
-      <div class="card-header">
-        <span class="tag no-news-tag">INTEL</span>
-      </div>
-      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
-    </div>
-    <div class="card no-news-card">
-      <div class="card-header">
-        <span class="tag no-news-tag">NETAPP</span>
-      </div>
-      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
-    </div>
-    <div class="card no-news-card">
-      <div class="card-header">
-        <span class="tag no-news-tag">NUTANIX</span>
-      </div>
-      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
-    </div>
-    <div class="card no-news-card">
-      <div class="card-header">
-        <span class="tag no-news-tag">NVIDIA</span>
-      </div>
-      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
-    </div>
-    <div class="card no-news-card">
-      <div class="card-header">
-        <span class="tag no-news-tag">SCALITY</span>
-      </div>
-      <p class="no-news-text">No recent interesting news within the last 3 days.</p>
     </div>
 
-    <div class="footer">
-      F5 Partner Research Agent &bull; <a href="https://sgorman50.github.io/f5-partner-research/">Archive</a>
+    <div class="card" id="crowdstrike-2">
+      <div class="card-header">
+        <span class="company-tag" style="background:#dc2626;">CrowdStrike</span>
+        <span class="card-date">June 9, 2026</span>
+      </div>
+      <a href="https://www.crowdstrike.com/en-us/press-releases/crowdstrike-2026-technology-threat-report-china-targets-ai/" target="_blank" class="card-title">CrowdStrike 2026 Technology Threat Report: China Targets AI</a>
+      <p class="card-summary">CrowdStrike's 2026 Technology Threat Landscape Report reveals China-nexus adversaries escalated AI-targeted espionage, with MURKY PANDA conducting password-spraying attacks on 340+ U.S. tech entities. DPRK actors exploit AI-enhanced personas. eCrime groups weaponize AI to automate credential exfiltration and compromise developer supply chains.</p>
+      <div class="relevance-box">
+        <div class="relevance-label">F5 Relevance</div>
+        <div class="relevance-text">AI-targeted threat intelligence aligns directly with F5's WAF, API security, and DDoS protection capabilities. The emphasis on supply chain attacks against AI infrastructure creates a joint go-to-market narrative for F5+CrowdStrike protecting AI training and inference environments.</div>
+      </div>
+    </div>
+
+    <div class="card" id="intel-3">
+      <div class="card-header">
+        <span class="company-tag" style="background:#0284c7;">Intel</span>
+        <span class="card-date">June 9, 2026</span>
+      </div>
+      <a href="https://newsroom.intel.com/5g-wireless/intel-5g-network-bridges-digital-divide" target="_blank" class="card-title">New Smart City Pilot Network to Bridge Digital Divide for 50 U.S. Cities</a>
+      <p class="card-summary">Intel's Bellflower Connect pilot in California deploys a private, solar-powered edge computing network using 80 micro-towers running Dell PowerEdge XR8000 servers with 4th Gen Xeon processors. AI-driven security (GuardTower) runs at the edge for cybersecurity, processing data locally to avoid cloud dependence. Plans to scale to 50 U.S. cities by mid-2027.</p>
+      <div class="relevance-box">
+        <div class="relevance-label">F5 Relevance</div>
+        <div class="relevance-text">Distributed edge AI security nodes at city scale represent an architecture where F5 Distributed Cloud and NGINX can provide the API gateway and traffic management layer. This edge-first, AI-secured networking model is an F5 integration opportunity for municipal and enterprise edge deployments.</div>
+      </div>
+    </div>
+
+    <div class="card" id="minio-4">
+      <div class="card-header">
+        <span class="company-tag" style="background:#7c3aed;">MinIO</span>
+        <span class="card-date">June 10, 2026</span>
+      </div>
+      <a href="https://www.min.io/blog/the-on-premises-data-databricks-couldnt-reach-until-now" target="_blank" class="card-title">The On-Premises Data Databricks Couldn't Reach. Until Now.</a>
+      <p class="card-summary">MinIO announces native OpenSharing integration enabling on-premises AIStor data to be accessed by Databricks without complex replication, via zero-copy secure sharing. Stephen Orban of Databricks highlights accelerating hybrid workloads. Live demos available at the Data + AI Summit.</p>
+      <div class="relevance-box">
+        <div class="relevance-label">F5 Relevance</div>
+        <div class="relevance-text">Zero-copy on-premises-to-cloud data sharing creates new S3 data flow paths requiring secure, high-performance delivery. F5 Distributed Cloud is well-positioned to provide the secure networking and API gateway layer across the on-premises/cloud boundary in MinIO-Databricks hybrid architectures.</div>
+      </div>
+    </div>
+
+    <div class="card" id="nvidia-5">
+      <div class="card-header">
+        <span class="company-tag" style="background:#16a34a;">Nvidia</span>
+        <span class="card-date">June 10, 2026</span>
+      </div>
+      <a href="https://blogs.nvidia.com/blog/rtx-ai-garage-local-gemma-diffusion/" target="_blank" class="card-title">NVIDIA Accelerates Google DeepMind's DiffusionGemma for Local AI</a>
+      <p class="card-summary">NVIDIA accelerated Google DeepMind's DiffusionGemma — an experimental ultra-fast text generation model — for local deployment on GeForce RTX GPUs, RTX PLATFORM, and DGX Spark systems. The acceleration spans personal workstations to cloud-scale infrastructure, enabling enterprises to run frontier language models locally.</p>
+      <div class="relevance-box">
+        <div class="relevance-label">F5 Relevance</div>
+        <div class="relevance-text">Local AI inference deployment on NVIDIA hardware creates demand for secure API endpoints and inference traffic management. F5 NGINX and Distributed Cloud are natural fits for managing routing to local DiffusionGemma inference endpoints within enterprise networks.</div>
+      </div>
+    </div>
+
+    <div class="card" id="red-hat-6">
+      <div class="card-header">
+        <span class="company-tag" style="background:#b91c1c;">Red Hat</span>
+        <span class="card-date">June 12, 2026</span>
+      </div>
+      <a href="https://www.redhat.com/en/blog/friday-five-june-12-2026-red-hat" target="_blank" class="card-title">Friday Five — June 12, 2026: AAP 2.7, AI-Enabled Enterprise, Open Source Security</a>
+      <p class="card-summary">Red Hat's June 12 weekly briefing highlights: Ansible Automation Platform 2.7 GA with native MCP server integration enabling AI agents to launch Ansible workflows via natural language; 'Business as Code' approach; and Project Lightwell — IBM/Red Hat's multi-billion-dollar investment in open source security for the AI era.</p>
+      <div class="relevance-box">
+        <div class="relevance-label">F5 Relevance</div>
+        <div class="relevance-text">AAP 2.7's native MCP integration is significant for F5 automation teams — AI agents can now trigger F5 BIG-IP and NGINX configurations via natural language. Red Hat's open source security investment in the AI era aligns with F5's security portfolio strategy.</div>
+      </div>
+    </div>
+    <div class="no-news-section">
+      <div class="section-title">No Recent News (Last 3 Days)</div>
+      <div class="no-news-grid"><div class="no-news-chip">Ansible</div>
+<div class="no-news-chip">Cisco</div>
+<div class="no-news-chip">Dell</div>
+<div class="no-news-chip">Epic</div>
+<div class="no-news-chip">Equinix</div>
+<div class="no-news-chip">HPE GreenLake</div>
+<div class="no-news-chip">NetApp</div>
+<div class="no-news-chip">Nutanix</div>
+<div class="no-news-chip">Scality</div></div>
     </div>
   </main>
+</div>
+<div class="footer">
+  F5 Partner Intelligence &bull; <a href="https://sgorman50.github.io/f5-partner-research/">sgorman50.github.io/f5-partner-research</a> &bull; Researched by Partner Research Agent &bull; June 12, 2026
 </div>
 </body>
 </html>
