@@ -3,228 +3,251 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>F5 Partner Research — Sunday, June 15, 2026</title>
+<title>F5 Partner Research — Monday, June 16, 2026</title>
 <style>
-  :root {
-    --bg: #0f1117;
-    --surface: #1a1d27;
-    --surface2: #22263a;
-    --border: #2a2e42;
-    --accent: #4f7fff;
-    --accent2: #6d9bff;
-    --text: #e2e8f0;
-    --text-muted: #8892a4;
-    --text-dim: #4a5568;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; min-height: 100vh; }
-  
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1117; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; min-height: 100vh; }
+  a { color: inherit; text-decoration: none; }
+
   /* Sticky Header */
-  .header { position: sticky; top: 0; z-index: 100; background: rgba(15,17,23,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0; }
-  .header-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; gap: 16px; }
-  .header img { height: 48px; width: auto; border-radius: 6px; }
-  .header-title { font-size: 16px; font-weight: 700; color: var(--text); }
-  .header-date { font-size: 12px; color: var(--text-muted); margin-left: auto; }
-  
+  .top-header { position: sticky; top: 0; z-index: 100; background: #0f1117; border-bottom: 1px solid #1e2235; padding: 0 24px; display: flex; align-items: center; gap: 16px; height: 56px; }
+  .top-header img { height: 32px; }
+  .top-header-title { font-size: 14px; color: #94a3b8; }
+
   /* Layout */
-  .layout { max-width: 1200px; margin: 0 auto; padding: 24px 24px; display: grid; grid-template-columns: 220px 1fr; gap: 32px; }
-  @media(max-width:768px) { .layout { grid-template-columns: 1fr; } .sidebar { display: none; } }
-  
+  .page-body { display: flex; max-width: 1200px; margin: 0 auto; padding: 24px 16px; gap: 24px; }
+
   /* Sidebar */
-  .sidebar { position: sticky; top: 80px; height: fit-content; }
-  .sidebar-section { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 16px; }
-  .sidebar-title { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 12px; }
-  .sidebar-link { display: block; font-size: 13px; color: var(--text-muted); text-decoration: none; padding: 5px 0; border-bottom: 1px solid var(--border); transition: color 0.15s; }
-  .sidebar-link:last-child { border-bottom: none; }
-  .sidebar-link:hover { color: var(--accent2); }
-  .stats-row { display: flex; flex-direction: column; gap: 8px; }
-  .stat { font-size: 13px; color: var(--text-muted); }
-  .stat strong { color: var(--text); font-weight: 700; }
-  
-  /* Main Content */
-  .main { min-width: 0; }
-  .page-title { font-size: 22px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
-  .page-subtitle { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; }
-  
-  /* Cards */
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 16px; transition: border-color 0.2s; }
-  .card:hover { border-color: #3a4060; }
-  .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-  .company-badge { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .card-date { font-size: 12px; color: var(--text-muted); }
-  .card-title { display: block; font-size: 15px; font-weight: 700; color: var(--text); text-decoration: none; line-height: 1.4; margin-bottom: 10px; padding-left: 12px; transition: color 0.15s; }
-  .card-title:hover { color: var(--accent2); }
-  .card-summary { font-size: 13px; color: var(--text-muted); line-height: 1.65; margin-bottom: 14px; }
-  .relevance-box { background: rgba(79,127,255,0.08); border: 1px solid rgba(79,127,255,0.25); border-radius: 8px; padding: 12px 14px; }
-  .relevance-label { font-size: 10px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 5px; }
-  .relevance-text { font-size: 12px; color: #93b4ff; line-height: 1.55; }
-  
-  /* No News Section */
-  .no-news-section { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin-top: 8px; }
-  .no-news-title { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 12px; }
-  .no-news-badge { background: var(--surface2); color: var(--text-muted); font-size: 12px; padding: 4px 10px; border-radius: 12px; margin: 3px; display: inline-block; border: 1px solid var(--border); }
-  
+  .sidebar { width: 200px; flex-shrink: 0; position: sticky; top: 72px; align-self: flex-start; }
+  .sidebar-section { margin-bottom: 24px; }
+  .sidebar-heading { font-size: 10px; font-weight: 700; color: #4f7fff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .sidebar-link { display: block; font-size: 13px; color: #94a3b8; padding: 5px 8px; border-radius: 6px; transition: background 0.15s, color 0.15s; margin-bottom: 2px; }
+  .sidebar-link:hover { background: #1a1d27; color: #e2e8f0; }
+  .archive-link { display: block; font-size: 12px; color: #94a3b8; padding: 5px 8px; border-radius: 6px; margin-bottom: 2px; }
+  .archive-link:hover { background: #1a1d27; color: #e2e8f0; }
+
+  /* Main */
+  .main { flex: 1; min-width: 0; }
+  .page-date-title { font-size: 22px; font-weight: 700; color: #f1f5f9; margin-bottom: 16px; }
+  .stats-bar { display: flex; gap: 12px; margin-bottom: 24px; }
+  .stat-box { flex: 1; background: #1a1d27; border: 1px solid #2d3148; border-radius: 10px; padding: 14px 16px; text-align: center; }
+  .stat-num { font-size: 26px; font-weight: 700; color: #4f7fff; }
+  .stat-label { font-size: 11px; color: #64748b; margin-top: 3px; }
+
+  /* Finding cards */
+  .findings-section { margin-bottom: 32px; }
+  .section-title { font-size: 13px; font-weight: 700; color: #4f7fff; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 14px; border-bottom: 1px solid #1e2235; padding-bottom: 8px; }
+  .finding-card { background: #1a1d27; border: 1px solid #2d3148; border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+  .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .company-tag { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; color: #fff; letter-spacing: 0.5px; }
+  .card-date { font-size: 12px; color: #64748b; }
+  .card-title { font-size: 16px; font-weight: 700; color: #f1f5f9; line-height: 1.4; display: block; margin-bottom: 10px; transition: color 0.15s; }
+  .card-title:hover { color: #4f7fff; }
+  .card-summary { font-size: 14px; color: #94a3b8; line-height: 1.65; margin-bottom: 14px; }
+  .relevance-box { background: #0d1b3e; border-left: 3px solid #4f7fff; border-radius: 0 8px 8px 0; padding: 12px 16px; }
+  .relevance-label { font-size: 10px; font-weight: 700; color: #4f7fff; letter-spacing: 0.8px; margin-bottom: 5px; }
+  .relevance-text { font-size: 13px; color: #93b4e0; line-height: 1.55; }
+
+  /* No-news */
+  .no-news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+  .no-news-card { background: #13161f; border: 1px solid #1e2235; border-radius: 8px; padding: 12px 14px; }
+  .no-news-name { display: block; font-size: 14px; font-weight: 600; color: #64748b; margin-bottom: 3px; }
+  .no-news-label { font-size: 12px; color: #374151; }
+
   /* Footer */
-  .footer { text-align: center; padding: 32px 24px 24px; border-top: 1px solid var(--border); margin-top: 32px; }
-  .footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
-  .footer p { font-size: 12px; color: var(--text-dim); margin-top: 8px; }
+  .page-footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #374151; border-top: 1px solid #1e2235; margin-top: 32px; }
+  .page-footer a { color: #4f7fff; }
+
+  @media (max-width: 700px) {
+    .page-body { flex-direction: column; }
+    .sidebar { width: 100%; position: static; }
+  }
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="header-inner">
-    <img src="https://sgorman50.github.io/f5-partner-research/assets/header.png" alt="F5 Partner Intelligence">
-    <div>
-      <div class="header-title">F5 Partner Intelligence</div>
-    </div>
-    <div class="header-date">Daily Briefing · Sunday, June 15, 2026</div>
-  </div>
-</div>
+<header class="top-header">
+  <img src="assets/header.png" alt="Partner Intelligence">
+  <span class="top-header-title">Daily Briefing &mdash; Monday, June 16, 2026</span>
+</header>
 
-<div class="layout">
+<div class="page-body">
   <aside class="sidebar">
     <div class="sidebar-section">
-      <div class="sidebar-title">📊 Stats</div>
-      <div class="stats-row">
-        <div class="stat"><strong>8</strong> findings today</div>
-        <div class="stat"><strong>7</strong> companies with news</div>
-        <div class="stat"><strong>15</strong> companies monitored</div>
-        <div class="stat"><strong>3-day</strong> recency window</div>
-      </div>
+      <div class="sidebar-heading">Jump To</div>
+      <a href="#company-crowdstrike" class="sidebar-link">CrowdStrike</a>
+<a href="#company-minio" class="sidebar-link">MinIO</a>
+<a href="#company-nutanix" class="sidebar-link">Nutanix</a>
+<a href="#company-cisco" class="sidebar-link">Cisco</a>
+<a href="#company-equinix" class="sidebar-link">Equinix</a>
+<a href="#company-redhat" class="sidebar-link">Red Hat</a>
+<a href="#company-nvidia" class="sidebar-link">NVIDIA</a>
     </div>
     <div class="sidebar-section">
-      <div class="sidebar-title">🔗 Jump To</div>
-      <a href="#company-crowdstrike" class="sidebar-link">CrowdStrike</a>
-<a href="#company-dell" class="sidebar-link">Dell</a>
-<a href="#company-equinix" class="sidebar-link">Equinix</a>
-<a href="#company-hpe-greenlake" class="sidebar-link">HPE GreenLake</a>
-<a href="#company-nvidia" class="sidebar-link">NVIDIA</a>
-<a href="#company-nutanix" class="sidebar-link">Nutanix</a>
-<a href="#company-red-hat" class="sidebar-link">Red Hat</a>
+      <div class="sidebar-heading">Recent Runs</div>
+      <a href="archive/2026-06-16.html" class="archive-link">&#x25CF; 2026-06-16</a>
+      <a href="index.html" class="archive-link">Full Archive</a>
     </div>
   </aside>
 
   <main class="main">
-    <h1 class="page-title">Top Partner News Discovered</h1>
-    <p class="page-subtitle">Sunday, June 15, 2026 · 8 findings across 7 companies</p>
-    
-    
-      <div class="card" id="company-crowdstrike">
-        <div class="card-header">
-          <span class="company-badge" style="background:#fce7f3;color:#9d174d;">CrowdStrike</span>
-          <span class="card-date">June 13, 2026</span>
-        </div>
-        <a href="https://www.ad-hoc-news.de/boerse/news/ueberblick/crowdstrike-falcon-cloud-security-runtime-protection-for-containers-and/69532544" target="_blank" class="card-title" style="border-left:3px solid #e11d48;">CrowdStrike Falcon Cloud Security: Runtime Protection for Containers and Kubernetes</a>
-        <p class="card-summary">CrowdStrike expanded the Falcon platform to provide runtime protection for cloud-native workloads including containers, Kubernetes, and cloud infrastructure. The solution combines agent-based and agentless approaches to detect misconfigurations, vulnerabilities, and active attacks, incorporating CSPM and Kubernetes security in one unified service. Supports AWS EKS, Azure AKS, Google Kubernetes Engine, and other orchestration platforms.</p>
-        <div class="relevance-box">
-          <div class="relevance-label">F5 Relevance</div>
-          <p class="relevance-text">F5's NGINX Ingress Controller and Kubernetes-native WAF solutions sit directly adjacent to CrowdStrike's Falcon Cloud Security — a joint reference architecture combining F5 API gateway/ingress security with CrowdStrike runtime protection represents a compelling co-sell opportunity for enterprises running AI workloads on Kubernetes.</p>
-        </div>
-      </div>
+    <h1 class="page-date-title">Top Partner News &mdash; Monday, June 16, 2026</h1>
 
-      <div class="card" id="company-dell">
-        <div class="card-header">
-          <span class="company-badge" style="background:#dbeafe;color:#1e40af;">Dell</span>
-          <span class="card-date">June 14, 2026</span>
-        </div>
-        <a href="https://www.tikr.com/blog/dell-technologies-grew-ai-server-revenue-757-last-quarter-and-raised-its-full-year-outlook-by-27-billion" target="_blank" class="card-title" style="border-left:3px solid #2563eb;">Dell Technologies Q1 FY2027 Earnings: AI Server Revenue Up 757% YoY, $51.3B Backlog</a>
-        <p class="card-summary">Dell Technologies reported Q1 FY2027 revenue of $43.8B (+88% YoY) with AI-optimized server revenue of $16.1B, up 757% year-over-year, $24.4B in new AI orders, and an AI server backlog of $51.3B. Dell raised its full-year FY27 guidance midpoint to $167B — approximately $27B above prior guidance. COO Jeff Clarke stated the AI opportunity is accelerating.</p>
-        <div class="relevance-box">
-          <div class="relevance-label">F5 Relevance</div>
-          <p class="relevance-text">Dell's explosive AI server growth signals a massive wave of AI factory deployments where F5's load balancing, API security, and inference traffic management are critical infrastructure; the $51.3B backlog represents a substantial pipeline of F5-adjacent opportunities within the Dell AI Factory with NVIDIA ecosystem.</p>
-        </div>
+    <div class="stats-bar">
+      <div class="stat-box">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Findings</div>
       </div>
-
-      <div class="card" id="company-dell">
-        <div class="card-header">
-          <span class="company-badge" style="background:#dbeafe;color:#1e40af;">Dell</span>
-          <span class="card-date">June 12, 2026</span>
-        </div>
-        <a href="https://www.dell.com/en-us/blog/scaling-ai-from-supercomputers-to-real-world-impact/" target="_blank" class="card-title" style="border-left:3px solid #2563eb;">Dell Scales AI from UK Supercomputers to Real-World Impact with AMD and University of Cambridge</a>
-        <p class="card-summary">Dell Technologies announced the UK Sovereign AI Innovation Lab (SAIL) with AMD and the University of Cambridge, along with Zenith — the UK's AI-for-science platform on Dell PowerEdge + AMD MI355X GPUs — and Sunrise, an AI supercomputer for fusion research. The initiative targets national-scale AI capabilities compressing research timelines from decades to years.</p>
-        <div class="relevance-box">
-          <div class="relevance-label">F5 Relevance</div>
-          <p class="relevance-text">Sovereign AI deployments like SAIL and Zenith require enterprise API security, SSL termination, and traffic management — precisely where F5 Distributed Cloud and BIG-IP fit. Dell's sovereign AI push creates partnership opportunities to position F5 as the secure delivery layer in UK public-sector AI infrastructure.</p>
-        </div>
+      <div class="stat-box">
+        <div class="stat-num">8</div>
+        <div class="stat-label">No Recent News</div>
       </div>
-
-      <div class="card" id="company-equinix">
-        <div class="card-header">
-          <span class="company-badge" style="background:#ede9fe;color:#5b21b6;">Equinix</span>
-          <span class="card-date">June 13, 2026</span>
-        </div>
-        <a href="https://sg.finance.yahoo.com/news/equinix-targets-quantum-safe-security-131011030.html" target="_blank" class="card-title" style="border-left:3px solid #7c3aed;">Equinix and Sparkle Launch Quantum-Safe Interconnect Across 20 Data Centers</a>
-        <p class="card-summary">Equinix and Sparkle announced quantum-safe interconnect solutions across 20 Equinix data centers to address quantum computing security risks. Equinix also expanded collaboration with Zenlayer for distributed AI workloads, positioning at the intersection of cloud networking, post-quantum security, and AI-ready connectivity.</p>
-        <div class="relevance-box">
-          <div class="relevance-label">F5 Relevance</div>
-          <p class="relevance-text">Equinix's quantum-safe interconnect aligns directly with F5's PQC and certificate lifecycle management capabilities — joint positioning around PQC-ready TLS termination, ACMEv2 certificate automation, and secure cross-data-center interconnect represents a compelling co-innovation narrative.</p>
-        </div>
+      <div class="stat-box">
+        <div class="stat-num">15</div>
+        <div class="stat-label">Companies Monitored</div>
       </div>
-
-      <div class="card" id="company-hpe-greenlake">
-        <div class="card-header">
-          <span class="company-badge" style="background:#d1fae5;color:#065f46;">HPE GreenLake</span>
-          <span class="card-date">June 12, 2026</span>
-        </div>
-        <a href="https://community.hpe.com/t5/alliances/hpe-hybrid-cloud-solutions-help-microsoft-ai-span-clouds-at-hpe/ba-p/7268436" target="_blank" class="card-title" style="border-left:3px solid #059669;">HPE and Microsoft Announce GA of Alletra Storage MP B10000 for Azure Local at HPE Discover 2026</a>
-        <p class="card-summary">At HPE Discover Las Vegas (June 15–18, 2026), HPE and Microsoft announced GA of HPE Alletra Storage MP B10000 External Storage for Azure Local, delivering scalable, high-resilience storage for Azure-native hybrid cloud environments. Supported through the HPE GreenLake consumption model with Fibre Channel and iSCSI Preview options.</p>
-        <div class="relevance-box">
-          <div class="relevance-label">F5 Relevance</div>
-          <p class="relevance-text">HPE's Azure Local hybrid cloud expansion creates F5 integration opportunities for securing API traffic between on-premises Alletra storage and Azure workloads — F5 Distributed Cloud and BIG-IP are a natural fit for WAN-optimized, secure traffic management across the HPE GreenLake/Azure hybrid boundary.</p>
-        </div>
-      </div>
-
-      <div class="card" id="company-nutanix">
-        <div class="card-header">
-          <span class="company-badge" style="background:#fef3c7;color:#92400e;">Nutanix</span>
-          <span class="card-date">June 12, 2026</span>
-        </div>
-        <a href="https://techafricanews.com/2026/06/12/ntt-data-nutanix-forge-strategic-alliance-to-drive-digital-transformation-across-mea/" target="_blank" class="card-title" style="border-left:3px solid #d97706;">NTT DATA and Nutanix Forge Strategic Alliance for Hybrid Multicloud and AI in MEA</a>
-        <p class="card-summary">NTT DATA and Nutanix announced a strategic alliance to accelerate hybrid multicloud adoption and AI readiness across the Middle East and Africa. The partnership enables secure, private AI deployment environments for data sovereignty, cost, and compliance requirements, leveraging Nutanix's software-defined infrastructure.</p>
-        <div class="relevance-box">
-          <div class="relevance-label">F5 Relevance</div>
-          <p class="relevance-text">Nutanix-based private AI environments in regulated MEA markets require enterprise security layers — F5's WAF, API gateway, and zero-trust access would strengthen the NTT DATA/Nutanix stack, creating a three-way opportunity in high-growth markets with stringent data sovereignty requirements.</p>
-        </div>
-      </div>
-
-      <div class="card" id="company-nvidia">
-        <div class="card-header">
-          <span class="company-badge" style="background:#dcfce7;color:#14532d;">NVIDIA</span>
-          <span class="card-date">June 15, 2026</span>
-        </div>
-        <a href="https://press.asus.com/news/press-releases/asus-expertcenter-pro-et900n-g3-nvidia-gb300-blackwell/" target="_blank" class="card-title" style="border-left:3px solid #16a34a;">ASUS Launches ExpertCenter Pro ET900N G3 on NVIDIA DGX Station GB300 Architecture</a>
-        <p class="card-summary">ASUS announced the ExpertCenter Pro ET900N G3, a deskside AI supercomputer on NVIDIA DGX Station GB300 Grace Blackwell Ultra with 748 GB coherent memory and up to 20 PFLOPS AI performance. Targets LLM fine-tuning, generative AI, simulations, and autonomous agents at the enterprise desktop level.</p>
-        <div class="relevance-box">
-          <div class="relevance-label">F5 Relevance</div>
-          <p class="relevance-text">The democratization of Blackwell-class AI inference at the workgroup level will generate distributed AI API traffic requiring enterprise load balancing, API security, and access control — F5's AI traffic management and NGINX capabilities are ideally positioned as these systems proliferate across enterprises.</p>
-        </div>
-      </div>
-
-      <div class="card" id="company-red-hat">
-        <div class="card-header">
-          <span class="company-badge" style="background:#fee2e2;color:#991b1b;">Red Hat</span>
-          <span class="card-date">June 13, 2026</span>
-        </div>
-        <a href="https://www.redhat.com/en/about/red-hat-summit-newsroom" target="_blank" class="card-title" style="border-left:3px solid #dc2626;">Red Hat Summit: AI Factory with NVIDIA, Post-Quantum RHEL, and Agentic Ansible Automation</a>
-        <p class="card-summary">At Red Hat Summit, Red Hat announced the Red Hat AI Factory with NVIDIA for autonomous agent adoption, Red Hat AI 3.4 with unified governance, post-quantum readiness in RHEL, and Ansible Automation Platform as the trusted execution layer for agentic IT operations. Fedora Hummingbird introduced agentic capabilities and sovereign cloud landing zones were announced.</p>
-        <div class="relevance-box">
-          <div class="relevance-label">F5 Relevance</div>
-          <p class="relevance-text">Red Hat's post-quantum RHEL and agentic Ansible automation are directly adjacent to F5's CLM, ACMEv2, and zero-trust capabilities — joint reference architectures combining Red Hat OpenShift with F5 NGINX Ingress and PQC-ready certificate automation could accelerate enterprise AI factory security deployments.</p>
-        </div>
-      </div>
-    
-    <div class="no-news-section">
-      <div class="no-news-title">No Recent Interesting News (last 3 days)</div>
-      <div><span class="no-news-badge">Ansible</span><span class="no-news-badge">Arista</span><span class="no-news-badge">Cisco</span><span class="no-news-badge">Epic</span><span class="no-news-badge">Intel</span><span class="no-news-badge">MinIO</span><span class="no-news-badge">NetApp</span><span class="no-news-badge">Scality</span></div>
     </div>
-    
-    <div class="footer">
-      <a href="https://sgorman50.github.io/f5-partner-research/">sgorman50.github.io/f5-partner-research</a>
-      <p>F5 Partner Research Agent · Automated Daily Briefing · June 15, 2026</p>
+
+    <div class="findings-section">
+      <div class="section-title">&#x26A1; Partner Findings</div>
+      
+    <div class="finding-card" id="company-crowdstrike">
+      <div class="card-header">
+        <span class="company-tag" style="background:#ef4444;">CROWDSTRIKE</span>
+        <span class="card-date">June 15, 2026</span>
+      </div>
+      <a href="https://ir.crowdstrike.com/news-releases/news-release-details/crowdstrike-unveils-continuous-identity-for-ai-agents" target="_blank" class="card-title">CrowdStrike Unveils Continuous Identity for AI Agents</a>
+      <p class="card-summary">CrowdStrike launched Continuous Identity for AI Agents, a Falcon Next-Gen Identity Security capability replacing static policies with real-time, risk-aware authorization using SPIFFE-based verifiable identities. The system grants zero standing privilege — access is assigned only when needed and revoked immediately after, with Falcon AIDR monitoring agent prompts and intent for misuse. Addresses AI-specific risks including excessive privileges, compromised credentials, and unauthorized agent-to-agent delegation.</p>
+      <div class="relevance-box">
+        <div class="relevance-label">F5 RELEVANCE</div>
+        <p class="relevance-text">CrowdStrike's AI agent identity model (SPIFFE, zero standing privilege, continuous authorization) maps directly to F5's OAuth/OIDC and identity-aware access capabilities. F5 can serve as the network-layer enforcement point — API gateway, mTLS termination, and zero-trust ingress — for policies that Falcon generates, creating a joint identity-to-network security story.</p>
+      </div>
+    </div>
+
+    <div class="finding-card" id="company-minio">
+      <div class="card-header">
+        <span class="company-tag" style="background:#0891b2;">MINIO</span>
+        <span class="card-date">June 15, 2026</span>
+      </div>
+      <a href="https://www.min.io/press/minio-awarded-2026-databricks-isv-storage-partner-of-the-year-at-data-ai-summit" target="_blank" class="card-title">MinIO Awarded 2026 Databricks ISV Storage Partner of the Year at Data + AI Summit</a>
+      <p class="card-summary">MinIO was named 2026 Databricks ISV Storage Partner of the Year at the Data + AI Summit in San Francisco on June 15. The recognition highlights AIStor Table Sharing and OpenSharing, enabling live, zero-copy analytics on on-prem data without cloud migration. A Fortune 500 semiconductor manufacturer case study showed 70% more relevant data access, near real-time latency, and eliminated duplicate storage costs.</p>
+      <div class="relevance-box">
+        <div class="relevance-label">F5 RELEVANCE</div>
+        <p class="relevance-text">MinIO AIStor's zero-copy S3 data sharing creates new in-motion traffic flows between on-prem AIStor clusters and Databricks Unity Catalog. F5 can provide the secure ingress, API gateway, and load balancing layer for AIStor S3 endpoints — ensuring governed, authenticated S3 data access at scale.</p>
+      </div>
+    </div>
+
+    <div class="finding-card" id="company-nutanix">
+      <div class="card-header">
+        <span class="company-tag" style="background:#7c3aed;">NUTANIX</span>
+        <span class="card-date">June 15, 2026</span>
+      </div>
+      <a href="https://www.nutanix.com/blog/what-nutanix-s-agentic-ai-stack-means-for-financial-services" target="_blank" class="card-title">What Nutanix's Agentic AI Stack Means for Financial Services</a>
+      <p class="card-summary">Nutanix released Agent Gateway as part of Nutanix Enterprise AI 2.7, providing a centralized orchestration layer for managing fleets of AI agents across private and public clouds. Delivers granular access policies, token cost observability, and audit logging under a single secure control plane. Supports a 'Cloud Smart' strategy — training in public clouds with inference on-premises for regulated financial-services compliance.</p>
+      <div class="relevance-box">
+        <div class="relevance-label">F5 RELEVANCE</div>
+        <p class="relevance-text">Nutanix Agent Gateway creates a control plane for AI agent traffic (auth, routing, rate limiting) that aligns directly with F5's API gateway, NGINX, and zero-trust capabilities. F5 can serve as the secure network ingress and load-balancing layer for Nutanix Enterprise AI 2.7 — a natural joint reference architecture for financial services.</p>
+      </div>
+    </div>
+
+    <div class="finding-card" id="company-cisco">
+      <div class="card-header">
+        <span class="company-tag" style="background:#0284c7;">CISCO</span>
+        <span class="card-date">June 15, 2026</span>
+      </div>
+      <a href="https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m06/the-key-to-agentic-ai-adoption-the-network.html" target="_blank" class="card-title">The Key to Agentic AI Adoption? The Network.</a>
+      <p class="card-summary">A Cisco and Foundry study of 3,400+ IT decision-makers across 15 countries found that network security, visibility, and scalability are the top prerequisites for AI adoption. Cisco positions the network as the foundational layer for the agentic AI era, framing the moment as a 'networking supercycle' enabled by Cloud Control, Live Protect, and Cisco IQ.</p>
+      <div class="relevance-box">
+        <div class="relevance-label">F5 RELEVANCE</div>
+        <p class="relevance-text">Cisco's research-backed 'network is foundational to AI' narrative directly reinforces F5's application delivery and security positioning. The same pillars — security, visibility, scalability — are core to F5's ADC, WAF, and Distributed Cloud portfolio, creating strong co-messaging opportunities as both vendors address the agentic AI build-out.</p>
+      </div>
+    </div>
+
+    <div class="finding-card" id="company-equinix">
+      <div class="card-header">
+        <span class="company-tag" style="background:#d97706;">EQUINIX</span>
+        <span class="card-date">June 16, 2026</span>
+      </div>
+      <a href="https://www.stocktitan.net/news/EQIX/equinix-collaborates-with-cisco-and-nvidia-to-deploy-secure-ai-wwhykly3m3u8.html" target="_blank" class="card-title">Equinix, Cisco, and NVIDIA Expand Partnership to Deploy AI Factories Globally</a>
+      <p class="card-summary">Equinix announced an expanded global collaboration with Cisco and NVIDIA to deploy the Cisco Secure AI Factory with NVIDIA across its 280 data centers in 77 markets. Presidio joins with a Programmable AI Technology Hub (P.A.T.H.) Lab inside Equinix centers for testing AI infrastructure before enterprise rollout. The effort provides standardized AI factory blueprints to accelerate pilot-to-production transitions.</p>
+      <div class="relevance-box">
+        <div class="relevance-label">F5 RELEVANCE</div>
+        <p class="relevance-text">With Equinix deploying Cisco Secure AI Factory blueprints globally, F5 Distributed Cloud Services has a strong opportunity to act as the secure application delivery and API security layer at Equinix interconnection points. F5's existing presence at Equinix positions it as a natural security insertion point for AI workloads traversing the Cisco-NVIDIA-Equinix fabric.</p>
+      </div>
+    </div>
+
+    <div class="finding-card" id="company-redhat">
+      <div class="card-header">
+        <span class="company-tag" style="background:#dc2626;">RED HAT</span>
+        <span class="card-date">June 15, 2026</span>
+      </div>
+      <a href="https://developers.redhat.com/blog/2026/06/15/security-getting-harder-heres-why-image-mode-rhel-helps" target="_blank" class="card-title">Security is Getting Harder: Here's Why Image Mode for RHEL Helps</a>
+      <p class="card-summary">Red Hat's developer blog explains how Image Mode for RHEL addresses escalating software supply chain security challenges by delivering the OS as an immutable, container-packaged image. Red Hat also announced a $5 billion commitment to build an AI-powered open-source vulnerability clearinghouse capable of identifying thousands of high- and critical-severity CVEs in a single frontier AI model pass.</p>
+      <div class="relevance-box">
+        <div class="relevance-label">F5 RELEVANCE</div>
+        <p class="relevance-text">Red Hat's immutable Image Mode hardens the OS layer running F5 NGINX and application stacks. The AI-powered vulnerability clearinghouse accelerates CVE remediation in shared dependencies, strengthening Red Hat as a platform security and supply chain partner for F5's on-premises and hybrid deployments.</p>
+      </div>
+    </div>
+
+    <div class="finding-card" id="company-nvidia">
+      <div class="card-header">
+        <span class="company-tag" style="background:#16a34a;">NVIDIA</span>
+        <span class="card-date">June 15, 2026</span>
+      </div>
+      <a href="https://developer.nvidia.com/blog/pretrained-to-imagine-fine-tuned-to-act-the-rise-of-world-action-models/" target="_blank" class="card-title">Pretrained to Imagine, Fine-Tuned to Act: The Rise of World-Action Models</a>
+      <p class="card-summary">NVIDIA's technical blog (June 15) surveys the emergence of World-Action Models (WAMs) — AI systems combining pretrained video backbones with action prediction for autonomous robotic manipulation. Projects including NVIDIA DreamZero, Cosmos Policy, and industry WAM-VLA hybrids from Ant Group, Sereact, and Mimic Robotics are advancing robot foundation models that plan and act in complex environments.</p>
+      <div class="relevance-box">
+        <div class="relevance-label">F5 RELEVANCE</div>
+        <p class="relevance-text">As agentic robot systems generate real-time API traffic between action models and cloud control planes, F5's API security, traffic management, and low-latency load balancing capabilities become relevant for securing these workloads. F5 can position its AI traffic management story around the emerging class of physical AI systems requiring deterministic, secure connectivity.</p>
+      </div>
+    </div>
+    </div>
+
+    <div class="findings-section">
+      <div class="section-title">No Recent Interesting News</div>
+      <div class="no-news-grid">
+        
+    <div class="no-news-card">
+      <span class="no-news-name">Ansible</span>
+      <span class="no-news-label">No recent interesting news</span>
+    </div>
+    <div class="no-news-card">
+      <span class="no-news-name">Arista</span>
+      <span class="no-news-label">No recent interesting news</span>
+    </div>
+    <div class="no-news-card">
+      <span class="no-news-name">Dell</span>
+      <span class="no-news-label">No recent interesting news</span>
+    </div>
+    <div class="no-news-card">
+      <span class="no-news-name">Epic</span>
+      <span class="no-news-label">No recent interesting news</span>
+    </div>
+    <div class="no-news-card">
+      <span class="no-news-name">HPE GreenLake</span>
+      <span class="no-news-label">No recent interesting news</span>
+    </div>
+    <div class="no-news-card">
+      <span class="no-news-name">Intel</span>
+      <span class="no-news-label">No recent interesting news</span>
+    </div>
+    <div class="no-news-card">
+      <span class="no-news-name">NetApp</span>
+      <span class="no-news-label">No recent interesting news</span>
+    </div>
+    <div class="no-news-card">
+      <span class="no-news-name">Scality</span>
+      <span class="no-news-label">No recent interesting news</span>
+    </div>
+      </div>
     </div>
   </main>
 </div>
+
+<footer class="page-footer">
+  <a href="https://sgorman50.github.io/f5-partner-research/">F5 Partner Research Archive</a> &bull;
+  Research window: last 3 calendar days &bull; 15 companies monitored daily
+</footer>
 
 </body>
 </html>
