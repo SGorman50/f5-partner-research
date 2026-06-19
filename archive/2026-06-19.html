@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F5 Partner Intelligence — June 19, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #1e2130;
+      --accent: #4f7fff;
+      --accent2: #76b9ff;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --border: #2a2d3e;
+      --relevance-bg: #0f2044;
+      --relevance-border: #2563eb;
+      --relevance-text: #93c5fd;
+      --no-news-bg: #1e2130;
+      --chip-bg: #2a2d3e;
+      --chip-text: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; line-height: 1.6; min-height: 100vh; }
+    
+    /* Sticky header */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,17,23,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .site-header img { height: 36px; }
+    .site-header h1 { font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: 0.02em; }
+    .site-header .run-date { font-size: 12px; color: var(--text-muted); margin-left: auto; }
+    
+    /* Layout */
+    .layout { display: flex; max-width: 1200px; margin: 0 auto; gap: 0; }
+    
+    /* Sidebar */
+    .sidebar {
+      width: 220px; flex-shrink: 0;
+      position: sticky; top: 60px;
+      height: calc(100vh - 60px);
+      overflow-y: auto;
+      border-right: 1px solid var(--border);
+      padding: 20px 0;
+      background: var(--surface);
+    }
+    .sidebar-section { padding: 0 16px; margin-bottom: 24px; }
+    .sidebar-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); margin-bottom: 10px; }
+    .archive-link { display: block; font-size: 12px; color: var(--text-muted); text-decoration: none; padding: 4px 0; }
+    .archive-link:hover { color: var(--accent2); }
+    .archive-link.active { color: var(--accent2); font-weight: 600; }
+    .jump-link {
+      display: block; font-size: 12px; color: var(--text-muted);
+      text-decoration: none; padding: 5px 8px 5px 12px;
+      border-left: 3px solid transparent;
+      margin-bottom: 2px; border-radius: 0 4px 4px 0;
+      transition: background 0.15s, color 0.15s;
+    }
+    .jump-link:hover { background: var(--surface2); color: var(--text); }
+    
+    /* Main content */
+    .main { flex: 1; padding: 24px 32px; min-width: 0; }
+    
+    /* Stats bar */
+    .stats-bar {
+      display: flex; gap: 20px; flex-wrap: wrap;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px 20px; margin-bottom: 28px;
+    }
+    .stat { display: flex; flex-direction: column; }
+    .stat-value { font-size: 24px; font-weight: 700; color: var(--accent2); }
+    .stat-label { font-size: 12px; color: var(--text-muted); }
+    
+    /* Section labels */
+    .section-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-dim);
+      margin: 0 0 16px 0; padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border-radius: 10px;
+      border-left: 5px solid var(--accent);
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+    .card-inner { padding: 20px 22px; }
+    .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .company-tag {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #fff;
+      padding: 3px 8px; border-radius: 4px;
+    }
+    .card-date { font-size: 11px; color: var(--text-dim); }
+    .card-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.4; }
+    .card-title a { color: var(--text); text-decoration: none; }
+    .card-title a:hover { color: var(--accent2); }
+    .card-summary { font-size: 14px; color: var(--text-muted); line-height: 1.65; margin-bottom: 14px; }
+    .relevance-box {
+      background: var(--relevance-bg);
+      border-left: 3px solid var(--relevance-border);
+      border-radius: 4px; padding: 12px 14px;
+    }
+    .relevance-label {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--accent2);
+      display: block; margin-bottom: 4px;
+    }
+    .relevance-text { font-size: 13px; color: var(--relevance-text); line-height: 1.55; }
+    
+    /* No-news section */
+    .no-news-section {
+      background: var(--no-news-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px 20px;
+      margin-top: 8px;
+    }
+    .no-news-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+    .no-news-chip {
+      font-size: 12px; color: var(--chip-text);
+      background: var(--chip-bg); padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .no-news-note { font-size: 12px; color: var(--text-dim); }
+    
+    /* Footer */
+    .site-footer {
+      text-align: center; padding: 24px;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+      font-size: 12px; color: var(--text-dim);
+    }
+    .site-footer a { color: var(--accent2); text-decoration: none; }
+    
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header class="site-header">
+    <img src="https://sgorman50.github.io/f5-partner-research/assets/header.png" alt="F5 Partner Intelligence">
+    <h1>F5 Partner Intelligence</h1>
+    <span class="run-date">Friday, June 19, 2026</span>
+  </header>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-label">Recent Runs</div>
+        <a href="/f5-partner-research/archive/2026-06-19.html" class="archive-link active">June 19, 2026</a>
+        <a href="/f5-partner-research/archive/2026-06-18.html" class="archive-link">June 18, 2026</a>
+        <a href="/f5-partner-research/archive/2026-06-17.html" class="archive-link">June 17, 2026</a>
+        <a href="/f5-partner-research/archive/2026-06-16.html" class="archive-link">June 16, 2026</a>
+        <a href="/f5-partner-research/archive/2026-06-13.html" class="archive-link">June 13, 2026</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Jump To</div>
+        <a href="#cisco" class="jump-link" style="border-left-color:#00bceb;">Cisco</a>
+<a href="#crowdstrike" class="jump-link" style="border-left-color:#e11d48;">CrowdStrike</a>
+<a href="#dell" class="jump-link" style="border-left-color:#007db8;">Dell</a>
+<a href="#epic" class="jump-link" style="border-left-color:#d97706;">Epic</a>
+<a href="#hpe-greenlake" class="jump-link" style="border-left-color:#01a982;">HPE GreenLake</a>
+<a href="#nutanix" class="jump-link" style="border-left-color:#6741d9;">Nutanix</a>
+<a href="#nvidia" class="jump-link" style="border-left-color:#76b900;">Nvidia</a>
+<a href="#red-hat" class="jump-link" style="border-left-color:#cc0000;">Red Hat</a>
+<a href="#red-hat" class="jump-link" style="border-left-color:#cc0000;">Red Hat</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Stats -->
+      <div class="stats-bar">
+        <div class="stat"><span class="stat-value">9</span><span class="stat-label">Findings</span></div>
+        <div class="stat"><span class="stat-value">8</span><span class="stat-label">Companies w/ News</span></div>
+        <div class="stat"><span class="stat-value">7</span><span class="stat-label">No Recent News</span></div>
+        <div class="stat"><span class="stat-value">15</span><span class="stat-label">Companies Monitored</span></div>
+      </div>
+
+      <p class="section-label">Partner Findings — Friday, June 19, 2026</p>
+
+      
+    <div class="card" id="cisco" style="border-left-color:#00bceb;">
+      <div class="card-header">
+        <span class="company-tag" style="background:#00bceb;">Cisco</span>
+        <span class="card-date">June 18, 2026</span>
+      </div>
+      <h3 class="card-title"><a href="https://blogs.cisco.com/datacenter/powering-the-future-of-ai-ciscos-breakthroughs-in-secure-ai-networking-with-nvidia" target="_blank" rel="noopener">Cisco's Breakthroughs in Secure AI Networking with NVIDIA</a></h3>
+      <p class="card-summary">Cisco unveiled a secure AI networking stack with NVIDIA, including new N9100 Series switches powered by NVIDIA Spectrum-6 and Spectrum-4 silicon delivering up to 102.4T capacity for AI factories. Security is enhanced by extending Cisco Hybrid Mesh Firewall to NVIDIA BlueField DPUs, enabling inline workload-close protection. The Nexus Dashboard provides AI job monitoring with dynamic load balancing and telemetry-driven congestion control.</p>
+      <div class="relevance-box">
+        <span class="relevance-label">F5 Relevance</span>
+        <p class="relevance-text">Cisco's Hybrid Mesh Firewall extension to BlueField DPUs creates a competitive and partnership dynamic with F5's WAF and network security offerings. F5's Distributed Cloud and NGINX could complement Cisco's AI fabric security by providing application-layer inspection, API security, and load balancing for AI inference traffic flowing through Cisco/NVIDIA AI factory deployments.</p>
+      </div>
+    </div>
+
+    <div class="card" id="crowdstrike" style="border-left-color:#e11d48;">
+      <div class="card-header">
+        <span class="company-tag" style="background:#e11d48;">CrowdStrike</span>
+        <span class="card-date">June 17, 2026</span>
+      </div>
+      <h3 class="card-title"><a href="https://www.crowdstrike.com/en-us/press-releases/crowdstrike-advances-ai-and-cloud-security-operations-on-aws/" target="_blank" rel="noopener">CrowdStrike Advances AI and Cloud Security Operations on AWS</a></h3>
+      <p class="card-summary">CrowdStrike and AWS announced joint AI and cloud security enhancements at AWS Summit New York, including Falcon AI Detection and Response (AIDR) expanded to protect AI apps built with AWS Bedrock, Kiro, and Strands Agents. New Amazon S3 access log connectors were added, and AWS PrivateLink cross-region support was introduced to simplify secure cross-region traffic.</p>
+      <div class="relevance-box">
+        <span class="relevance-label">F5 Relevance</span>
+        <p class="relevance-text">The new Amazon S3 access log connectors and AWS PrivateLink integration highlight the growing importance of securing S3 data flows — a core F5 priority. F5's S3 traffic management, API gateway, and network security capabilities could augment CrowdStrike's AI detection by securing the underlying S3 data path that feeds AI workloads.</p>
+      </div>
+    </div>
+
+    <div class="card" id="dell" style="border-left-color:#007db8;">
+      <div class="card-header">
+        <span class="company-tag" style="background:#007db8;">Dell</span>
+        <span class="card-date">June 18, 2026</span>
+      </div>
+      <h3 class="card-title"><a href="https://www.dell.com/en-us/blog/why-dell-technologies-is-ranked-1-in-enterprise-storage/" target="_blank" rel="noopener">Why Dell Technologies is Ranked #1 in Enterprise Storage</a></h3>
+      <p class="card-summary">Dell Technologies claimed Q1 2026 as the world's #1 external enterprise storage vendor with 31.2% market share and 40.8% YoY growth per IDC. The blog highlights Dell AI Data Platform enabling indexing of billions of unstructured files, with GPU-accelerated SQL on NVIDIA Blackwell delivering up to 6x faster queries, and ObjectScale X7700 offering 45% more HDD capacity. Dell PowerProtect One and AI-powered Cyber Detect provide unified ransomware detection with 99.99% accuracy.</p>
+      <div class="relevance-box">
+        <span class="relevance-label">F5 Relevance</span>
+        <p class="relevance-text">Dell's dominant storage position combined with ObjectScale's S3-compatible storage and AI-driven Cyber Detect creates integration opportunities for F5. F5's application delivery and S3 traffic management capabilities could serve as the secure data path layer between Dell ObjectScale storage, GPU-accelerated analytics, and enterprise applications.</p>
+      </div>
+    </div>
+
+    <div class="card" id="epic" style="border-left-color:#d97706;">
+      <div class="card-header">
+        <span class="company-tag" style="background:#d97706;">Epic</span>
+        <span class="card-date">June 18, 2026</span>
+      </div>
+      <h3 class="card-title"><a href="https://www.epic.com/epic/post/teamwork-staff-scheduling-delivers-faster-care-coordination-and-less-administrative-work-at-health-systems-worldwide/" target="_blank" rel="noopener">Teamwork Staff Scheduling Delivers Faster Care Coordination at Health Systems Worldwide</a></h3>
+      <p class="card-summary">Epic announced the broad rollout of Teamwork Staff Scheduling within EpicOps, its integrated healthcare ERP, enabling real-time scheduling for clinicians, exam rooms, and resources. Health systems report up to 75% reduction in time to build provider schedules. Dubai Health became the first nursing deployment and first EpicOps adoption outside the US.</p>
+      <div class="relevance-box">
+        <span class="relevance-label">F5 Relevance</span>
+        <p class="relevance-text">Epic's expansion of EpicOps across global health systems increases the scale of Epic's connected healthcare network. F5's application delivery and API security capabilities are relevant for securing the real-time data flows between EpicOps scheduling, EHR workflows, and clinical systems across multi-site health networks.</p>
+      </div>
+    </div>
+
+    <div class="card" id="hpe-greenlake" style="border-left-color:#01a982;">
+      <div class="card-header">
+        <span class="company-tag" style="background:#01a982;">HPE GreenLake</span>
+        <span class="card-date">June 18, 2026</span>
+      </div>
+      <h3 class="card-title"><a href="https://aitech365.com/business-technology/hpe-expands-greenlake-and-hpe-morpheus-software-to-deliver-unified-agentic-it-operations/" target="_blank" rel="noopener">HPE Expands GreenLake and HPE Morpheus Software to Deliver Unified Agentic IT Operations</a></h3>
+      <p class="card-summary">HPE announced expansions to GreenLake and HPE Morpheus at HPE Discover Las Vegas 2026, delivering unified agentic IT operations with a new agentic orchestration framework and GreenLake Intelligence for hybrid cloud AIOps. New integrations include ServiceNow for real-time full-stack infrastructure insight and a deeper Citrix DaaS partnership. HPE Morpheus Orchestration Copilot automates end-to-end infrastructure provisioning using agentic reasoning.</p>
+      <div class="relevance-box">
+        <span class="relevance-label">F5 Relevance</span>
+        <p class="relevance-text">HPE's agentic IT orchestration with GreenLake Intelligence governing AI agents and hybrid cloud workloads creates an important opportunity for F5. As agentic AI systems make autonomous provisioning decisions, F5's API security, WAF, and zero-trust access policies become critical guardrails for the API traffic flowing through GreenLake's agentic framework and Morpheus orchestration layer.</p>
+      </div>
+    </div>
+
+    <div class="card" id="nutanix" style="border-left-color:#6741d9;">
+      <div class="card-header">
+        <span class="company-tag" style="background:#6741d9;">Nutanix</span>
+        <span class="card-date">June 17, 2026</span>
+      </div>
+      <h3 class="card-title"><a href="https://www.techzine.tv/videos/how-nutanix-is-tackling-multi-cloud-kubernetes-and-ai-workloads/" target="_blank" rel="noopener">How Nutanix is Tackling Multi-Cloud Kubernetes and AI Workloads</a></h3>
+      <p class="card-summary">A Nutanix interview with VP/GM of Cloud Native Dan Ciruli explains the company's move to a true multi-cloud Kubernetes platform for enterprise and AI workloads. Key insights include AI gateways as critical infrastructure to avoid cloud AI lock-in, a contrarian view on running Kubernetes in VMs for enterprise needs, and rising container security threats in the AI era.</p>
+      <div class="relevance-box">
+        <span class="relevance-label">F5 Relevance</span>
+        <p class="relevance-text">Nutanix's positioning of AI gateways as critical infrastructure for avoiding cloud AI lock-in aligns with F5's API gateway and multi-cloud networking capabilities. F5's Distributed Cloud Services and NGINX-based AI traffic management could serve as the AI gateway and load balancing layer that Nutanix customers need when running Kubernetes workloads across multi-cloud environments.</p>
+      </div>
+    </div>
+
+    <div class="card" id="nvidia" style="border-left-color:#76b900;">
+      <div class="card-header">
+        <span class="company-tag" style="background:#76b900;">Nvidia</span>
+        <span class="card-date">June 18, 2026</span>
+      </div>
+      <h3 class="card-title"><a href="https://www.eenewseurope.com/en/switching-technology-driving-the-ai-boom/" target="_blank" rel="noopener">Switching Technology Driving the AI Boom — Spectrum-6, NVLink, and AI Fabric Networking</a></h3>
+      <p class="card-summary">Nvidia is expanding its AI-focused networking stack with sixth-generation NVLink connecting Rubin GPUs and Vera CPUs at 3.6 TB/s, plus Spectrum-6 Ethernet switches achieving 104.6 Tbit/s for AI racks with multiplane topology for scaling to hundreds of thousands of GPUs. Spectrum-6 is adding Co-Packaged Optics (CPO) photonic silicon for next-generation AI fabric deployments.</p>
+      <div class="relevance-box">
+        <span class="relevance-label">F5 Relevance</span>
+        <p class="relevance-text">NVIDIA's Spectrum-6 multiplane Ethernet fabric and NVLink GPU networking represent the high-speed backbone of AI factories where F5 can position its AI traffic management and API security services. F5's KV cache routing, inference load balancing, and network security capabilities are directly relevant for the application-layer traffic flowing over these next-generation AI networking fabrics.</p>
+      </div>
+    </div>
+
+    <div class="card" id="red-hat" style="border-left-color:#cc0000;">
+      <div class="card-header">
+        <span class="company-tag" style="background:#cc0000;">Red Hat</span>
+        <span class="card-date">June 16, 2026</span>
+      </div>
+      <h3 class="card-title"><a href="https://channelpostmea.com/2026/06/16/red-hat-and-nvidia-support-a-new-class-of-autonomous-agents-in-the-enterprise/" target="_blank" rel="noopener">Red Hat and NVIDIA Support a New Class of Autonomous Agents in the Enterprise</a></h3>
+      <p class="card-summary">Red Hat and NVIDIA announced new milestones in the Red Hat AI Factory with NVIDIA platform, including integration of OpenShell (NVIDIA's open-source sandboxed runtime for autonomous agents) with Red Hat's full-stack AI platform for infrastructure-level governance. Confidential Computing with hardware-enforced policies via OpenShift sandboxed containers was highlighted, along with Day 0 support for NVIDIA Blackwell.</p>
+      <div class="relevance-box">
+        <span class="relevance-label">F5 Relevance</span>
+        <p class="relevance-text">Red Hat's integration of OpenShell governance and Confidential Computing with OpenShift creates a new enterprise-grade security layer for autonomous AI agents — a domain where F5's zero-trust access and identity-aware security are directly applicable. F5's NGINX Ingress Controller and API gateway could serve as the secure entry point for agent-to-agent communication within Red Hat AI Factory deployments.</p>
+      </div>
+    </div>
+
+    <div class="card" id="red-hat" style="border-left-color:#cc0000;">
+      <div class="card-header">
+        <span class="company-tag" style="background:#cc0000;">Red Hat</span>
+        <span class="card-date">June 19, 2026</span>
+      </div>
+      <h3 class="card-title"><a href="https://www.techzine.eu/blogs/infrastructure/142297/chris-wright-metal-to-agent-is-the-foundation-of-scalable-enterprise-ai/" target="_blank" rel="noopener">Chris Wright: Metal-to-Agent is the Foundation of Scalable Enterprise AI</a></h3>
+      <p class="card-summary">Red Hat is advancing an OpenShift/Kubernetes-enabled metal-to-agent AI stack featuring Red Hat AI Enterprise with guardrails, security, red teaming, Models-as-a-Service, and AgentOps. The llm-d component coordinates distributed inference, routing queries to available servers and achieving 3x token throughput and 10x faster time-to-first-answer. The stack is hardware-agnostic but leverages NVIDIA tooling for accelerated inference.</p>
+      <div class="relevance-box">
+        <span class="relevance-label">F5 Relevance</span>
+        <p class="relevance-text">Red Hat's llm-d distributed inference orchestration — which routes queries across Kubernetes-managed AI servers — creates a natural insertion point for F5's NGINX inference load balancing and AI traffic management. F5 could complement the metal-to-agent stack by providing the application-layer load balancing and API security layer between external applications and Red Hat AI Enterprise inference endpoints.</p>
+      </div>
+    </div>
+
+      <!-- No-news section -->
+      <p class="section-label" style="margin-top:32px;">No Recent News (Last 3 Days)</p>
+      <div class="no-news-section">
+        <div class="no-news-chips">
+          <span class="no-news-chip">Ansible</span><span class="no-news-chip">Arista</span><span class="no-news-chip">Equinix</span><span class="no-news-chip">Intel</span><span class="no-news-chip">MinIO</span><span class="no-news-chip">NetApp</span><span class="no-news-chip">Scality</span>
+        </div>
+        <p class="no-news-note">No content matching the research criteria was found within the last 3 days for these companies.</p>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    F5 Partner Intelligence Daily Briefing &mdash; Automated research updated each weekday at 8:05 AM ET &mdash;
+    <a href="https://sgorman50.github.io/f5-partner-research/">Hub Home</a>
+  </footer>
+
+</body>
+</html>
