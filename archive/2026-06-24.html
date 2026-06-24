@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>F5 Partner Research — Tuesday, June 24, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --accent: #4f7fff;
+    --accent2: #76b900;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --border: #2a2f45;
+    --f5blue: #1e3a5c;
+    --f5text: #93c5fd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; min-height: 100vh; }
+
+  /* Sticky Header */
+  .site-header {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+  }
+  .site-header img { display:block; max-width:580px; height:auto; }
+
+  /* Layout */
+  .layout { display: flex; max-width: 1100px; margin: 0 auto; padding: 24px 16px; gap: 24px; }
+
+  /* Sidebar */
+  .sidebar {
+    width: 220px; flex-shrink: 0;
+    position: sticky; top: 80px; align-self: flex-start;
+    background: var(--surface); border-radius: 10px; border: 1px solid var(--border);
+    padding: 16px; font-size: 13px;
+  }
+  .sidebar h4 { font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-bottom:10px; }
+  .sidebar ul { list-style:none; }
+  .sidebar ul li { margin-bottom:6px; }
+  .sidebar ul li a { color: var(--accent); text-decoration:none; }
+  .sidebar ul li a:hover { text-decoration:underline; }
+  .sidebar .recent-runs { margin-top:20px; }
+
+  /* Main */
+  .main { flex: 1; min-width: 0; }
+
+  /* Stats Bar */
+  .stats-bar {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 18px; display:flex; gap:20px;
+    margin-bottom: 24px; font-size:13px; flex-wrap:wrap;
+  }
+  .stat { color: var(--muted); }
+  .stat strong { color: var(--text); }
+
+  /* Date title */
+  .run-title { font-size:20px; font-weight:700; color:var(--text); margin-bottom:16px; line-height:1.3; }
+
+  /* Cards */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px; margin-bottom: 14px;
+    border-left: 4px solid var(--accent);
+  }
+  .card-muted { border-left-color: var(--border); opacity:0.65; }
+  .card-header { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .company-tag {
+    font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px;
+    text-transform:uppercase; letter-spacing:0.5px;
+  }
+  .muted-tag { background:var(--surface2); color:var(--muted); }
+  .card-date { font-size:12px; color:var(--muted); }
+  .card-title { font-size:15px; font-weight:700; line-height:1.4; margin-bottom:8px; }
+  .card-title a { color:var(--text); text-decoration:none; }
+  .card-title a:hover { color:var(--accent); }
+  .card-summary { font-size:13px; color:#94a3b8; line-height:1.7; margin-bottom:12px; }
+  .muted-text { color:var(--muted); }
+  .f5-box {
+    background: var(--f5blue); border-left:3px solid var(--accent);
+    border-radius:4px; padding:10px 14px; margin-bottom:10px;
+  }
+  .f5-label { font-size:11px; font-weight:700; color:var(--f5text); display:block; margin-bottom:4px; }
+  .f5-text { font-size:12px; color:var(--f5text); line-height:1.6; }
+  .read-more { font-size:12px; color:var(--accent); text-decoration:none; }
+  .read-more:hover { text-decoration:underline; }
+
+  .section-label {
+    font-size:12px; text-transform:uppercase; letter-spacing:1px;
+    color:var(--muted); margin:24px 0 12px 0; font-weight:600;
+  }
+
+  /* Footer */
+  .footer { text-align:center; padding:24px 0; font-size:12px; color:var(--muted); border-top:1px solid var(--border); margin-top:32px; }
+  .footer a { color:var(--accent); text-decoration:none; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <img src="assets/header.png" alt="Partner Intelligence Daily News" width="580">
+</header>
+
+<div class="layout">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h4>Jump To</h4>
+    <ul>
+      <li><a href="#company-netapp">NetApp</a></li>
+<li><a href="#company-nvidia">Nvidia</a></li>
+
+    </ul>
+    <div class="recent-runs">
+      <h4>Recent Runs</h4>
+      <ul>
+        <li><a href="archive/2026-06-24.html">June 24, 2026</a></li>
+        <li><a href="archive/2026-06-23.html">June 23, 2026</a></li>
+        <li><a href="archive/2026-06-22.html">June 22, 2026</a></li>
+        <li><a href="index.html">Latest</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+    <h2 class="run-title">Top Partner News Discovered — Tuesday, June 24, 2026</h2>
+
+    <div class="stats-bar">
+      <div class="stat">🔍 <strong>5</strong> findings</div>
+      <div class="stat">🔴 <strong>13</strong> companies no recent news</div>
+      <div class="stat">📊 <strong>15</strong> companies monitored</div>
+    </div>
+
+    
+      <div class="card" id="company-netapp">
+        <div class="card-header">
+          <span class="company-tag" style="background:#1a3a5c;color:#0070b8;">NetApp</span>
+          <span class="card-date">June 23, 2026</span>
+        </div>
+        <h3 class="card-title"><a href="https://www.netapp.com/newsroom/press-releases/news-rel-20260623-280939" target="_blank" rel="noopener">NetApp Launches StorageGRID 12.1 — Global Federated Namespace and 12 TB/s Throughput for AI Workloads</a></h3>
+        <p class="card-summary">NetApp announces StorageGRID 12.1 on June 23, 2026, with a Global Federated Namespace managing up to 10 exabytes across distributed systems in a single namespace, up to 12 TB/s throughput (400% improvement for certain workloads), batch operations on billions of objects, change tracking for S3 buckets, and multi-admin verification for regulated environments.</p>
+        <div class="f5-box">
+          <span class="f5-label">🔵 F5 Relevance</span>
+          <p class="f5-text">StorageGRID 12.1's 12 TB/s S3-compatible throughput and federated global namespace at exabyte scale creates a large traffic surface that F5's S3 data flow security and load balancing can protect and optimise. The multi-admin verification feature also aligns with F5's identity-aware access controls for regulated industries.</p>
+        </div>
+        <a href="https://www.netapp.com/newsroom/press-releases/news-rel-20260623-280939" target="_blank" rel="noopener" class="read-more">Read more →</a>
+      </div>
+
+      <div class="card" id="company-netapp">
+        <div class="card-header">
+          <span class="company-tag" style="background:#1a3a5c;color:#0070b8;">NetApp</span>
+          <span class="card-date">June 23, 2026</span>
+        </div>
+        <h3 class="card-title"><a href="https://sg.finance.yahoo.com/news/netapp-ntap-launches-storagegrid-12-171429480.html" target="_blank" rel="noopener">NetApp Expands CGI Hybrid Cloud Partnership Alongside StorageGRID 12.1 Launch</a></h3>
+        <p class="card-summary">NetApp expands its global alliance with CGI to deliver intelligent data infrastructure across private, public, and hybrid clouds—powered by StorageGRID 12.1's federated global namespace and AI-optimised throughput improvements. The expanded partnership positions NetApp as a backbone for AI training, inference, and data governance in enterprise hybrid cloud environments.</p>
+        <div class="f5-box">
+          <span class="f5-label">🔵 F5 Relevance</span>
+          <p class="f5-text">NetApp's expanded CGI hybrid cloud partnership increases enterprise deployments of StorageGRID across multi-cloud environments, creating additional integration opportunities for F5's API gateway and S3 data flow security capabilities in hybrid cloud data pipelines.</p>
+        </div>
+        <a href="https://sg.finance.yahoo.com/news/netapp-ntap-launches-storagegrid-12-171429480.html" target="_blank" rel="noopener" class="read-more">Read more →</a>
+      </div>
+
+      <div class="card" id="company-nvidia">
+        <div class="card-header">
+          <span class="company-tag" style="background:#2a3a10;color:#76b900;">Nvidia</span>
+          <span class="card-date">June 22, 2026</span>
+        </div>
+        <h3 class="card-title"><a href="https://nvidianews.nvidia.com/news/nvidia-vera-rubin-delivers-world-class-supercomputers-for-science" target="_blank" rel="noopener">NVIDIA Vera Rubin Delivers World-Class Supercomputers for Science</a></h3>
+        <p class="card-summary">NVIDIA announces the Vera Rubin HPC/AI platform on June 22, 2026, offering 7 exaflops AI performance with up to 144 GPUs per rack, ConnectX-9 SuperNICs, BlueField-4 DPUs, and direct liquid cooling. Deployments include Leibniz Supercomputing Centre, NERSC Doudna, and Los Alamos National Laboratory, with OEM rack availability from Dell, HPE, Bull, GIGABYTE, and Supermicro in Q4 2026.</p>
+        <div class="f5-box">
+          <span class="f5-label">🔵 F5 Relevance</span>
+          <p class="f5-text">Vera Rubin's ConnectX-9 SuperNICs and BlueField-4 DPUs represent the next-generation networking substrate for AI supercomputing. F5's AI traffic management and API security can operate at this scale as these systems expand into enterprise AI factory deployments, particularly for securing data flows to and from GPU clusters.</p>
+        </div>
+        <a href="https://nvidianews.nvidia.com/news/nvidia-vera-rubin-delivers-world-class-supercomputers-for-science" target="_blank" rel="noopener" class="read-more">Read more →</a>
+      </div>
+
+      <div class="card" id="company-nvidia">
+        <div class="card-header">
+          <span class="company-tag" style="background:#2a3a10;color:#76b900;">Nvidia</span>
+          <span class="card-date">June 23, 2026</span>
+        </div>
+        <h3 class="card-title"><a href="https://blogs.nvidia.com/blog/top500-green500-supercomputers-isc-2026/" target="_blank" rel="noopener">NVIDIA Powers Over 400 of the World's 500 Fastest Supercomputers — TOP500 and Green500 ISC 2026</a></h3>
+        <p class="card-summary">At ISC High Performance 2026 (June 23), NVIDIA confirms its technologies power 81% of TOP500 systems, 90% of new entrants, and 376 systems via NVIDIA Quantum InfiniBand networking. GPU adoption is at a record high, with nearly 2.5 million Grace CPUs shipped and 35 new European AI HPC supercomputers in development.</p>
+        <div class="f5-box">
+          <span class="f5-label">🔵 F5 Relevance</span>
+          <p class="f5-text">NVIDIA's dominant position in HPC/AI networking across TOP500 systems signals the growing infrastructure scale where F5's traffic management, API security, and load balancing need to operate to address enterprise AI factory use cases built on NVIDIA-powered infrastructure.</p>
+        </div>
+        <a href="https://blogs.nvidia.com/blog/top500-green500-supercomputers-isc-2026/" target="_blank" rel="noopener" class="read-more">Read more →</a>
+      </div>
+
+      <div class="card" id="company-nvidia">
+        <div class="card-header">
+          <span class="company-tag" style="background:#2a3a10;color:#76b900;">Nvidia</span>
+          <span class="card-date">June 23, 2026</span>
+        </div>
+        <h3 class="card-title"><a href="https://blogs.nvidia.com/blog/nvidia-aws-ai-production-scale/" target="_blank" rel="noopener">NVIDIA and AWS Collaborate to Bring AI to Production at Scale — G7 Instances, cuVS, and Exemplar Cloud Status</a></h3>
+        <p class="card-summary">NVIDIA and AWS announce EC2 G7 instances with RTX PRO 4500 Blackwell GPUs featuring up to 700 Gbps networking and 7.6TB NVMe, GPU-accelerated vector search via NVIDIA cuVS integrated as default in Amazon OpenSearch Serverless, and AWS achieving NVIDIA Exemplar Cloud status for GB300 training workloads.</p>
+        <div class="f5-box">
+          <span class="f5-label">🔵 F5 Relevance</span>
+          <p class="f5-text">AWS G7 instances with 700 Gbps networking and GPU-accelerated inference at production scale create high-throughput AI application environments where F5's load balancing, SSL/TLS termination, and API security capabilities are essential to manage and secure inference traffic at cloud scale.</p>
+        </div>
+        <a href="https://blogs.nvidia.com/blog/nvidia-aws-ai-production-scale/" target="_blank" rel="noopener" class="read-more">Read more →</a>
+      </div>
+
+    <p class="section-label">○ No Recent News — Last 3 Days</p>
+    
+      <div class="card card-muted">
+        <div class="card-header">
+          <span class="company-tag muted-tag">Ansible</span>
+          <span class="card-date">No recent news</span>
+        </div>
+        <p class="card-summary muted-text">No content matching research criteria found within the last 3 days.</p>
+      </div>
+
+      <div class="card card-muted">
+        <div class="card-header">
+          <span class="company-tag muted-tag">Arista</span>
+          <span class="card-date">No recent news</span>
+        </div>
+        <p class="card-summary muted-text">No content matching research criteria found within the last 3 days.</p>
+      </div>
+
+      <div class="card card-muted">
+        <div class="card-header">
+          <span class="company-tag muted-tag">Cisco</span>
+          <span class="card-date">No recent news</span>
+        </div>
+        <p class="card-summary muted-text">No content matching research criteria found within the last 3 days.</p>
+      </div>
+
+      <div class="card card-muted">
+        <div class="card-header">
+          <span class="company-tag muted-tag">CrowdStrike</span>
+          <span class="card-date">No recent news</span>
+        </div>
+        <p class="card-summary muted-text">No content matching research criteria found within the last 3 days.</p>
+      </div>
+
+      <div class="card card-muted">
+        <div class="card-header">
+          <span class="company-tag muted-tag">Dell</span>
+          <span class="card-date">No recent news</span>
+        </div>
+        <p class="card-summary muted-text">No content matching research criteria found within the last 3 days.</p>
+      </div>
+
+      <div class="card card-muted">
+        <div class="card-header">
+          <span class="company-tag muted-tag">Epic</span>
+          <span class="card-date">No recent news</span>
+        </div>
+        <p class="card-summary muted-text">No content matching research criteria found within the last 3 days.</p>
+      </div>
+
+      <div class="card card-muted">
+        <div class="card-header">
+          <span class="company-tag muted-tag">Equinix</span>
+          <span class="card-date">No recent news</span>
+        </div>
+        <p class="card-summary muted-text">No content matching research criteria found within the last 3 days.</p>
+      </div>
+
+      <div class="card card-muted">
+        <div class="card-header">
+          <span class="company-tag muted-tag">HPE GreenLake</span>
+          <span class="card-date">No recent news</span>
+        </div>
+        <p class="card-summary muted-text">No content matching research criteria found within the last 3 days.</p>
+      </div>
+
+      <div class="card card-muted">
+        <div class="card-header">
+          <span class="company-tag muted-tag">Intel</span>
+          <span class="card-date">No recent news</span>
+        </div>
+        <p class="card-summary muted-text">No content matching research criteria found within the last 3 days.</p>
+      </div>
+
+      <div class="card card-muted">
+        <div class="card-header">
+          <span class="company-tag muted-tag">MinIO</span>
+          <span class="card-date">No recent news</span>
+        </div>
+        <p class="card-summary muted-text">No content matching research criteria found within the last 3 days.</p>
+      </div>
+
+      <div class="card card-muted">
+        <div class="card-header">
+          <span class="company-tag muted-tag">Nutanix</span>
+          <span class="card-date">No recent news</span>
+        </div>
+        <p class="card-summary muted-text">No content matching research criteria found within the last 3 days.</p>
+      </div>
+
+      <div class="card card-muted">
+        <div class="card-header">
+          <span class="company-tag muted-tag">Red Hat</span>
+          <span class="card-date">No recent news</span>
+        </div>
+        <p class="card-summary muted-text">No content matching research criteria found within the last 3 days.</p>
+      </div>
+
+      <div class="card card-muted">
+        <div class="card-header">
+          <span class="company-tag muted-tag">Scality</span>
+          <span class="card-date">No recent news</span>
+        </div>
+        <p class="card-summary muted-text">No content matching research criteria found within the last 3 days.</p>
+      </div>
+
+    <div class="footer">
+      <a href="https://sgorman50.github.io/f5-partner-research/">F5 Partner Research Briefings Archive</a>
+      &nbsp;·&nbsp; Generated Tuesday, June 24, 2026 &nbsp;·&nbsp; 3-day recency filter applied
+    </div>
+  </main>
+</div>
+
+</body>
+</html>
