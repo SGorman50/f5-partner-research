@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>F5 Partner Intelligence &mdash; Friday, June 26, 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f1117;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;min-height:100vh}
+.hdr{background:#0a0d14;border-bottom:1px solid #1e2433;padding:8px 16px;position:sticky;top:0;z-index:100}
+.hdr img{display:block;max-height:56px;width:auto}
+.layout{display:flex;max-width:1100px;margin:0 auto;padding:24px 16px;gap:24px}
+.sidebar{width:190px;flex-shrink:0}
+.sblabel{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#4f7fff;margin:0 0 8px 0;padding:0 4px}
+.main{flex:1;min-width:0}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.pill{padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600}
+.slabel{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#4a5568;margin-bottom:12px;display:block}
+.nngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:12px}
+@media(max-width:700px){.layout{flex-direction:column}.sidebar{width:100%}}
+</style>
+</head>
+<body>
+<div class="hdr"><img src="../assets/header.png" alt="Partner Intelligence"></div>
+<div class="layout">
+  <div class="sidebar">
+    <p class="sblabel">Recent Runs</p>
+    <a href="archive/2026-06-26.html" style="display:block;padding:6px 10px;text-decoration:none;font-size:12px;color:#94a3b8;margin-bottom:2px;" style="background:#1e2a45;color:#4f7fff;border-radius:5px;">Jun 26, 2026</a>
+<a href="archive/2026-06-24.html" style="display:block;padding:6px 10px;text-decoration:none;font-size:12px;color:#94a3b8;margin-bottom:2px;" style="border-radius:5px;">Jun 24, 2026</a>
+<a href="archive/2026-06-23.html" style="display:block;padding:6px 10px;text-decoration:none;font-size:12px;color:#94a3b8;margin-bottom:2px;" style="border-radius:5px;">Jun 23, 2026</a>
+<a href="archive/2026-06-22.html" style="display:block;padding:6px 10px;text-decoration:none;font-size:12px;color:#94a3b8;margin-bottom:2px;" style="border-radius:5px;">Jun 22, 2026</a>
+
+    <p class="sblabel" style="margin-top:20px;">Jump To</p>
+    <a href="#red-hat" style="display:block;padding:5px 4px;font-size:12px;color:#94a3b8;text-decoration:none;">Red Hat</a>
+  </div>
+  <div class="main">
+    <h1 style="font-size:22px;font-weight:700;color:#e2e8f0;margin-bottom:4px;">Top Partner News</h1>
+    <p style="font-size:13px;color:#64748b;margin-bottom:16px;">Friday, June 26, 2026</p>
+    <div class="stats">
+      <div class="pill" style="background:#1a2a4a;color:#4f7fff;">1 finding</div>
+      <div class="pill" style="background:#2a1f0a;color:#f59e0b;">14 no-news</div>
+      <div class="pill" style="background:#0a1f14;color:#34d399;">15 monitored</div>
+    </div>
+    <span class="slabel">Partner Findings</span>
+    
+<div id="red-hat" style="background:#1a1d27;border:1px solid #2a2d3e;border-left:4px solid #cc0000;border-radius:8px;padding:20px;margin-bottom:16px;">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:6px;">
+    <span style="background:#cc0000;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;letter-spacing:0.04em;">RED HAT</span>
+    <span style="font-size:11px;color:#64748b;">June 25, 2026</span>
+  </div>
+  <h3 style="font-size:15px;font-weight:700;color:#e2e8f0;margin:0 0 10px 0;line-height:1.4;">
+    <a href="https://developers.redhat.com/articles/2026/06/25/implement-mtls-and-zero-trust-cert-manager-and-trust-manager" target="_blank" style="color:#e2e8f0;text-decoration:none;">Implement mTLS and Zero Trust with cert-manager and trust-manager on OpenShift</a>
+  </h3>
+  <p style="font-size:13px;color:#94a3b8;margin:0 0 14px 0;line-height:1.6;">Red Hat Developer published a June 25, 2026 article detailing a new technology preview of trust-manager integrated with the cert-manager operator for OpenShift. Trust-manager automates distribution and live updating of custom CA bundles across Kubernetes workloads, enabling scalable zero-trust and mTLS deployments. The combination supports automated TLS certificate lifecycle management and broader trust management for OpenShift clusters, reducing manual effort and enabling faster CA certificate rotations.</p>
+  <div style="background:#1e2a45;border-left:3px solid #4f7fff;border-radius:4px;padding:12px 16px;margin-bottom:12px;">
+    <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#4f7fff;margin:0 0 4px 0;">F5 Relevance</p>
+    <p style="font-size:12px;color:#93c5fd;margin:0;line-height:1.5;">This directly intersects with F5&rsquo;s certificate lifecycle management (CLM), ACMEv2, and mTLS capabilities. OpenShift customers automating CA bundle distribution via trust-manager create an integration opportunity for F5&rsquo;s NGINX Ingress Controller and BIG-IP to act as the TLS termination layer that consumes and enforces these certificates &mdash; a joint reference architecture story for zero-trust on Kubernetes.</p>
+  </div>
+  <a href="https://developers.redhat.com/articles/2026/06/25/implement-mtls-and-zero-trust-cert-manager-and-trust-manager" target="_blank" style="font-size:12px;color:#4f7fff;text-decoration:none;">Read article &rarr;</a>
+</div>
+    <span class="slabel" style="margin-top:24px;display:block;">No Recent News (14 companies)</span>
+    <div class="nngrid"><div style="background:#12151e;border:1px solid #1e2433;border-radius:6px;padding:10px 14px;"><p style="font-size:12px;font-weight:600;color:#4a5568;margin:0;">Ansible</p><p style="font-size:11px;color:#374151;margin:2px 0 0 0;">No recent news</p></div><div style="background:#12151e;border:1px solid #1e2433;border-radius:6px;padding:10px 14px;"><p style="font-size:12px;font-weight:600;color:#4a5568;margin:0;">Arista</p><p style="font-size:11px;color:#374151;margin:2px 0 0 0;">No recent news</p></div><div style="background:#12151e;border:1px solid #1e2433;border-radius:6px;padding:10px 14px;"><p style="font-size:12px;font-weight:600;color:#4a5568;margin:0;">Cisco</p><p style="font-size:11px;color:#374151;margin:2px 0 0 0;">No recent news</p></div><div style="background:#12151e;border:1px solid #1e2433;border-radius:6px;padding:10px 14px;"><p style="font-size:12px;font-weight:600;color:#4a5568;margin:0;">CrowdStrike</p><p style="font-size:11px;color:#374151;margin:2px 0 0 0;">No recent news</p></div><div style="background:#12151e;border:1px solid #1e2433;border-radius:6px;padding:10px 14px;"><p style="font-size:12px;font-weight:600;color:#4a5568;margin:0;">Dell</p><p style="font-size:11px;color:#374151;margin:2px 0 0 0;">No recent news</p></div><div style="background:#12151e;border:1px solid #1e2433;border-radius:6px;padding:10px 14px;"><p style="font-size:12px;font-weight:600;color:#4a5568;margin:0;">Epic</p><p style="font-size:11px;color:#374151;margin:2px 0 0 0;">No recent news</p></div><div style="background:#12151e;border:1px solid #1e2433;border-radius:6px;padding:10px 14px;"><p style="font-size:12px;font-weight:600;color:#4a5568;margin:0;">Equinix</p><p style="font-size:11px;color:#374151;margin:2px 0 0 0;">No recent news</p></div><div style="background:#12151e;border:1px solid #1e2433;border-radius:6px;padding:10px 14px;"><p style="font-size:12px;font-weight:600;color:#4a5568;margin:0;">HPE GreenLake</p><p style="font-size:11px;color:#374151;margin:2px 0 0 0;">No recent news</p></div><div style="background:#12151e;border:1px solid #1e2433;border-radius:6px;padding:10px 14px;"><p style="font-size:12px;font-weight:600;color:#4a5568;margin:0;">Intel</p><p style="font-size:11px;color:#374151;margin:2px 0 0 0;">No recent news</p></div><div style="background:#12151e;border:1px solid #1e2433;border-radius:6px;padding:10px 14px;"><p style="font-size:12px;font-weight:600;color:#4a5568;margin:0;">MinIO</p><p style="font-size:11px;color:#374151;margin:2px 0 0 0;">No recent news</p></div><div style="background:#12151e;border:1px solid #1e2433;border-radius:6px;padding:10px 14px;"><p style="font-size:12px;font-weight:600;color:#4a5568;margin:0;">NetApp</p><p style="font-size:11px;color:#374151;margin:2px 0 0 0;">No recent news</p></div><div style="background:#12151e;border:1px solid #1e2433;border-radius:6px;padding:10px 14px;"><p style="font-size:12px;font-weight:600;color:#4a5568;margin:0;">Nutanix</p><p style="font-size:11px;color:#374151;margin:2px 0 0 0;">No recent news</p></div><div style="background:#12151e;border:1px solid #1e2433;border-radius:6px;padding:10px 14px;"><p style="font-size:12px;font-weight:600;color:#4a5568;margin:0;">Nvidia</p><p style="font-size:11px;color:#374151;margin:2px 0 0 0;">No recent news</p></div><div style="background:#12151e;border:1px solid #1e2433;border-radius:6px;padding:10px 14px;"><p style="font-size:12px;font-weight:600;color:#4a5568;margin:0;">Scality</p><p style="font-size:11px;color:#374151;margin:2px 0 0 0;">No recent news</p></div></div>
+  </div>
+</div>
+<footer style="text-align:center;padding:20px;border-top:1px solid #1e2433;color:#374151;font-size:12px;margin-top:16px;">
+  F5 Partner Intelligence &mdash; <a href="https://sgorman50.github.io/f5-partner-research/" style="color:#4f7fff;">sgorman50.github.io/f5-partner-research</a>
+</footer>
+</body></html>
