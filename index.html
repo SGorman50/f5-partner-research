@@ -2,229 +2,267 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>F5 Partner Research &mdash; Sunday, June 29, 2026</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>F5 Partner Intelligence — June 30, 2026</title>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0f1117; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; min-height: 100vh; }
-  a { color: #4f7fff; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-
-  /* Sticky header */
-  .site-header { position: sticky; top: 0; z-index: 100; background: #0d0f1a; border-bottom: 1px solid #1e2235; display: flex; align-items: center; padding: 0 24px; height: 60px; gap: 16px; }
-  .site-header img { height: 36px; }
-  .site-header h1 { font-size: 15px; font-weight: 600; color: #94a3b8; }
-  .run-date-badge { margin-left: auto; font-size: 13px; color: #64748b; }
-
-  /* Layout */
-  .layout { display: flex; max-width: 1200px; margin: 0 auto; padding: 24px 16px; gap: 24px; }
-
-  /* Sidebar */
-  .sidebar { width: 200px; flex-shrink: 0; }
-  .sidebar-section { margin-bottom: 28px; }
-  .sidebar-title { font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
-  .sidebar ul { list-style: none; }
-  .sidebar ul li { margin-bottom: 4px; }
-  .sidebar ul li a { font-size: 13px; color: #64748b; display: block; padding: 4px 8px; border-radius: 4px; transition: background 0.15s; }
-  .sidebar ul li a:hover { background: #1a1d27; color: #94a3b8; text-decoration: none; }
-  .sidebar ul li.active a { color: #4f7fff; font-weight: 600; background: #1a2040; }
-  .sidebar ul li.no-news-jump a { color: #475569; font-size: 12px; }
-
-  /* Main content */
-  .main { flex: 1; min-width: 0; }
-
-  /* Stats bar */
-  .stats-bar { display: flex; gap: 24px; background: #1a1d27; border-radius: 10px; padding: 16px 24px; margin-bottom: 24px; border: 1px solid #1e2235; }
-  .stat { display: flex; flex-direction: column; }
-  .stat-value { font-size: 28px; font-weight: 700; color: #4f7fff; line-height: 1; }
-  .stat-value.muted { color: #475569; }
-  .stat-value.neutral { color: #94a3b8; }
-  .stat-label { font-size: 12px; color: #64748b; margin-top: 4px; }
-
-  /* Section headers */
-  .section-label { font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; margin-top: 4px; }
-
-  /* Finding card */
-  .finding-card { background: #1a1d27; border-radius: 10px; border: 1px solid #1e2235; border-left: 4px solid #4f7fff; padding: 20px 24px; margin-bottom: 16px; }
-  .company-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-  .company-tag { display: inline-block; font-size: 11px; font-weight: 700; color: #fff; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
-  .finding-date { font-size: 12px; color: #64748b; }
-  .finding-title { font-size: 16px; font-weight: 700; color: #e2e8f0; margin-bottom: 10px; line-height: 1.4; }
-  .finding-title a { color: #e2e8f0; }
-  .finding-title a:hover { color: #4f7fff; text-decoration: none; }
-  .finding-summary { font-size: 14px; color: #94a3b8; line-height: 1.7; margin-bottom: 14px; }
-  .f5-relevance { background: #0f1e3d; border-left: 3px solid #4f7fff; border-radius: 0 6px 6px 0; padding: 12px 16px; }
-  .f5-label { display: block; font-size: 11px; font-weight: 700; color: #4f7fff; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
-  .f5-relevance p { font-size: 13px; color: #93c5fd; line-height: 1.6; }
-
-  /* No-news cards */
-  .no-news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
-  .no-news-card { background: #13151f; border: 1px solid #1e2235; border-radius: 8px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; }
-  .company-name-muted { font-size: 13px; font-weight: 600; color: #475569; }
-  .no-news-label { font-size: 11px; color: #2d3748; }
-
-  /* Footer */
-  .footer { text-align: center; padding: 32px 16px; font-size: 12px; color: #334155; border-top: 1px solid #1e2235; margin-top: 40px; }
-  .footer a { color: #475569; }
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0f1117;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh;}
+/* Sticky header */
+.site-header{position:sticky;top:0;z-index:100;background:#0f1117;border-bottom:1px solid #1e293b;padding:12px 24px;display:flex;align-items:center;gap:16px;}
+.site-header img{height:36px;}
+.site-header-title{font-size:15px;font-weight:700;color:#e2e8f0;}
+.site-header-date{font-size:12px;color:#64748b;margin-left:auto;}
+/* Layout */
+.layout{display:flex;min-height:calc(100vh - 57px);}
+.sidebar{width:200px;min-width:200px;background:#0a0d14;border-right:1px solid #1e293b;padding:20px 0;position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto;}
+.sidebar-section{padding:0 16px;margin-bottom:20px;}
+.sidebar-label{font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;}
+.sidebar a{display:block;padding:5px 16px;font-size:12px;color:#94a3b8;text-decoration:none;border-left:2px solid transparent;transition:all 0.15s;}
+.sidebar a:hover{color:#e2e8f0;border-left-color:#4f7fff;background:#1a1d27;}
+.main{flex:1;padding:24px;max-width:900px;}
+/* Stats */
+.stats-bar{display:flex;gap:12px;margin-bottom:24px;}
+.stat{background:#1a1d27;border:1px solid #1e293b;border-radius:8px;padding:12px 20px;text-align:center;flex:1;}
+.stat-num{font-size:28px;font-weight:700;color:#4f7fff;}
+.stat-label{font-size:11px;color:#64748b;margin-top:2px;}
+/* Section headers */
+.section-title{font-size:12px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 12px 0;padding-bottom:8px;border-bottom:1px solid #1e293b;}
+/* Cards */
+.card{background:#1a1d27;border:1px solid #1e293b;border-radius:8px;padding:18px;margin-bottom:14px;border-left:4px solid #4f7fff;}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.company-tag{font-size:11px;font-weight:700;padding:2px 10px;border-radius:12px;text-transform:uppercase;}
+.card-date{font-size:11px;color:#475569;margin-left:auto;}
+.card-title{font-size:15px;font-weight:700;color:#f1f5f9;margin-bottom:8px;line-height:1.4;}
+.card-summary{font-size:13px;color:#94a3b8;line-height:1.65;margin-bottom:10px;}
+.card-link{font-size:12px;color:#60a5fa;text-decoration:none;display:inline-block;margin-bottom:10px;}
+.card-link:hover{text-decoration:underline;}
+.f5-box{background:#0f1829;border:1px solid #1e3a5f;border-left:3px solid #3b82f6;border-radius:4px;padding:10px 12px;}
+.f5-label{font-size:10px;font-weight:700;color:#3b82f6;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
+.f5-text{font-size:12px;color:#93c5fd;line-height:1.55;}
+/* No-news cards */
+.no-news-card{background:#111827;border:1px solid #1e293b;border-radius:6px;padding:10px 14px;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+.no-news-company{font-size:12px;font-weight:700;color:#475569;}
+.no-news-text{font-size:12px;color:#374151;}
+/* Footer */
+.footer{border-top:1px solid #1e293b;padding:20px 24px;text-align:center;font-size:12px;color:#475569;margin-top:24px;}
+.footer a{color:#4f7fff;text-decoration:none;}
+@media(max-width:700px){.sidebar{display:none;}.stats-bar{flex-direction:column;}}
 </style>
 </head>
 <body>
-
 <header class="site-header">
-  <img src="assets/header.png" alt="Partner Intelligence">
-  <h1>F5 Partner Research</h1>
-  <span class="run-date-badge">Sunday, June 29, 2026</span>
+  <img src="https://sgorman50.github.io/f5-partner-research/assets/header.png" alt="Partner Intelligence">
+  <span class="site-header-title">F5 Partner Intelligence</span>
+  <span class="site-header-date">Monday, June 30, 2026</span>
 </header>
-
 <div class="layout">
-
-  <!-- Sidebar -->
-  <aside class="sidebar">
+  <nav class="sidebar">
     <div class="sidebar-section">
-      <div class="sidebar-title">Recent Runs</div>
-      <ul>
-        <li class="active"><a href="../index.html">Jun 29, 2026</a></li>
-<li><a href="../archive/2026-06-26.html">Jun 26, 2026</a></li>
-<li><a href="../archive/2026-06-24.html">Jun 24, 2026</a></li>
-<li><a href="../archive/2026-06-23.html">Jun 23, 2026</a></li>
-<li><a href="../archive/2026-06-22.html">Jun 22, 2026</a></li>
-<li><a href="../archive/2026-06-19.html">Jun 19, 2026</a></li>
-<li><a href="../archive/2026-06-18.html">Jun 18, 2026</a></li>
-<li><a href="../archive/2026-06-17.html">Jun 17, 2026</a></li>
-<li><a href="../archive/2026-06-16.html">Jun 16, 2026</a></li>
-<li><a href="../archive/2026-06-15.html">Jun 15, 2026</a></li>
+      <div class="sidebar-label">Jump To</div>
+      <a href="#company-arista">Arista</a>
+<a href="#company-cisco">Cisco</a>
+<a href="#company-dell">Dell</a>
+<a href="#company-epic">Epic</a>
+<a href="#company-equinix">Equinix</a>
+<a href="#company-nvidia">Nvidia</a>
+<a href="#company-redhat">Red Hat</a>
+<a href="#company-scality">Scality</a>
 
-      </ul>
     </div>
     <div class="sidebar-section">
-      <div class="sidebar-title">Jump To</div>
-      <ul>
-        <li><a href="#company-redhat">Red Hat &#10003;</a></li>
-        <li class="no-news-jump"><a href="#">Ansible</a></li>
-<li class="no-news-jump"><a href="#">Arista</a></li>
-<li class="no-news-jump"><a href="#">Cisco</a></li>
-<li class="no-news-jump"><a href="#">CrowdStrike</a></li>
-<li class="no-news-jump"><a href="#">Dell</a></li>
-<li class="no-news-jump"><a href="#">Epic</a></li>
-<li class="no-news-jump"><a href="#">Equinix</a></li>
-<li class="no-news-jump"><a href="#">HPE GreenLake</a></li>
-<li class="no-news-jump"><a href="#">Intel</a></li>
-<li class="no-news-jump"><a href="#">MinIO</a></li>
-<li class="no-news-jump"><a href="#">NetApp</a></li>
-<li class="no-news-jump"><a href="#">Nutanix</a></li>
-<li class="no-news-jump"><a href="#">Nvidia</a></li>
-<li class="no-news-jump"><a href="#">Scality</a></li>
-
-      </ul>
+      <div class="sidebar-label">Archive</div>
+      <a href="archive/2026-06-30.html">2026-06-30</a>
+      <a href="https://sgorman50.github.io/f5-partner-research/">Latest</a>
     </div>
-  </aside>
-
-  <!-- Main -->
+  </nav>
   <main class="main">
-
-    <!-- Stats bar -->
+    <h1 style="font-size:20px;font-weight:700;color:#f1f5f9;margin-bottom:16px;">Top Partner News &mdash; Monday, June 30, 2026</h1>
     <div class="stats-bar">
-      <div class="stat">
-        <span class="stat-value">1</span>
-        <span class="stat-label">finding</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value muted">14</span>
-        <span class="stat-label">no news</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value neutral">15</span>
-        <span class="stat-label">companies monitored</span>
-      </div>
+      <div class="stat"><div class="stat-num">10</div><div class="stat-label">Findings</div></div>
+      <div class="stat"><div class="stat-num">7</div><div class="stat-label">No Recent News</div></div>
+      <div class="stat"><div class="stat-num">15</div><div class="stat-label">Companies Monitored</div></div>
     </div>
-
-    <!-- Findings section -->
-    <div class="section-label">New Findings</div>
+    <div class="section-title">Partner Findings</div>
     
-<div class="finding-card" id="company-redhat">
-  <div class="company-header">
-    <span class="company-tag" style="background:#ee0000;">Red Hat</span>
-    <span class="finding-date">June 26, 2026</span>
-  </div>
-  <h3 class="finding-title">
-    <a href="https://developers.redhat.com/blog/2026/06/26/whats-new-openshift-gitops-121" target="_blank" rel="noopener">What&#8217;s New in OpenShift GitOps 1.21</a>
-  </h3>
-  <p class="finding-summary">Red Hat released OpenShift GitOps 1.21 on June 26, 2026, featuring Technical Preview support for the Argo CD Agent Control Plane architecture, enabling incremental migration from centralized to agent-based GitOps management across distributed Kubernetes clusters. The release upgrades Argo CD from 3.3 to 3.4 and promotes the OpenShift Console Plugin for Argo CD resource visibility to Technical Preview. Secret management for webhooks and the GitOps Operator has been simplified with standalone creation and automatic copying into shared secrets.</p>
-  <div class="f5-relevance">
-    <span class="f5-label">F5 Relevance</span>
-    <p>OpenShift GitOps 1.21&#8217;s agent-based Argo CD architecture expands declarative Kubernetes deployment patterns across distributed clusters &mdash; precisely where F5&#8217;s NGINX Ingress Controller and BIG-IP Container Ingress Services (CIS) operate. F5 can position its ingress and API gateway components as GitOps-native, enabling joint reference architectures with Red Hat where F5 networking is declared and managed via Argo CD alongside application workloads.</p>
-  </div>
-</div>
-
-
-    <!-- No-news section -->
-    <div class="section-label" style="margin-top:28px;">No Recent News (within 3 days)</div>
-    <div class="no-news-grid">
-      
-<div class="no-news-card">
-  <span class="company-name-muted">Ansible</span>
-  <span class="no-news-label">No recent news within 3 days</span>
-</div>
-<div class="no-news-card">
-  <span class="company-name-muted">Arista</span>
-  <span class="no-news-label">No recent news within 3 days</span>
-</div>
-<div class="no-news-card">
-  <span class="company-name-muted">Cisco</span>
-  <span class="no-news-label">No recent news within 3 days</span>
-</div>
-<div class="no-news-card">
-  <span class="company-name-muted">CrowdStrike</span>
-  <span class="no-news-label">No recent news within 3 days</span>
-</div>
-<div class="no-news-card">
-  <span class="company-name-muted">Dell</span>
-  <span class="no-news-label">No recent news within 3 days</span>
-</div>
-<div class="no-news-card">
-  <span class="company-name-muted">Epic</span>
-  <span class="no-news-label">No recent news within 3 days</span>
-</div>
-<div class="no-news-card">
-  <span class="company-name-muted">Equinix</span>
-  <span class="no-news-label">No recent news within 3 days</span>
-</div>
-<div class="no-news-card">
-  <span class="company-name-muted">HPE GreenLake</span>
-  <span class="no-news-label">No recent news within 3 days</span>
-</div>
-<div class="no-news-card">
-  <span class="company-name-muted">Intel</span>
-  <span class="no-news-label">No recent news within 3 days</span>
-</div>
-<div class="no-news-card">
-  <span class="company-name-muted">MinIO</span>
-  <span class="no-news-label">No recent news within 3 days</span>
-</div>
-<div class="no-news-card">
-  <span class="company-name-muted">NetApp</span>
-  <span class="no-news-label">No recent news within 3 days</span>
-</div>
-<div class="no-news-card">
-  <span class="company-name-muted">Nutanix</span>
-  <span class="no-news-label">No recent news within 3 days</span>
-</div>
-<div class="no-news-card">
-  <span class="company-name-muted">Nvidia</span>
-  <span class="no-news-label">No recent news within 3 days</span>
-</div>
-<div class="no-news-card">
-  <span class="company-name-muted">Scality</span>
-  <span class="no-news-label">No recent news within 3 days</span>
-</div>
+    <div class="card" id="company-arista">
+      <div class="card-header">
+        <span class="company-tag" style="background:#fed7aa;color:#9a3412;">Arista</span>
+        <span class="card-date">Jun 28, 2026</span>
+      </div>
+      <div class="card-title">Arista Networks Raises 2026 Revenue Outlook on AI Networking Demand</div>
+      <div class="card-summary">Arista Networks raised its 2026 revenue outlook and expanded purchases for high-end AI-focused networking chips as of late June 2026, signaling stronger-than-expected AI-driven demand and a deeper deferred revenue pipeline. The announcement reflects accelerating adoption of Arista's 400G/800G switches across hyperscalers and enterprise AI customers, and underscores the company's positioning as a key AI fabric networking vendor.</div>
+      <a href="https://simplywall.st/stocks/us/tech/nyse-anet/arista-networks/news/arista-networks-anet-raises-2026-outlook-following-ai-demand" target="_blank" class="card-link">&#x1F517; View Source</a>
+      <div class="f5-box">
+        <div class="f5-label">F5 Relevance</div>
+        <div class="f5-text">Arista's growing AI fabric networking leadership creates natural co-positioning opportunities with F5, whose BIG-IP, NGINX, and Distributed Cloud products manage application delivery and security for workloads traversing these high-speed AI networks. Stronger Arista adoption signals more AI traffic requiring F5's load balancing and API security capabilities.</div>
+      </div>
     </div>
 
+    <div class="card" id="company-cisco">
+      <div class="card-header">
+        <span class="company-tag" style="background:#bae6fd;color:#075985;">Cisco</span>
+        <span class="card-date">Jun 29, 2026</span>
+      </div>
+      <div class="card-title">From EOS Replacement to Network Transformation: Turning Government Networks into Security Sensors</div>
+      <div class="card-summary">Cisco published a June 29, 2026 blog outlining how U.S. public sector organizations can transform their networks into continuous security sensors after upgrading from end-of-life edge devices per CISA BOD 26-02. The approach uses Cisco Secure Firewall, Secure Network Analytics, NetFlow/IPFIX telemetry, ISE, and Catalyst SD-WAN to build a zero-trust, telemetry-rich security posture across multi-vendor government networks.</div>
+      <a href="https://blogs.cisco.com/industries/from-eos-replacement-to-network-transformation-turning-government-networks-into-security-sensors" target="_blank" class="card-link">&#x1F517; View Source</a>
+      <div class="f5-box">
+        <div class="f5-label">F5 Relevance</div>
+        <div class="f5-text">Cisco's 'network as a security sensor' model for government aligns directly with F5's zero-trust, SSL inspection, and application security portfolio. F5 BIG-IP and Distributed Cloud could complement Cisco's telemetry pipeline at the application layer, providing WAF, DDoS, and API security visibility where Cisco's infrastructure telemetry leaves off.</div>
+      </div>
+    </div>
+
+    <div class="card" id="company-dell">
+      <div class="card-header">
+        <span class="company-tag" style="background:#c7d2fe;color:#3730a3;">Dell</span>
+        <span class="card-date">Jun 28, 2026</span>
+      </div>
+      <div class="card-title">Dell Launches PowerRack: Turnkey Compute, Storage, and Networking for Agentic AI</div>
+      <div class="card-summary">Dell Technologies launched PowerRack, a turnkey rack-scale compute, storage, and networking solution designed for agentic AI workloads, announced June 28, 2026. PowerRack leverages NVIDIA OpenShell runtime for secure multi-agent deployments and governance, with compute available now, networking in September 2026, and storage in H2 2026. Dell also expanded its AI Ecosystem program, citing partnerships with NVIDIA, Google, OpenAI, Palantir, Hugging Face, and ServiceNow.</div>
+      <a href="https://www.datacenterdynamics.com/en/news/dell-launches-powerrack-a-turnkey-compute-storage-and-networking-solution-updates-nvidia-ai-factory-platform/" target="_blank" class="card-link">&#x1F517; View Source</a>
+      <div class="f5-box">
+        <div class="f5-label">F5 Relevance</div>
+        <div class="f5-text">Dell PowerRack's integrated networking layer for agentic AI workloads creates a natural integration point for F5's application delivery and security capabilities — particularly for securing AI agent-to-agent communication and API traffic flowing across rack-scale infrastructure. F5's NGINX and Distributed Cloud could serve as the security perimeter and load balancer for PowerRack-hosted multi-agent applications.</div>
+      </div>
+    </div>
+
+    <div class="card" id="company-epic">
+      <div class="card-header">
+        <span class="company-tag" style="background:#bbf7d0;color:#065f46;">Epic</span>
+        <span class="card-date">Jun 29, 2026</span>
+      </div>
+      <div class="card-title">Nurses Save Time and Keep Families Connected Using Epic's Clinical AI</div>
+      <div class="card-summary">UNC Health, Riverside Health, and WakeMed deployed Epic's clinical AI (Art) to reduce nurse documentation time and improve nurse-family communication, announced June 29, 2026. The AI automates routine clinical documentation so nurses can focus on direct patient care, demonstrating Epic's continued expansion of AI-driven workflows across health system operations.</div>
+      <a href="https://www.epic.com/epic/newsroom/" target="_blank" class="card-link">&#x1F517; View Source</a>
+      <div class="f5-box">
+        <div class="f5-label">F5 Relevance</div>
+        <div class="f5-text">Epic's AI-assisted clinical workflows rely on secure, high-performance API connectivity between EHR systems, AI models, and clinical endpoints — an ideal use case for F5's API gateway, NGINX, and BIG-IP to provide load balancing, SSL termination, and security for health system AI deployments.</div>
+      </div>
+    </div>
+
+    <div class="card" id="company-equinix">
+      <div class="card-header">
+        <span class="company-tag" style="background:#fde68a;color:#92400e;">Equinix</span>
+        <span class="card-date">Jun 30, 2026</span>
+      </div>
+      <div class="card-title">Equinix Officially Retires Bare Metal Offering as AI Era Networking Takes Priority</div>
+      <div class="card-summary">Equinix officially sunset its bare-metal service (Equinix Metal) effective June 30, 2026, marking a strategic pivot away from bare-metal-as-a-service toward AI-era networking initiatives including its Distributed AI Hub, Fabric Intelligence, and Fabric Geo Zones. Console access for existing users remains through December 2026, and support ends September 2026.</div>
+      <a href="https://www.sdxcentral.com/news/equinix-officially-retires-bare-metal-offering/" target="_blank" class="card-link">&#x1F517; View Source</a>
+      <div class="f5-box">
+        <div class="f5-label">F5 Relevance</div>
+        <div class="f5-text">Equinix's pivot from bare-metal to AI-era interconnection fabrics signals growing demand for secure, high-performance application delivery at interconnection points — a natural expansion opportunity for F5's Distributed Cloud, which already operates at colocation and edge nodes to secure application traffic traversing interconnection fabrics.</div>
+      </div>
+    </div>
+
+    <div class="card" id="company-nvidia">
+      <div class="card-header">
+        <span class="company-tag" style="background:#bbf7d0;color:#065f46;">Nvidia</span>
+        <span class="card-date">Jun 29, 2026</span>
+      </div>
+      <div class="card-title">Anthropic's Claude Models Now Run on NVIDIA GB300 Blackwell Ultra in Azure</div>
+      <div class="card-summary">NVIDIA announced on June 29, 2026, that Anthropic's Claude models are now generally available on NVIDIA GB300 Blackwell Ultra GPUs via Microsoft Foundry in Azure. The deployment uses GB300 NVL72 systems with NVIDIA Quantum-X800 InfiniBand networking and includes the NVIDIA Secure Agent Workspace Reference Design for governing autonomous AI agents, covering identity, network access, credentials, and runtime policy.</div>
+      <a href="https://blogs.nvidia.com/blog/anthropic-nvidia-gb300-blackwell-ultra-microsoft-azure/" target="_blank" class="card-link">&#x1F517; View Source</a>
+      <div class="f5-box">
+        <div class="f5-label">F5 Relevance</div>
+        <div class="f5-text">The NVIDIA Secure Agent Workspace Reference Design for governing autonomous AI agents highlights the need for robust network-layer security and policy enforcement — precisely what F5's BIG-IP, Distributed Cloud, and NGINX provide. F5 could partner with NVIDIA and Microsoft as the application delivery and API security layer for enterprise Claude and LLM deployments on GB300 infrastructure.</div>
+      </div>
+    </div>
+
+    <div class="card" id="company-nvidia">
+      <div class="card-header">
+        <span class="company-tag" style="background:#bbf7d0;color:#065f46;">Nvidia</span>
+        <span class="card-date">Jun 27, 2026</span>
+      </div>
+      <div class="card-title">NVIDIA Claims #1 in Datacenter Ethernet Switching Market with Spectrum-X</div>
+      <div class="card-summary">NVIDIA captured the #1 position in the datacenter Ethernet switching market for Q1 2026, with $2.1B in Ethernet switch revenue — up 192.7% year-over-year — driven by the Spectrum-X platform integrating BlueField DPUs and LinkX cables. 800G switches now represent 35.8% of datacenter Ethernet switching revenue, signaling rapid adoption of ultra-high-speed AI networking fabric.</div>
+      <a href="https://pccentral.net/nvidia-takes-top-spot-datacenter-ethernet-switching-market/" target="_blank" class="card-link">&#x1F517; View Source</a>
+      <div class="f5-box">
+        <div class="f5-label">F5 Relevance</div>
+        <div class="f5-text">NVIDIA's dominance in AI networking infrastructure (Spectrum-X) means F5's application delivery and security products are increasingly deployed in environments underpinned by NVIDIA networking. This reinforces the opportunity for F5 to partner with NVIDIA on joint AI infrastructure reference architectures where F5 provides application-layer security and load balancing atop NVIDIA's networking fabric.</div>
+      </div>
+    </div>
+
+    <div class="card" id="company-redhat">
+      <div class="card-header">
+        <span class="company-tag" style="background:#fecaca;color:#991b1b;">Red Hat</span>
+        <span class="card-date">Jun 26, 2026</span>
+      </div>
+      <div class="card-title">What's New in OpenShift GitOps 1.21</div>
+      <div class="card-summary">Red Hat released OpenShift GitOps 1.21 on June 26, 2026, delivering new capabilities and enhancements for GitOps-based Kubernetes application delivery and cluster management. The release advances declarative, automated management of OpenShift clusters and workloads, enabling teams to govern Kubernetes infrastructure as code at scale.</div>
+      <a href="https://developers.redhat.com/blog/2026/06/26/whats-new-openshift-gitops-121" target="_blank" class="card-link">&#x1F517; View Source</a>
+      <div class="f5-box">
+        <div class="f5-label">F5 Relevance</div>
+        <div class="f5-text">OpenShift GitOps 1.21 advances Kubernetes-native application delivery automation on Red Hat OpenShift, creating integration opportunities for F5's NGINX Ingress Controller and Distributed Cloud. Organizations using GitOps to manage Kubernetes clusters need to declaratively configure ingress, WAF, and traffic routing — an area where F5 and Red Hat can deliver joint reference architectures.</div>
+      </div>
+    </div>
+
+    <div class="card" id="company-redhat">
+      <div class="card-header">
+        <span class="company-tag" style="background:#fecaca;color:#991b1b;">Red Hat</span>
+        <span class="card-date">Jun 26, 2026</span>
+      </div>
+      <div class="card-title">IBM, Red Hat, and Deloitte Expand Project Lightwell — Open Source Supply Chain Security</div>
+      <div class="card-summary">IBM, Red Hat, and Deloitte announced the Lightwell collaboration on June 26, 2026, to automate vulnerability patching across regulated open source software supply chains. Deloitte joins as an integration collaborator to add cyber risk services and secured software supply chain architecture, focusing on isolating, patching, and delivering fixes for OSS vulnerabilities while protecting customer-specific software versions from AI-generated threats.</div>
+      <a href="https://www.redhat.com/en/about/press-releases/ibm-red-hat-and-deloitte-announce-lightwell-collaboration-help-strengthen-open-source-software-supply-chain-trust" target="_blank" class="card-link">&#x1F517; View Source</a>
+      <div class="f5-box">
+        <div class="f5-label">F5 Relevance</div>
+        <div class="f5-text">Red Hat and IBM's Project Lightwell targets automated OSS vulnerability patching — directly relevant to F5's security portfolio and its use of open source components in BIG-IP, NGINX, and Distributed Cloud. The rapid, automated remediation approach aligns with F5's CLM and zero-trust offerings, and signals a potential co-go-to-market angle around securing open source infrastructure layers.</div>
+      </div>
+    </div>
+
+    <div class="card" id="company-scality">
+      <div class="card-header">
+        <span class="company-tag" style="background:#e9d5ff;color:#6b21a8;">Scality</span>
+        <span class="card-date">Jun 29, 2026</span>
+      </div>
+      <div class="card-title">Scality Launches Revamped Partner Program with New Tier, Better Margins, and Deal Protection</div>
+      <div class="card-summary">Scality launched a redesigned partner program on June 29, 2026, featuring a new Authorized entry tier, progressive tiered discounts, expanded deal protection, and streamlined opportunity registration. The program includes enhanced enablement via Scality University with new certifications for ARTESCA, RING, and ADI, and targets three growth areas: cyber resilience, digital sovereignty, and AI infrastructure.</div>
+      <a href="https://www.channelinsider.com/channel-business/vendor-leadership-and-partner-programs/scality-launches-revamped-channel-program/" target="_blank" class="card-link">&#x1F517; View Source</a>
+      <div class="f5-box">
+        <div class="f5-label">F5 Relevance</div>
+        <div class="f5-text">Scality's revamped partner program focuses on cyber-resilient, AI-ready object storage (ARTESCA, RING, ADI) — the same S3-compatible storage ecosystems that F5 monitors and secures as part of S3 data flow management. As Scality expands its channel reach into AI infrastructure, F5 has an opportunity to engage Scality's partner ecosystem around joint solutions for securing S3 data flows and AI data pipelines.</div>
+      </div>
+    </div>
+    <div class="section-title" style="margin-top:24px;">No Recent Interesting News</div>
+    
+    <div class="no-news-card">
+      <span class="no-news-company">Ansible</span>
+      <span class="no-news-text">No recent interesting news (last 3 days)</span>
+    </div>
+
+    <div class="no-news-card">
+      <span class="no-news-company">CrowdStrike</span>
+      <span class="no-news-text">No recent interesting news (last 3 days)</span>
+    </div>
+
+    <div class="no-news-card">
+      <span class="no-news-company">HPE GreenLake</span>
+      <span class="no-news-text">No recent interesting news (last 3 days)</span>
+    </div>
+
+    <div class="no-news-card">
+      <span class="no-news-company">Intel</span>
+      <span class="no-news-text">No recent interesting news (last 3 days)</span>
+    </div>
+
+    <div class="no-news-card">
+      <span class="no-news-company">MinIO</span>
+      <span class="no-news-text">No recent interesting news (last 3 days)</span>
+    </div>
+
+    <div class="no-news-card">
+      <span class="no-news-company">NetApp</span>
+      <span class="no-news-text">No recent interesting news (last 3 days)</span>
+    </div>
+
+    <div class="no-news-card">
+      <span class="no-news-company">Nutanix</span>
+      <span class="no-news-text">No recent interesting news (last 3 days)</span>
+    </div>
+    <div class="footer">
+      <p>F5 Partner Intelligence &bull; 3-day recency filter &bull; 15-day deduplication &bull; <a href="https://sgorman50.github.io/f5-partner-research/">View Archive</a></p>
+    </div>
   </main>
 </div>
-
-<footer class="footer">
-  <p>F5 Partner Research Intelligence &mdash; <a href="https://sgorman50.github.io/f5-partner-research/">sgorman50.github.io/f5-partner-research</a></p>
-</footer>
-
 </body>
 </html>
