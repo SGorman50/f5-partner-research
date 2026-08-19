@@ -3,222 +3,185 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>F5 Partner Research — August 18, 2026</title>
-<meta name="description" content="Daily F5 partner intelligence briefing for August 18, 2026">
+<title>Top Partner News — August 19, 2026</title>
 <style>
-:root {
-  --bg: #0f1117;
-  --surface: #1a1d27;
-  --surface2: #222633;
-  --border: #2a2f3e;
-  --text: #e8eaed;
-  --muted: #9aa3b2;
-  --accent: #4f7fff;
-  --accent-dim: rgba(79,127,255,0.15);
-  --good: #3dd68c;
-  --none: #6b7280;
-}
-* { box-sizing: border-box; }
-html, body { margin:0; padding:0; background:var(--bg); color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
-.layout { display:grid; grid-template-columns: 240px 1fr; min-height:100vh; }
-.sidebar { position:sticky; top:0; height:100vh; overflow:auto; background:var(--surface);
-  border-right:1px solid var(--border); padding:20px 16px; }
-.sidebar h3 { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:18px 0 8px; }
-.sidebar a { display:block; padding:6px 10px; border-radius:6px; color:var(--text); font-size:13px; margin-bottom:2px; }
-.sidebar a:hover { background:var(--surface2); text-decoration:none; }
-.sidebar a.active { background:var(--accent-dim); color:var(--accent); }
-.sidebar a.muted { color:var(--muted); }
-.brand { font-weight:700; font-size:15px; margin-bottom:4px; }
-.brand-sub { font-size:12px; color:var(--muted); margin-bottom:12px; }
-.main { padding:28px 32px 64px; max-width:960px; }
-.header-img { width:100%; max-width:720px; height:auto; display:block; margin:0 0 20px; border-radius:8px; }
-h1 { font-size:26px; margin:0 0 6px; line-height:1.25; }
-.subtitle { color:var(--muted); margin:0 0 20px; font-size:14px; }
-.stats { display:flex; gap:12px; margin:0 0 28px; flex-wrap:wrap; }
-.stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 18px; min-width:120px; }
-.stat .n { font-size:24px; font-weight:700; }
-.stat .l { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-top:2px; }
-.section-title { font-size:13px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:28px 0 12px; }
-.card { background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent);
-  border-radius:10px; padding:18px 20px; margin:0 0 14px; }
-.card.none { border-left-color: var(--none); opacity:0.9; }
-.card-meta { display:flex; gap:12px; align-items:center; margin-bottom:8px; flex-wrap:wrap; }
-.company-tag { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); }
-.company-tag.muted { color:var(--muted); }
-.pub-date { font-size:12px; color:var(--muted); }
-.card-title { font-size:18px; margin:0 0 10px; line-height:1.35; }
-.card-title.muted { color:var(--muted); font-size:15px; font-weight:600; }
-.card-summary { font-size:14px; line-height:1.6; color:#c9ced8; margin:0 0 12px; }
-.card-summary.muted { color:var(--muted); }
-.relevance { background:var(--accent-dim); border:1px solid rgba(79,127,255,0.35); border-radius:8px; padding:12px 14px; margin:0 0 12px; }
-.relevance-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin-bottom:4px; }
-.relevance p { margin:0; font-size:13px; line-height:1.55; color:#d7e0ff; }
-.source-link { font-size:13px; font-weight:600; }
-.footer { margin-top:36px; padding-top:16px; border-top:1px solid var(--border); color:var(--muted); font-size:12px; }
-@media (max-width: 800px) {
-  .layout { grid-template-columns: 1fr; }
-  .sidebar { position:relative; height:auto; border-right:none; border-bottom:1px solid var(--border); }
-  .main { padding:20px 16px 48px; }
-}
+  :root {
+    --bg:#0f1117; --card:#1a1d27; --muted:#2a2e3b; --text:#e8eaf1; --sub:#9aa3b5;
+    --accent:#4f7fff; --border:#2a2f3d;
+  }
+  * { box-sizing:border-box; }
+  html,body { margin:0; padding:0; background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
+  .wrap { max-width:1200px; margin:0 auto; padding:0 20px 48px; }
+  header.sticky { position:sticky; top:0; z-index:20; background:rgba(15,17,23,.92);
+    backdrop-filter:blur(10px); border-bottom:1px solid var(--border); }
+  header.sticky .inner { max-width:1200px; margin:0 auto; padding:12px 20px; display:flex; align-items:center; gap:16px; }
+  header img { width:420px; max-width:100%; height:auto; display:block; }
+  .layout { display:grid; grid-template-columns:240px 1fr; gap:28px; margin-top:24px; }
+  @media (max-width:860px) { .layout { grid-template-columns:1fr; } aside { position:static; } }
+  aside { position:sticky; top:92px; align-self:start; }
+  aside h3 { font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sub); margin:0 0 10px; }
+  .run, .jump { display:block; color:var(--sub); text-decoration:none; font-size:13px; padding:6px 8px; border-radius:6px; }
+  .run:hover, .jump:hover { background:var(--muted); color:var(--text); }
+  .run.current { color:var(--accent); background:#1b2340; }
+  .jump.muted { opacity:.7; }
+  .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:8px 0 22px; }
+  .stat { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:14px; text-align:center; }
+  .stat .n { font-size:26px; font-weight:700; color:var(--accent); }
+  .stat .l { font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--sub); margin-top:4px; }
+  h1 { font-size:26px; margin:18px 0 6px; }
+  .lede { color:var(--sub); margin:0 0 18px; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px 22px; margin:0 0 16px; }
+  .card.muted { opacity:.72; }
+  .tag { font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); }
+  .muted-tag { color:var(--sub); }
+  .pubdate { font-size:12px; color:var(--sub); margin:6px 0 8px; }
+  .card h2 { font-size:18px; margin:0 0 10px; line-height:1.35; }
+  .summary { color:#c9cfdb; line-height:1.55; margin:0 0 10px; }
+  .src a { color:var(--accent); }
+  .rel { background:#151b2e; border:1px solid #2a3a68; border-radius:8px; padding:12px 14px; margin-top:12px; }
+  .rel-label { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
+  .rel p { margin:0; color:#c5d0f0; font-size:14px; line-height:1.5; }
+  footer { color:var(--sub); font-size:12px; margin-top:28px; }
 </style>
 </head>
 <body>
-<div class="layout">
-  <aside class="sidebar">
-    <div class="brand">Partner Intelligence</div>
-    <div class="brand-sub">F5 Daily Briefing</div>
-    <a href="https://sgorman50.github.io/f5-partner-research/">Today's Briefing</a>
-    <h3>Recent Runs</h3>
-    <a href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-18.html" class="active">Aug 18, 2026</a><a href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-17.html">Aug 17, 2026</a><a href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-14.html">Aug 14, 2026</a><a href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-13.html">Aug 13, 2026</a><a href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-12.html">Aug 12, 2026</a><a href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-11.html">Aug 11, 2026</a><a href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-10.html">Aug 10, 2026</a><a href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-07.html">Aug 07, 2026</a><a href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-06.html">Aug 06, 2026</a><a href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-05.html">Aug 05, 2026</a><a href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-04.html">Aug 04, 2026</a><a href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-03.html">Aug 03, 2026</a><a href="https://sgorman50.github.io/f5-partner-research/archive/2026-07-31.html">Jul 31, 2026</a>
-    <h3>Jump To</h3>
-    <a href="#company-nvidia">Nvidia</a><a href="#company-epic">Epic</a><a class="muted" href="#company-ansible">Ansible</a><a class="muted" href="#company-arista">Arista</a><a class="muted" href="#company-cisco">Cisco</a><a class="muted" href="#company-crowdstrike">Crowdstrike</a><a class="muted" href="#company-dell">Dell</a><a class="muted" href="#company-equinix">Equinix</a><a class="muted" href="#company-hpe-greenlake">HPE GreenLake</a><a class="muted" href="#company-intel">Intel</a><a class="muted" href="#company-minio">MinIo</a><a class="muted" href="#company-netapp">NetApp</a><a class="muted" href="#company-nutanix">Nutanix</a><a class="muted" href="#company-redhat">RedHat</a><a class="muted" href="#company-scality">Scality</a>
-  </aside>
-  <main class="main">
-    <img class="header-img" src="https://sgorman50.github.io/f5-partner-research/assets/header.png" alt="Partner Intelligence Daily News" width="720" height="144">
-    <h1>Top Partner News — August 18, 2026</h1>
-    <p class="subtitle">Daily briefing for F5 Technology Alliances. Recency window: last 3 calendar days.</p>
-    <div class="stats">
-      <div class="stat"><div class="n">3</div><div class="l">Findings</div></div>
-      <div class="stat"><div class="n">13</div><div class="l">No recent news</div></div>
-      <div class="stat"><div class="n">15</div><div class="l">Companies</div></div>
-    </div>
-    <div class="section-title">Findings</div>
-    <article class="card" id="company-nvidia">
-      <div class="card-meta">
-        <span class="company-tag">Nvidia</span>
-        <span class="pub-date">August 17, 2026</span>
+<header class="sticky">
+  <div class="inner">
+    <img src="https://sgorman50.github.io/f5-partner-research/assets/header.png" alt="Partner Intelligence Daily News">
+  </div>
+</header>
+<div class="wrap">
+  <div class="layout">
+    <aside>
+      <h3>Recent Runs</h3>
+      <a class="run current" href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-19.html">Aug 19</a>
+<a class="run" href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-18.html">Aug 18</a>
+<a class="run" href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-17.html">Aug 17</a>
+<a class="run" href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-14.html">Aug 14</a>
+<a class="run" href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-13.html">Aug 13</a>
+<a class="run" href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-12.html">Aug 12</a>
+<a class="run" href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-11.html">Aug 11</a>
+<a class="run" href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-10.html">Aug 10</a>
+<a class="run" href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-07.html">Aug 7</a>
+<a class="run" href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-06.html">Aug 6</a>
+<a class="run" href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-05.html">Aug 5</a>
+<a class="run" href="https://sgorman50.github.io/f5-partner-research/archive/2026-08-04.html">Aug 4</a>
+      <h3 style="margin-top:22px;">Jump To</h3>
+      <a class="jump" href="#co-cisco">Cisco</a><a class="jump" href="#co-epic">Epic</a><a class="jump" href="#co-hpe-greenlake">HPE GreenLake</a><a class="jump" href="#co-nutanix">Nutanix</a><a class="jump muted" href="#co-ansible">Ansible</a><a class="jump muted" href="#co-arista">Arista</a><a class="jump muted" href="#co-crowdstrike">Crowdstrike</a><a class="jump muted" href="#co-dell">Dell</a><a class="jump muted" href="#co-equinix">Equinix</a><a class="jump muted" href="#co-intel">Intel</a><a class="jump muted" href="#co-minio">MinIo</a><a class="jump muted" href="#co-netapp">NetApp</a><a class="jump muted" href="#co-nvidia">Nvidia</a><a class="jump muted" href="#co-redhat">RedHat</a><a class="jump muted" href="#co-scality">Scality</a>
+    </aside>
+    <main>
+      <h1>Top Partner News — August 19, 2026</h1>
+      <p class="lede">Wednesday, August 19, 2026 · 4 findings · 11 companies with no recent news · 15 monitored</p>
+      <div class="stats">
+        <div class="stat"><div class="n">4</div><div class="l">Findings</div></div>
+        <div class="stat"><div class="n">11</div><div class="l">No news</div></div>
+        <div class="stat"><div class="n">15</div><div class="l">Companies</div></div>
       </div>
-      <h2 class="card-title">Nvidia Backs Up to $105 Billion in Financing for OpenAI Ohio AI Data Center</h2>
-      <p class="card-summary">On August 17, 2026, Nvidia disclosed it will provide up to $105 billion in credit and compute for an OpenAI AI data center at SB Energy's PORTS-Pike Technology Campus in Pike County, Ohio. The facility will support an initial 4.25 GW of IT load with an option for another 3.75 GW, with capacity coming online in phases starting in 2028. Nvidia will be the exclusive compute supplier on its DSX AI factory platform and will also invest $1.5 billion in SB Energy. CEO Jensen Huang framed the deal as securing long-lived infrastructure that can be upgraded with each new GPU generation.</p>
-      <div class="relevance">
-        <div class="relevance-label">F5 Relevance</div>
-        <p>A multi-gigawatt OpenAI factory exclusively on Nvidia DSX will generate massive east-west GPU fabric, north-south inference, and S3/object-storage training traffic that needs application delivery, API security, and TLS offload at scale. F5 can position Distributed Cloud, BIG-IP, and NGINX as the secure front door and multi-tenant traffic layer for this class of AI factory buildout.</p>
-      </div>
-      <a class="source-link" href="https://www.cnbc.com/2026/08/17/nvidia-financing-open-ai-data-center-ohio.html">Source</a>
-    </article>
-    <article class="card">
-      <div class="card-meta">
-        <span class="company-tag">Nvidia</span>
-        <span class="pub-date">August 18, 2026</span>
-      </div>
-      <h2 class="card-title">LG Electronics and Nvidia Agree to Train Robots on 100,000 Hours of Data</h2>
-      <p class="card-summary">On August 18, 2026, LG Electronics CEO Ryu Jae-cheol met Nvidia senior director of Omniverse and Robotics Madison Huang at LG's Yangjae R&D campus in Seoul. The companies agreed to combine LG's DataFactory robot bootcamp with Nvidia physical AI technology to train on roughly 100,000 hours of robot data — about 12 years' worth — within the year. The meeting follows last week's discussion between LG Chairman Koo Kwang-mo and Jensen Huang and deepens the pair's physical AI collaboration.</p>
-      <div class="relevance">
-        <div class="relevance-label">F5 Relevance</div>
-        <p>Physical-AI data factories move large volumes of unstructured sensor and video data into GPU training clusters — the same S3-to-GPU and inference-serving paths F5 already targets. Partnership conversations around securing and load-balancing those data pipelines, plus identity-aware access to Omniverse and robotics APIs, are a natural F5 angle.</p>
-      </div>
-      <a class="source-link" href="https://en.sedaily.com/finance/2026/08/18/lg-electronics-nvidia-to-amass-12-years-worth-of-robot-data">Source</a>
-    </article>
-    <article class="card" id="company-epic">
-      <div class="card-meta">
-        <span class="company-tag">Epic</span>
-        <span class="pub-date">August 17, 2026</span>
-      </div>
-      <h2 class="card-title">Epic Launches Coverage Requirements Discovery API for Real-Time Prior Authorization</h2>
-      <p class="card-summary">Published August 17, 2026, Epic announced that Ochsner Health, Froedtert ThedaCare, Denver Health, and Summit Health are live with its Coverage Requirements Discovery (CRD) API. The API automatically checks prior-authorization requirements for UnitedHealthcare, Aetna, and Network Health inside the EHR at order or scheduling time, using HL7 FHIR-based APIs required by a federal interoperability rule due January 1, 2027. Sixteen additional payers are testing the interface, and the four health systems went live five months ahead of the CMS deadline.</p>
-      <div class="relevance">
-        <div class="relevance-label">F5 Relevance</div>
-        <p>CRD is a high-volume, PHI-bearing FHIR API between hospitals and payers. F5 API gateway, WAF, mTLS, and identity-aware access can sit in front of these healthcare APIs to enforce consistent auth, rate limits, and inspection as Epic expands real-time payer connectivity.</p>
-      </div>
-      <a class="source-link" href="https://www.techtarget.com/revcyclemanagement/news/366649207/Health-systems-test-real-time-prior-auths-through-Epic">Source</a>
-    </article>
-    <div class="section-title">No recent interesting news</div>
-    <article class="card none" id="company-ansible">
-      <div class="card-meta">
-        <span class="company-tag muted">Ansible</span>
-      </div>
-      <h2 class="card-title muted">No recent interesting news</h2>
-      <p class="card-summary muted">No content matching the research criteria was found within the last 3 days.</p>
-    </article>
-    <article class="card none" id="company-arista">
-      <div class="card-meta">
-        <span class="company-tag muted">Arista</span>
-      </div>
-      <h2 class="card-title muted">No recent interesting news</h2>
-      <p class="card-summary muted">No content matching the research criteria was found within the last 3 days.</p>
-    </article>
-    <article class="card none" id="company-cisco">
-      <div class="card-meta">
-        <span class="company-tag muted">Cisco</span>
-      </div>
-      <h2 class="card-title muted">No recent interesting news</h2>
-      <p class="card-summary muted">No content matching the research criteria was found within the last 3 days.</p>
-    </article>
-    <article class="card none" id="company-crowdstrike">
-      <div class="card-meta">
-        <span class="company-tag muted">Crowdstrike</span>
-      </div>
-      <h2 class="card-title muted">No recent interesting news</h2>
-      <p class="card-summary muted">No content matching the research criteria was found within the last 3 days.</p>
-    </article>
-    <article class="card none" id="company-dell">
-      <div class="card-meta">
-        <span class="company-tag muted">Dell</span>
-      </div>
-      <h2 class="card-title muted">No recent interesting news</h2>
-      <p class="card-summary muted">No content matching the research criteria was found within the last 3 days.</p>
-    </article>
-    <article class="card none" id="company-equinix">
-      <div class="card-meta">
-        <span class="company-tag muted">Equinix</span>
-      </div>
-      <h2 class="card-title muted">No recent interesting news</h2>
-      <p class="card-summary muted">No content matching the research criteria was found within the last 3 days.</p>
-    </article>
-    <article class="card none" id="company-hpe-greenlake">
-      <div class="card-meta">
-        <span class="company-tag muted">HPE GreenLake</span>
-      </div>
-      <h2 class="card-title muted">No recent interesting news</h2>
-      <p class="card-summary muted">No content matching the research criteria was found within the last 3 days.</p>
-    </article>
-    <article class="card none" id="company-intel">
-      <div class="card-meta">
-        <span class="company-tag muted">Intel</span>
-      </div>
-      <h2 class="card-title muted">No recent interesting news</h2>
-      <p class="card-summary muted">No content matching the research criteria was found within the last 3 days.</p>
-    </article>
-    <article class="card none" id="company-minio">
-      <div class="card-meta">
-        <span class="company-tag muted">MinIo</span>
-      </div>
-      <h2 class="card-title muted">No recent interesting news</h2>
-      <p class="card-summary muted">No content matching the research criteria was found within the last 3 days.</p>
-    </article>
-    <article class="card none" id="company-netapp">
-      <div class="card-meta">
-        <span class="company-tag muted">NetApp</span>
-      </div>
-      <h2 class="card-title muted">No recent interesting news</h2>
-      <p class="card-summary muted">No content matching the research criteria was found within the last 3 days.</p>
-    </article>
-    <article class="card none" id="company-nutanix">
-      <div class="card-meta">
-        <span class="company-tag muted">Nutanix</span>
-      </div>
-      <h2 class="card-title muted">No recent interesting news</h2>
-      <p class="card-summary muted">No content matching the research criteria was found within the last 3 days.</p>
-    </article>
-    <article class="card none" id="company-redhat">
-      <div class="card-meta">
-        <span class="company-tag muted">RedHat</span>
-      </div>
-      <h2 class="card-title muted">No recent interesting news</h2>
-      <p class="card-summary muted">No content matching the research criteria was found within the last 3 days.</p>
-    </article>
-    <article class="card none" id="company-scality">
-      <div class="card-meta">
-        <span class="company-tag muted">Scality</span>
-      </div>
-      <h2 class="card-title muted">No recent interesting news</h2>
-      <p class="card-summary muted">No content matching the research criteria was found within the last 3 days.</p>
-    </article>
-    <div class="footer">Published August 18, 2026 · Partner Research Agent · <a href="https://sgorman50.github.io/f5-partner-research/">Live briefing</a></div>
-  </main>
+      
+<article class="card" id="co-cisco">
+  <div class="tag">Cisco</div>
+  <div class="pubdate">August 18, 2026</div>
+  <h2>Cloud or On-Premises? New Report Shows Why AI Workload Placement Matters</h2>
+  <p class="summary">Cisco published an Omdia-backed AI infrastructure report (1,200+ IT leaders) showing 94% of organizations regret their initial AI infrastructure strategy and 96% already run hybrid mixes of cloud, on-prem, and edge. Respondents cite cost surprises, security, data sovereignty, and network bottlenecks (67% expect network capacity to become a limiter) as the reasons they are rebalancing workloads — including moving some AI training and inference back on-premises. Cisco positions unified data-center networking (Nexus One) and observability as the way to treat workload placement as an ongoing operating decision rather than a one-time cloud choice.</p>
+  <p class="src"><a href="https://blogs.cisco.com/news/cloud-or-on-premises-new-report-shows-why-ai-workload-placement-matters">Read source</a></p>
+  <div class="rel">
+    <div class="rel-label">F5 Relevance</div>
+    <p>This is a direct opening for F5 on AI traffic management, hybrid ADC/WAF, and observability: as customers re-home inference and training across cloud, on-prem, and edge, they need consistent application delivery, API security, and TLS/identity controls that follow the workload. F5 can pair with Cisco/Omdia findings to sell placement-aware BIG-IP, NGINX, and Distributed Cloud designs that keep AI data paths secure when traffic moves back on-prem.</p>
+  </div>
+</article>
+<article class="card" id="co-epic">
+  <div class="tag">Epic</div>
+  <div class="pubdate">August 18, 2026</div>
+  <h2>Epic Unveils AI-Driven Ergo Visit at 2026 Users Group Meeting</h2>
+  <p class="summary">At its 2026 Users Group Meeting, Epic launched Ergo Visit, an AI-assisted care-planning capability that combines Art (ambient charting), Emmie (patient-facing AI), and Cosmos (320 million deidentified records) to prepare visit agendas and recommend treatments. Clinicians can query Art in real time during encounters for Care Everywhere and Cosmos insights; Best Care Choices for My Patient compares lookalike-patient diagnoses and outcomes. The feature is live at Ochsner Health and with five physicians in Epic’s Garden Plot collaborative.</p>
+  <p class="src"><a href="https://www.techtarget.com/searchhealthit/news/366649337/Epic-unveils-AI-driven-Ergo-Visit-at-2026-UGM">Read source</a></p>
+  <div class="rel">
+    <div class="rel-label">F5 Relevance</div>
+    <p>Ergo Visit adds more AI-to-EHR and FHIR/API traffic inside already regulated health systems. F5 can help Epic customers front those APIs with identity-aware access, WAF/API security, and high-availability delivery so ambient AI and Cosmos queries stay protected and performant across Care Everywhere connections.</p>
+  </div>
+</article>
+<article class="card" id="co-hpe-greenlake">
+  <div class="tag">HPE GreenLake</div>
+  <div class="pubdate">August 19, 2026</div>
+  <h2>HPE Pushes Agentic IT Operations Across GreenLake Intelligence and Morpheus</h2>
+  <p class="summary">A August 19 analysis of HPE’s agentic-ops push details how GreenLake Intelligence and HPE Morpheus now span agent observability, orchestration, and governed automation across hybrid IT. OpsRamp Operations Copilot monitors AI agents and LLM token/cost telemetry, while Morpheus Orchestration Copilot provisions multi-step infrastructure workflows under security guardrails; Morpheus–Juniper Apstra integration adds closed-loop, intent-based network automation. HPE CTO Fidelma Russo framed the goal as governing AI infrastructure without fragmentation or unpredictable cost as agents move from recommenders to operators.</p>
+  <p class="src"><a href="https://www.dqindia.com/interview/agentic-it-operations-move-closer-to-enterprise-control-12395634">Read source</a></p>
+  <div class="rel">
+    <div class="rel-label">F5 Relevance</div>
+    <p>Agentic ops that change network and workload state need a policy and traffic-control layer F5 already owns. Partnership or reference-architecture work around GreenLake/Morpheus — API gateway, identity for agents, and WAF/DoS in front of orchestration copilots — would let F5 secure the north-south path those agents use when they provision or remediate production infrastructure.</p>
+  </div>
+</article>
+<article class="card" id="co-nutanix">
+  <div class="tag">Nutanix</div>
+  <div class="pubdate">August 18, 2026</div>
+  <h2>Nutanix and ChronoScale Announce Strategic Partnership to Accelerate Enterprise AI Adoption</h2>
+  <p class="summary">On August 18, Nutanix and ChronoScale (an Applied Digital cloud spinout and NVIDIA Cloud Partner) announced a strategic partnership to integrate ChronoScale GPU-as-a-Service, prepaid Token Factory inference, and a locally deployed ChronoScale Foundry for agentic workflows with Nutanix Cloud Platform. Foundry can be deployed from the Nutanix Kubernetes Platform Catalog; management is intended to sit on Nutanix Agent Gateway and Private Inferencing as a single control plane across on-prem and ChronoScale capacity. Both firms tied the stack to NVIDIA AI economics and joint GTM for Global 2000 customers seeking sovereign, hybrid AI.</p>
+  <p class="src"><a href="https://www.sdxcentral.com/news/nutanix-nuzzles-chronoscale-to-drive-enterprise-ai-adoption/">Read source</a></p>
+  <div class="rel">
+    <div class="rel-label">F5 Relevance</div>
+    <p>This is a high-priority NVIDIA-ecosystem play: GPU burst, Kubernetes Foundry, and agent gateways create new inference and API fronts that need load balancing, mTLS/identity, and AI-runtime guardrails. F5 should engage Nutanix/ChronoScale on securing Agent Gateway, NKP ingress, and GPU-as-a-service north-south traffic — the same Secure AI / inference-delivery motion F5 already runs with NVIDIA partners.</p>
+  </div>
+</article>
+      
+<article class="card muted" id="co-ansible">
+  <div class="tag muted-tag">Ansible</div>
+  <h2>No recent interesting news</h2>
+  <p class="summary">No content matching the research criteria was found within the last 3 days.</p>
+</article>
+<article class="card muted" id="co-arista">
+  <div class="tag muted-tag">Arista</div>
+  <h2>No recent interesting news</h2>
+  <p class="summary">No content matching the research criteria was found within the last 3 days.</p>
+</article>
+<article class="card muted" id="co-crowdstrike">
+  <div class="tag muted-tag">Crowdstrike</div>
+  <h2>No recent interesting news</h2>
+  <p class="summary">No content matching the research criteria was found within the last 3 days.</p>
+</article>
+<article class="card muted" id="co-dell">
+  <div class="tag muted-tag">Dell</div>
+  <h2>No recent interesting news</h2>
+  <p class="summary">No content matching the research criteria was found within the last 3 days.</p>
+</article>
+<article class="card muted" id="co-equinix">
+  <div class="tag muted-tag">Equinix</div>
+  <h2>No recent interesting news</h2>
+  <p class="summary">No content matching the research criteria was found within the last 3 days.</p>
+</article>
+<article class="card muted" id="co-intel">
+  <div class="tag muted-tag">Intel</div>
+  <h2>No recent interesting news</h2>
+  <p class="summary">No content matching the research criteria was found within the last 3 days.</p>
+</article>
+<article class="card muted" id="co-minio">
+  <div class="tag muted-tag">MinIo</div>
+  <h2>No recent interesting news</h2>
+  <p class="summary">No content matching the research criteria was found within the last 3 days.</p>
+</article>
+<article class="card muted" id="co-netapp">
+  <div class="tag muted-tag">NetApp</div>
+  <h2>No recent interesting news</h2>
+  <p class="summary">No content matching the research criteria was found within the last 3 days.</p>
+</article>
+<article class="card muted" id="co-nvidia">
+  <div class="tag muted-tag">Nvidia</div>
+  <h2>No recent interesting news</h2>
+  <p class="summary">No content matching the research criteria was found within the last 3 days.</p>
+</article>
+<article class="card muted" id="co-redhat">
+  <div class="tag muted-tag">RedHat</div>
+  <h2>No recent interesting news</h2>
+  <p class="summary">No content matching the research criteria was found within the last 3 days.</p>
+</article>
+<article class="card muted" id="co-scality">
+  <div class="tag muted-tag">Scality</div>
+  <h2>No recent interesting news</h2>
+  <p class="summary">No content matching the research criteria was found within the last 3 days.</p>
+</article>
+      <footer>F5 Partner Research · published 2026-08-19 · <a href="https://sgorman50.github.io/f5-partner-research/" style="color:#4f7fff;">Live site</a></footer>
+    </main>
+  </div>
 </div>
 </body>
 </html>
